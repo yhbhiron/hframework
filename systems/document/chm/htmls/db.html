@@ -1,0 +1,1191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类db的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>db (<small>db</small>) </h1>
+    <em>
+    版本：1.0.0   作者：jackbrown  
+    抽象类：是    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 @author jackbrown    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class=model"> model</a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="__call" href="#__call" style="color:green" >__call</a></li>
+                        <li><a onclick="focusMethod(this)" for="__construct" href="#__construct" style="color:gray" >__construct</a></li>
+                        <li><a onclick="focusMethod(this)" for="__get" href="#__get" style="color:green" >__get</a></li>
+                        <li><a onclick="focusMethod(this)" for="__set" href="#__set" style="color:green" >__set</a></li>
+                        <li><a onclick="focusMethod(this)" for="_system" href="#_system" style="color:gray" >_system</a></li>
+                        <li><a onclick="focusMethod(this)" for="affectedRows" href="#affectedRows" style="color:green" >affectedRows</a></li>
+                        <li><a onclick="focusMethod(this)" for="checkType" href="#checkType" style="color:green" >checkType</a></li>
+                        <li><a onclick="focusMethod(this)" for="close" href="#close" style="color:green" >close</a></li>
+                        <li><a onclick="focusMethod(this)" for="commit" href="#commit" style="color:green" >commit</a></li>
+                        <li><a onclick="focusMethod(this)" for="compile" href="#compile" style="color:gray" >compile</a></li>
+                        <li><a onclick="focusMethod(this)" for="connect" href="#connect" style="color:gray" >connect</a></li>
+                        <li><a onclick="focusMethod(this)" for="delById" href="#delById" style="color:green" >delById</a></li>
+                        <li><a onclick="focusMethod(this)" for="delete" href="#delete" style="color:green" >delete</a></li>
+                        <li><a onclick="focusMethod(this)" for="dumpData" href="#dumpData" style="color:green" >dumpData</a></li>
+                        <li><a onclick="focusMethod(this)" for="error" href="#error" style="color:gray" >error</a></li>
+                        <li><a onclick="focusMethod(this)" for="existsTable" href="#existsTable" style="color:green" >existsTable</a></li>
+                        <li><a onclick="focusMethod(this)" for="getQueryType" href="#getQueryType" style="color:gray" >getQueryType</a></li>
+                        <li><a onclick="focusMethod(this)" for="getRecords" href="#getRecords" style="color:green" >getRecords</a></li>
+                        <li><a onclick="focusMethod(this)" for="getResArray" href="#getResArray" style="color:green" >getResArray</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTableFields" href="#getTableFields" style="color:green" >getTableFields</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTableInfo" href="#getTableInfo" style="color:green" >getTableInfo</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTableName" href="#getTableName" style="color:green" >getTableName</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTableSql" href="#getTableSql" style="color:green" >getTableSql</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTables" href="#getTables" style="color:gray" >getTables</a></li>
+                        <li><a onclick="focusMethod(this)" for="insert" href="#insert" style="color:green" >insert</a></li>
+                        <li><a onclick="focusMethod(this)" for="instance" href="#instance" style="color:green" >instance</a></li>
+                        <li><a onclick="focusMethod(this)" for="isConnected" href="#isConnected" style="color:gray" >isConnected</a></li>
+                        <li><a onclick="focusMethod(this)" for="lastInsertID" href="#lastInsertID" style="color:green" >lastInsertID</a></li>
+                        <li><a onclick="focusMethod(this)" for="query" href="#query" style="color:green" >query</a></li>
+                        <li><a onclick="focusMethod(this)" for="recordRows" href="#recordRows" style="color:green" >recordRows</a></li>
+                        <li><a onclick="focusMethod(this)" for="recordSum" href="#recordSum" style="color:green" >recordSum</a></li>
+                        <li><a onclick="focusMethod(this)" for="rollBack" href="#rollBack" style="color:green" >rollBack</a></li>
+                        <li><a onclick="focusMethod(this)" for="slowlog" href="#slowlog" style="color:gray" >slowlog</a></li>
+                        <li><a onclick="focusMethod(this)" for="start" href="#start" style="color:green" >start</a></li>
+                        <li><a onclick="focusMethod(this)" for="system" href="#system" style="color:gray" >system</a></li>
+                        <li><a onclick="focusMethod(this)" for="update" href="#update" style="color:green" >update</a></li>
+                        <li><a onclick="focusMethod(this)" for="useDatabase" href="#useDatabase" style="color:green" >useDatabase</a></li>
+                    </ol>
+                    <h3 >__call</h3>
+            <input type="text"  id="__call" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>method </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__construct</h3>
+            <input type="text"  id="__construct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>config </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__get</h3>
+            <input type="text"  id="__get" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__set</h3>
+            <input type="text"  id="__set" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >_system</h3>
+            <input type="text"  id="_system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前对象所属的系统</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system            </em>
+                    <h3 >affectedRows</h3>
+            <input type="text"  id="affectedRows" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取影响的行数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >checkType</h3>
+            <input type="text"  id="checkType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 检查方法输入参数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>参数列表</td>
+                </tr>
+                                 <tr>
+                    <td>types </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>类型列表</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >close</h3>
+            <input type="text"  id="close" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 如果使用静态的变量保存$con,在子类中会解发此函数	  所以不能指定关闭的连接为self::$con</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >commit</h3>
+            <input type="text"  id="commit" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>提交事务中的数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compile</h3>
+            <input type="text"  id="compile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 解析sql的一些内部变量</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>sql语句</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string;            </em>
+                    <h3 >connect</h3>
+            <input type="text"  id="connect" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 连接</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >delById</h3>
+            <input type="text"  id="delById" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>通过id删除数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>id </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>数据的id值</td>
+                </tr>
+                                 <tr>
+                    <td>limit </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>table_name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>数据表名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false            </em>
+                    <h3 >delete</h3>
+            <input type="text"  id="delete" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>通过复杂条件删除数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>where </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>条件</td>
+                </tr>
+                                 <tr>
+                    <td>limit </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>table_name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>数据表名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false            </em>
+                    <h3 >dumpData</h3>
+            <input type="text"  id="dumpData" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>导出数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>要导出的表</td>
+                </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 可执行的sql语句            </em>
+                    <h3 >error</h3>
+            <input type="text"  id="error" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 显示操作错误</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>e </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>level </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>错误级别</td>
+                </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>msg </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>错误消息</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >existsTable</h3>
+            <input type="text"  id="existsTable" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>检查表是否存在</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>stirng </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$table表名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false;            </em>
+                    <h3 >getQueryType</h3>
+            <input type="text"  id="getQueryType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取查询的类别</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查询语句</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getRecords</h3>
+            <input type="text"  id="getRecords" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 查询结果</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table_name </td>
+                    <td>string/array</td>
+                    <td></td>
+                    <td>表名，可指定多个表，格式：array(别名=>表名)</td>
+                </tr>
+                                 <tr>
+                    <td>fields </td>
+                    <td>string/array</td>
+                    <td>*</td>
+                    <td>选择的字段</td>
+                </tr>
+                                 <tr>
+                    <td>order </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>where </td>
+                    <td>unknown_type</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>limit </td>
+                    <td>unknown_type</td>
+                    <td>all</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>locked </td>
+                    <td>unknown_type</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getResArray</h3>
+            <input type="text"  id="getResArray" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>获取指定查询语句的数组</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查询语句</td>
+                </tr>
+                                 <tr>
+                    <td>single </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否只反回一条</td>
+                </tr>
+                                 <tr>
+                    <td>rowCallback </td>
+                    <td>callable</td>
+                    <td></td>
+                    <td>对每条记录使用回调函数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array查询结果数组            </em>
+                    <h3 >getTableFields</h3>
+            <input type="text"  id="getTableFields" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取表的字段</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>表名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >getTableInfo</h3>
+            <input type="text"  id="getTableInfo" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取表信息</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>表名</td>
+                </tr>
+                                 <tr>
+                    <td>db </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>指定数据库，默认为当前连接的数据库</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array;            </em>
+                    <h3 >getTableName</h3>
+            <input type="text"  id="getTableName" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取表名，主动加前缀</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>表名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >getTableSql</h3>
+            <input type="text"  id="getTableSql" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>获取表的可执行sql;</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>-表名</td>
+                </tr>
+                                 <tr>
+                    <td>onlyStd </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>boolean </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$onlyStd-是否只反回结构</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string sql语句            </em>
+                    <h3 >getTables</h3>
+            <input type="text"  id="getTables" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>获取表的列表</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>force </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>database </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：表的数组;            </em>
+                    <h3 >insert</h3>
+            <input type="text"  id="insert" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>插入数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table_name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>表名</td>
+                </tr>
+                                 <tr>
+                    <td>item </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>数据数组,'字段'=>'值'</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true / false;            </em>
+                    <h3 >instance</h3>
+            <input type="text"  id="instance" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 实例化数据库对象</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dbkey </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>数据库配置组名</td>
+                </tr>
+                                 <tr>
+                    <td>database </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>选择的据组</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：db            </em>
+                    <h3 >isConnected</h3>
+            <input type="text"  id="isConnected" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否已经连接</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >lastInsertID</h3>
+            <input type="text"  id="lastInsertID" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取最后插入ID	  比mysql_insert_id安全</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：int            </em>
+                    <h3 >query</h3>
+            <input type="text"  id="query" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个查询结果</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查询语句</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：返回 mysql resource查询结果,失败时返回false;            </em>
+                    <h3 >recordRows</h3>
+            <input type="text"  id="recordRows" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>记录总数	$source需为query的查询指针</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >recordSum</h3>
+            <input type="text"  id="recordSum" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取记录的总数	 </p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>里需有一个别名resum</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：返回记录总数            </em>
+                    <h3 >rollBack</h3>
+            <input type="text"  id="rollBack" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>回滚事务</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >slowlog</h3>
+            <input type="text"  id="slowlog" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 记录慢查询日志</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>msg </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >start</h3>
+            <input type="text"  id="start" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>开始一个事务,用于事务处理</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >system</h3>
+            <input type="text"  id="system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前对象所属的系统</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system            </em>
+                    <h3 >update</h3>
+            <input type="text"  id="update" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>更新数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table_name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>数据表名</td>
+                </tr>
+                                 <tr>
+                    <td>item </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>where </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>条件</td>
+                </tr>
+                                 <tr>
+                    <td>quote </td>
+                    <td>boolean</td>
+                    <td>1</td>
+                    <td>值是否加引号</td>
+                </tr>
+                                 <tr>
+                    <td>limit </td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>更新的数量</td>
+                </tr>
+                                 <tr>
+                    <td>更新数据项 </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>'字段'=>'值'</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false;            </em>
+                    <h3 >useDatabase</h3>
+            <input type="text"  id="useDatabase" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>转换数据库</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dbName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>数据库名称,默认为系统默认数据库</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+            </fieldset>
+    </body>
+</html>

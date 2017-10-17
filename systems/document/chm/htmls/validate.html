@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类validate的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>validate (<small>validate</small>) </h1>
+    <em>
+    版本：1.0   作者：Jack Hiron  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 常用验证    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="isCollection" href="#isCollection" style="color:green" >isCollection</a></li>
+                        <li><a onclick="focusMethod(this)" for="isDirName" href="#isDirName" style="color:green" >isDirName</a></li>
+                        <li><a onclick="focusMethod(this)" for="isEmail" href="#isEmail" style="color:green" >isEmail</a></li>
+                        <li><a onclick="focusMethod(this)" for="isEn" href="#isEn" style="color:green" >isEn</a></li>
+                        <li><a onclick="focusMethod(this)" for="isIDcode" href="#isIDcode" style="color:green" >isIDcode</a></li>
+                        <li><a onclick="focusMethod(this)" for="isInt" href="#isInt" style="color:green" >isInt</a></li>
+                        <li><a onclick="focusMethod(this)" for="isJson" href="#isJson" style="color:green" >isJson</a></li>
+                        <li><a onclick="focusMethod(this)" for="isMoney" href="#isMoney" style="color:green" >isMoney</a></li>
+                        <li><a onclick="focusMethod(this)" for="isNotEmpty" href="#isNotEmpty" style="color:green" >isNotEmpty</a></li>
+                        <li><a onclick="focusMethod(this)" for="isNotEmptyHtml" href="#isNotEmptyHtml" style="color:green" >isNotEmptyHtml</a></li>
+                        <li><a onclick="focusMethod(this)" for="isPhone" href="#isPhone" style="color:green" >isPhone</a></li>
+                        <li><a onclick="focusMethod(this)" for="isQQ" href="#isQQ" style="color:green" >isQQ</a></li>
+                        <li><a onclick="focusMethod(this)" for="isSafeStr" href="#isSafeStr" style="color:green" >isSafeStr</a></li>
+                        <li><a onclick="focusMethod(this)" for="isTimeFormat" href="#isTimeFormat" style="color:green" >isTimeFormat</a></li>
+                        <li><a onclick="focusMethod(this)" for="isURL" href="#isURL" style="color:green" >isURL</a></li>
+                        <li><a onclick="focusMethod(this)" for="maxLength" href="#maxLength" style="color:green" >maxLength</a></li>
+                        <li><a onclick="focusMethod(this)" for="minLength" href="#minLength" style="color:green" >minLength</a></li>
+                    </ol>
+                    <h3 >isCollection</h3>
+            <input type="text"  id="isCollection" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为集合的类型</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>need </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isDirName</h3>
+            <input type="text"  id="isDirName" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为文件目录</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isEmail</h3>
+            <input type="text"  id="isEmail" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为邮件地址</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>str; </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>returntrue/false</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isEn</h3>
+            <input type="text"  id="isEn" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为英文</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isIDcode</h3>
+            <input type="text"  id="isIDcode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为身份证号码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>idcode </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>idcode; </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>returntrue/false</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isInt</h3>
+            <input type="text"  id="isInt" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为整数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>unsigned </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否为无符号</td>
+                </tr>
+                                 <tr>
+                    <td>nozero </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否大于零的数,可选，默认falsereturntrue/false</td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$str;</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isJson</h3>
+            <input type="text"  id="isJson" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为json</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>字符串</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false            </em>
+                    <h3 >isMoney</h3>
+            <input type="text"  id="isMoney" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为钱</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>str; </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>returntrue/false</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isNotEmpty</h3>
+            <input type="text"  id="isNotEmpty" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为空</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>mixed </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>returntrue/false</td>
+                </tr>
+                                 <tr>
+                    <td>isArray </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isNotEmptyHtml</h3>
+            <input type="text"  id="isNotEmptyHtml" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为可显示内容的html代码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>html代码returntrue/false</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isPhone</h3>
+            <input type="text"  id="isPhone" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为电话号码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>str; </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>returntrue/false</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isQQ</h3>
+            <input type="text"  id="isQQ" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为QQ号码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$str;</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false            </em>
+                    <h3 >isSafeStr</h3>
+            <input type="text"  id="isSafeStr" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 判断是否为安全字符,即输出无特殊转化的字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>returntrue/false</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isTimeFormat</h3>
+            <input type="text"  id="isTimeFormat" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为某种时间格式的字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>时间字符2012-12-15等</td>
+                </tr>
+                                 <tr>
+                    <td>format </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>date格式字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isURL</h3>
+            <input type="text"  id="isURL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为url</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>url字符串</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean true/false            </em>
+                    <h3 >maxLength</h3>
+            <input type="text"  id="maxLength" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 不超过字符字数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>len </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>字付个数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >minLength</h3>
+            <input type="text"  id="minLength" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 不小于字符字数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>len </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>字付个数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+            </fieldset>
+    </body>
+</html>

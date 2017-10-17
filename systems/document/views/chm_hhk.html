@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <meta name="generator" content="Hiron Document Automatic">
+  <!-- Sitemap 1.0 -->
+</head><BODY><OBJECT type="text/site properties">
+    <param name="Window Styles" value="0x800227">
+  </OBJECT>
+  <UL>
+  	<{foreach item=block from=$doc_index}>
+    	<{foreach item=cls from=$block.class_list}>
+        <li><OBJECT type="text/sitemap">
+          <param name="Local" value="htmls/<{$cls}>.html">
+          <param name="Name" value="<{$cls}>">
+        </OBJECT>
+        </li>
+        <{/foreach}>
+    <{/foreach}>
+  </UL>
+</BODY>
+</html>

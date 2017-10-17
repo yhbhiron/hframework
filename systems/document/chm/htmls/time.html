@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类time的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>time (<small>time</small>) </h1>
+    <em>
+    版本：: 1.0.1   作者：: Hiron Jack  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 本类主要是时间处理函数    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>:</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="def" href="#def" style="color:green" >def</a></li>
+                        <li><a onclick="focusMethod(this)" for="getDistance" href="#getDistance" style="color:green" >getDistance</a></li>
+                        <li><a onclick="focusMethod(this)" for="gmtime" href="#gmtime" style="color:green" >gmtime</a></li>
+                        <li><a onclick="focusMethod(this)" for="now" href="#now" style="color:green" >now</a></li>
+                        <li><a onclick="focusMethod(this)" for="timeFormat" href="#timeFormat" style="color:green" >timeFormat</a></li>
+                    </ol>
+                    <h3 >def</h3>
+            <input type="text"  id="def" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>format </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>def </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getDistance</h3>
+            <input type="text"  id="getDistance" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>计算两个时间的时间差</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>time1 </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>time2 </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>unit </td>
+                    <td>未知</td>
+                    <td>d</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>time2</td>
+                    <td></td>
+                    <td>时间2</td>
+                </tr>
+                                 <tr>
+                    <td>单位值 </td>
+                    <td>unit</td>
+                    <td></td>
+                    <td>y,m,d,h,i,s,w,all分别是：年月日时分秒周,所有</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：int/arrau 以时间单位的整数,当unit为all时，返回数组array(d,h,i,s);            </em>
+                    <h3 >gmtime</h3>
+            <input type="text"  id="gmtime" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >now</h3>
+            <input type="text"  id="now" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 反回当前时间</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>format </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >timeFormat</h3>
+            <input type="text"  id="timeFormat" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>获取指定时间的年月日时分秒;</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>string</td>
+                </tr>
+                                 <tr>
+                    <td>formatStr </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>$formateStr</td>
+                    <td></td>
+                    <td>格式符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：时间字符串            </em>
+            </fieldset>
+    </body>
+</html>

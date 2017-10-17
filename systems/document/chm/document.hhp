@@ -1,0 +1,9 @@
+[OPTIONS]
+Binary TOC=Yes
+Compatibility=1.1 or later
+Compiled file=hiron_doc.chm
+Contents file=hiron_doc.hhc
+Display compile progress=Yes
+Index file=hiron_doc.hhk
+Language=0x804
+title=hiron2¿ò¼ÜÎÄµµËµÃ÷

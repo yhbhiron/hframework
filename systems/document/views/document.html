@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类<{$hiron.class.doc.getName()}>的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1><{$hiron.class.doc.getName()}> (<small><{$hiron.class.doc.getClsName()}></small>) </h1>
+    <em>
+    版本：<{$hiron.class.doc.getClsVersion()}>   作者：<{$hiron.class.doc.getClsAuthor()}>  
+    抽象类：<{if $hiron.class.doc.isAbstract() }>是<{else}>否<{/if}>
+    接口：<{if $hiron.class.doc.isInterface() }>是<{else}>否<{/if}>  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	<{$hiron.object.StrObj.toHtmlCode($hiron.class.doc.getClsDesc())}>
+    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+        <{$parents = $hiron.class.doc.getClsParentClass(); }>
+        <a href="<{$url}>?class=<{$parents}>"> <{$parents}></a>
+        </p>
+        <p><strong>接口:</strong><{implode(',',$hiron.class.doc.getInterfaceNames()) }> </p>
+        <p><strong>其它:</strong><{$hiron.class.doc.getClsDepends()}></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre><{$hiron.class.doc.getClsExample()}></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	<{$list = $hiron.class.doc.getMethodDoc()}>
+        <ol>
+        	<{foreach key=func item=e from=$list}>
+            <li><a onclick="focusMethod(this)" for="<{$func}>" href="#<{$func}>" <{if $e.public }>style="color:green"<{else}>style="color:gray"<{/if}> ><{$func}></a></li>
+            <{/foreach}>
+        </ol>
+        <{foreach key=name item=func from=$list}>
+            <h3 ><{$name}></h3>
+            <input type="text"  id="<{$name}>" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong><{$func.desc}></p>
+            <p><strong>访问类型</strong>：<{if $func.public}>Public<{/if}> <{if $func.private}>Private<{/if}> <{if $func.protected}>Protected<{/if}></p>
+            <p><strong>静态方法</strong>：<{if $func.static}>是<{else}>否<{/if}>    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                <{foreach key=pname item=p from=$func.params}>
+                 <tr>
+                    <td><{$p.name}> </td>
+                    <td><{StrObj::def($p.type,'未知')}></td>
+                    <td><{$p.default}></td>
+                    <td><{$p.desc}></td>
+                </tr>
+                <{/foreach}>
+                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：<{$func.return}>
+            </em>
+        <{/foreach}>
+    </fieldset>
+    </body>
+</html>

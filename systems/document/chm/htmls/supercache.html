@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类superCache的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>superCache (<small>superCache</small>) </h1>
+    <em>
+    版本：1.0.0   作者：jackbrown;  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	缓存类    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>$c = new superCache();
+//$sql = "SELECT  FROM `guu_prodcat`";
+//print_r(dataBase::instance()->getSQLTables($sql));
+$a = array('name'=>'yhb','age'=>18);
+//$c->write('info',$a,60);
+print_r($c->read('info'));
+//$c->listen();
+//$c->clear($sql);</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="__call" href="#__call" style="color:green" >__call</a></li>
+                        <li><a onclick="focusMethod(this)" for="__construct" href="#__construct" style="color:green" >__construct</a></li>
+                        <li><a onclick="focusMethod(this)" for="clear" href="#clear" style="color:green" >clear</a></li>
+                        <li><a onclick="focusMethod(this)" for="read" href="#read" style="color:green" >read</a></li>
+                        <li><a onclick="focusMethod(this)" for="write" href="#write" style="color:green" >write</a></li>
+                    </ol>
+                    <h3 >__call</h3>
+            <input type="text"  id="__call" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>func </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>args </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__construct</h3>
+            <input type="text"  id="__construct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 构造函数,加载配置和启动缓存对象</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >clear</h3>
+            <input type="text"  id="clear" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 清除</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>unknown_type</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >read</h3>
+            <input type="text"  id="read" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 从缓存区读取数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>缓存键值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：mixed            </em>
+                    <h3 >write</h3>
+            <input type="text"  id="write" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 写入数据到缓冲出，并返回写入的数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>缓存键值</td>
+                </tr>
+                                 <tr>
+                    <td>data </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>写入数据,可选，如果不指定值会自动读取指定数据源的数据</td>
+                </tr>
+                                 <tr>
+                    <td>expire </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：返回写入的数据,失败返回false            </em>
+            </fieldset>
+    </body>
+</html>

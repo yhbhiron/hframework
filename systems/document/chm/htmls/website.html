@@ -1,0 +1,1002 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类website的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>website (<small>website</small>) </h1>
+    <em>
+    版本：: 1.0.3   作者：: Hiron Jack  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 本类主要是获取网站运行时的一些系统信息和系统方法,  它提供网站全局的相关内容    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>:
+  website::init();
+  website::loadClass('dataBase');
+  website::log('xxx','error');</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="autoload" href="#autoload" style="color:green" >autoload</a></li>
+                        <li><a onclick="focusMethod(this)" for="buildWebsite" href="#buildWebsite" style="color:green" >buildWebsite</a></li>
+                        <li><a onclick="focusMethod(this)" for="clearCookie" href="#clearCookie" style="color:green" >clearCookie</a></li>
+                        <li><a onclick="focusMethod(this)" for="clearVar" href="#clearVar" style="color:green" >clearVar</a></li>
+                        <li><a onclick="focusMethod(this)" for="curRunTime" href="#curRunTime" style="color:green" >curRunTime</a></li>
+                        <li><a onclick="focusMethod(this)" for="debugAdd" href="#debugAdd" style="color:green" >debugAdd</a></li>
+                        <li><a onclick="focusMethod(this)" for="debugError" href="#debugError" style="color:green" >debugError</a></li>
+                        <li><a onclick="focusMethod(this)" for="debugWarning" href="#debugWarning" style="color:green" >debugWarning</a></li>
+                        <li><a onclick="focusMethod(this)" for="debugWrite" href="#debugWrite" style="color:green" >debugWrite</a></li>
+                        <li><a onclick="focusMethod(this)" for="doEvent" href="#doEvent" style="color:green" >doEvent</a></li>
+                        <li><a onclick="focusMethod(this)" for="error" href="#error" style="color:green" >error</a></li>
+                        <li><a onclick="focusMethod(this)" for="findAutoLoadFiles" href="#findAutoLoadFiles" style="color:gray" >findAutoLoadFiles</a></li>
+                        <li><a onclick="focusMethod(this)" for="getAddr" href="#getAddr" style="color:gray" >getAddr</a></li>
+                        <li><a onclick="focusMethod(this)" for="getLog" href="#getLog" style="color:green" >getLog</a></li>
+                        <li><a onclick="focusMethod(this)" for="init" href="#init" style="color:green" >init</a></li>
+                        <li><a onclick="focusMethod(this)" for="initSess" href="#initSess" style="color:green" >initSess</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadAppClass" href="#loadAppClass" style="color:green" >loadAppClass</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadAutoFile" href="#loadAutoFile" style="color:gray" >loadAutoFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadClass" href="#loadClass" style="color:green" >loadClass</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadConfig" href="#loadConfig" style="color:green" >loadConfig</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadFunc" href="#loadFunc" style="color:green" >loadFunc</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadModuleBases" href="#loadModuleBases" style="color:green" >loadModuleBases</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadModuleClasses" href="#loadModuleClasses" style="color:green" >loadModuleClasses</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadPlugin" href="#loadPlugin" style="color:green" >loadPlugin</a></li>
+                        <li><a onclick="focusMethod(this)" for="log" href="#log" style="color:green" >log</a></li>
+                        <li><a onclick="focusMethod(this)" for="rebuildCore" href="#rebuildCore" style="color:green" >rebuildCore</a></li>
+                        <li><a onclick="focusMethod(this)" for="run" href="#run" style="color:green" >run</a></li>
+                        <li><a onclick="focusMethod(this)" for="setCookies" href="#setCookies" style="color:green" >setCookies</a></li>
+                        <li><a onclick="focusMethod(this)" for="system" href="#system" style="color:green" >system</a></li>
+                    </ol>
+                    <h3 >autoload</h3>
+            <input type="text"  id="autoload" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 自动加类库</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>clsName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>类名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >buildWebsite</h3>
+            <input type="text"  id="buildWebsite" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建一个项目</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>webName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>网站名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >clearCookie</h3>
+            <input type="text"  id="clearCookie" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 清除cookie</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>ckey </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>cookie的键名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >clearVar</h3>
+            <input type="text"  id="clearVar" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 清除变量</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>var </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>变量</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >curRunTime</h3>
+            <input type="text"  id="curRunTime" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前运行的时间，精确到毫秒,用于调试时的效率计算</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>force </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否强制执行</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >debugAdd</h3>
+            <input type="text"  id="debugAdd" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 加入调试信息到调试数组</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>number</td>
+                    <td>0</td>
+                    <td>计算时间的止始时间</td>
+                </tr>
+                                 <tr>
+                    <td>force </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否强制添加</td>
+                </tr>
+                                 <tr>
+                    <td>allowHTML </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>color </td>
+                    <td>未知</td>
+                    <td>blue</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >debugError</h3>
+            <input type="text"  id="debugError" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 追加错误信息调式</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>force </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>allowHTML </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >debugWarning</h3>
+            <input type="text"  id="debugWarning" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 追加警告信息调式</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>force </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>allowHTML </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >debugWrite</h3>
+            <input type="text"  id="debugWrite" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 输出调试信息到浏览器,如果开启了调试或开启了写入到调试文件的功能</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >doEvent</h3>
+            <input type="text"  id="doEvent" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 事件插件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>ev </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>事件名称</td>
+                </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>事件所需的参数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >error</h3>
+            <input type="text"  id="error" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 显示站点错误，由错误类提供</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>err </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>错误信息</td>
+                </tr>
+                                 <tr>
+                    <td>level </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>错误级别</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>int</td>
+                    <td>3</td>
+                    <td>错误类型</td>
+                </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>错误代码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >findAutoLoadFiles</h3>
+            <input type="text"  id="findAutoLoadFiles" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Private</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getAddr</h3>
+            <input type="text"  id="getAddr" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>取得站点的相关地址信息	host 访问根目录	abs_page绝对地址无参数	abs_url 绝对地址有参数	rel_page 相对地址无参数	rel_url 相对地址有参数	page短地址无参数	url短地址有参数	from 来路地址	safe_from 安全来路，是否为自己的来路</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array 地址信息数组            </em>
+                    <h3 >getLog</h3>
+            <input type="text"  id="getLog" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 从文件中读取日志信息到数组中</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>logFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>日志文件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array 日志数据            </em>
+                    <h3 >init</h3>
+            <input type="text"  id="init" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 初使化系统，其中固定加载了,error、validate类库	  基本配置项</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>args </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >initSess</h3>
+            <input type="text"  id="initSess" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 启动session</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>sid </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >loadAppClass</h3>
+            <input type="text"  id="loadAppClass" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取应用中的app类</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>app </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>onlyApp </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >loadAutoFile</h3>
+            <input type="text"  id="loadAutoFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 从自动加载的文件中加载一个类</p>
+            <p><strong>访问类型</strong>：Private</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件名</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>类型</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >loadClass</h3>
+            <input type="text"  id="loadClass" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 加载类库 a.b.c或a_b_c</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>clsName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>类名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean true/false 是否成功加载            </em>
+                    <h3 >loadConfig</h3>
+            <input type="text"  id="loadConfig" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 加载配置文件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>confName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>配置文件名</td>
+                </tr>
+                                 <tr>
+                    <td>addtoConfig </td>
+                    <td>boolean</td>
+                    <td>1</td>
+                    <td>是否加入到系统配置中</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean true成功时，当addtoConfig为false时返回指定配置变量            </em>
+                    <h3 >loadFunc</h3>
+            <input type="text"  id="loadFunc" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 加载函数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>funcName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false 是否加载成功            </em>
+                    <h3 >loadModuleBases</h3>
+            <input type="text"  id="loadModuleBases" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取模块基本类</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>string</td>
+                    <td>config</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >loadModuleClasses</h3>
+            <input type="text"  id="loadModuleClasses" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 加载模块中的类库</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>类名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >loadPlugin</h3>
+            <input type="text"  id="loadPlugin" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 加载通用插件,函数处理形式</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>plugName </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>alias </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>插件扩展别名,可选</td>
+                </tr>
+                                 <tr>
+                    <td>plugnName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>插件名称如product.sellprice</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array();            </em>
+                    <h3 >log</h3>
+            <input type="text"  id="log" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 记录系统日志</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>日志内容</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>日志类别，由用户订义</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >rebuildCore</h3>
+            <input type="text"  id="rebuildCore" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 重新更新应用的内核</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>webName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>站点名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >run</h3>
+            <input type="text"  id="run" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 启动系统</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>app </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>act </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>direct </td>
+                    <td>未知</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >setCookies</h3>
+            <input type="text"  id="setCookies" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>写入cookie</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>ckey </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>cookie的key值</td>
+                </tr>
+                                 <tr>
+                    <td>cvalue </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>值</td>
+                </tr>
+                                 <tr>
+                    <td>expires </td>
+                    <td>未知</td>
+                    <td>3</td>
+                    <td>超时时间</td>
+                </tr>
+                                 <tr>
+                    <td>unit </td>
+                    <td>string</td>
+                    <td>d</td>
+                    <td>时间单位d,h,m,s</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：无            </em>
+                    <h3 >system</h3>
+            <input type="text"  id="system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 引用系统</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>system </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>系统名称</td>
+                </tr>
+                                 <tr>
+                    <td>direct </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否为直接访问，默认为false</td>
+                </tr>
+                                 <tr>
+                    <td>app </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>引用的系统的应用的名称,默认不指定</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system 如果没有指定应用则返回系统对象，否则返回应用对象            </em>
+            </fieldset>
+    </body>
+</html>

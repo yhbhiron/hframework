@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类app的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>app (<small>app</small>) </h1>
+    <em>
+    版本：: 1.0.5   作者：: Jack Brown  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class=model"> model</a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="__call" href="#__call" style="color:green" >__call</a></li>
+                        <li><a onclick="focusMethod(this)" for="__construct" href="#__construct" style="color:green" >__construct</a></li>
+                        <li><a onclick="focusMethod(this)" for="__get" href="#__get" style="color:green" >__get</a></li>
+                        <li><a onclick="focusMethod(this)" for="__set" href="#__set" style="color:green" >__set</a></li>
+                        <li><a onclick="focusMethod(this)" for="_system" href="#_system" style="color:gray" >_system</a></li>
+                        <li><a onclick="focusMethod(this)" for="_validate" href="#_validate" style="color:gray" >_validate</a></li>
+                        <li><a onclick="focusMethod(this)" for="actionAjaxValidate" href="#actionAjaxValidate" style="color:gray" >actionAjaxValidate</a></li>
+                        <li><a onclick="focusMethod(this)" for="addToRecycle" href="#addToRecycle" style="color:gray" >addToRecycle</a></li>
+                        <li><a onclick="focusMethod(this)" for="afterAction" href="#afterAction" style="color:gray" >afterAction</a></li>
+                        <li><a onclick="focusMethod(this)" for="beforeAction" href="#beforeAction" style="color:gray" >beforeAction</a></li>
+                        <li><a onclick="focusMethod(this)" for="checkType" href="#checkType" style="color:green" >checkType</a></li>
+                        <li><a onclick="focusMethod(this)" for="convItemVar" href="#convItemVar" style="color:gray" >convItemVar</a></li>
+                        <li><a onclick="focusMethod(this)" for="createItems" href="#createItems" style="color:gray" >createItems</a></li>
+                        <li><a onclick="focusMethod(this)" for="createValidate" href="#createValidate" style="color:gray" >createValidate</a></li>
+                        <li><a onclick="focusMethod(this)" for="error" href="#error" style="color:gray" >error</a></li>
+                        <li><a onclick="focusMethod(this)" for="exploreItem" href="#exploreItem" style="color:gray" >exploreItem</a></li>
+                        <li><a onclick="focusMethod(this)" for="formTest" href="#formTest" style="color:green" >formTest</a></li>
+                        <li><a onclick="focusMethod(this)" for="getActURL" href="#getActURL" style="color:gray" >getActURL</a></li>
+                        <li><a onclick="focusMethod(this)" for="getActions" href="#getActions" style="color:gray" >getActions</a></li>
+                        <li><a onclick="focusMethod(this)" for="getItems" href="#getItems" style="color:green" >getItems</a></li>
+                        <li><a onclick="focusMethod(this)" for="model" href="#model" style="color:gray" >model</a></li>
+                        <li><a onclick="focusMethod(this)" for="recycle" href="#recycle" style="color:green" >recycle</a></li>
+                        <li><a onclick="focusMethod(this)" for="run" href="#run" style="color:green" >run</a></li>
+                        <li><a onclick="focusMethod(this)" for="showMsg" href="#showMsg" style="color:green" >showMsg</a></li>
+                        <li><a onclick="focusMethod(this)" for="system" href="#system" style="color:gray" >system</a></li>
+                        <li><a onclick="focusMethod(this)" for="validVars" href="#validVars" style="color:gray" >validVars</a></li>
+                    </ol>
+                    <h3 >__call</h3>
+            <input type="text"  id="__call" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>method </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__construct</h3>
+            <input type="text"  id="__construct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 构造函数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>array</td>
+                    <td>Array</td>
+                    <td>应用所需要参数配置</td>
+                </tr>
+                                 <tr>
+                    <td>alias </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>应用别名,默认为类别</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__get</h3>
+            <input type="text"  id="__get" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__set</h3>
+            <input type="text"  id="__set" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >_system</h3>
+            <input type="text"  id="_system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前对象所属的系统</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system            </em>
+                    <h3 >_validate</h3>
+            <input type="text"  id="_validate" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 验证一个参数的值是否合法</p>
+            <p><strong>访问类型</strong>：Private</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>值</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>要求类型函数或者方法</td>
+                </tr>
+                                 <tr>
+                    <td>require </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否必填</td>
+                </tr>
+                                 <tr>
+                    <td>need </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否需要</td>
+                </tr>
+                                 <tr>
+                    <td>allowArray </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否可以为一个数组</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean            </em>
+                    <h3 >actionAjaxValidate</h3>
+            <input type="text"  id="actionAjaxValidate" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> ajax请求验证数据的合法性，返回数据给客户端</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>array</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >addToRecycle</h3>
+            <input type="text"  id="addToRecycle" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 将资源添加到临时回收站</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$file文件件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >afterAction</h3>
+            <input type="text"  id="afterAction" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 行为执行后做点什么</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>action </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>action的对外名称</td>
+                </tr>
+                                 <tr>
+                    <td>data </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>行为执行返回的结果</td>
+                </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>action的相关使用的参数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >beforeAction</h3>
+            <input type="text"  id="beforeAction" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 行为执行前做点什么</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>action </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>action的对外名称</td>
+                </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>action的相关使用的参数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >checkType</h3>
+            <input type="text"  id="checkType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 检查方法输入参数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>参数列表</td>
+                </tr>
+                                 <tr>
+                    <td>types </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>类型列表</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >convItemVar</h3>
+            <input type="text"  id="convItemVar" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 转换变量</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>var </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>itemInfo </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>变量信息</td>
+                </tr>
+                                 <tr>
+                    <td>mixed </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>$var变量值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：mixed $var 转化后的变量            </em>
+                    <h3 >createItems</h3>
+            <input type="text"  id="createItems" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建一个参数设置配置</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >createValidate</h3>
+            <input type="text"  id="createValidate" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建一个前端的js验证代码，主要是依据app.hiron.js的规则来实现</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 验证规则json            </em>
+                    <h3 >error</h3>
+            <input type="text"  id="error" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>异常报告</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>exception </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>异常</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >exploreItem</h3>
+            <input type="text"  id="exploreItem" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 遍历变量合法性</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>actName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>执行操作的名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >formTest</h3>
+            <input type="text"  id="formTest" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>  创建form表单的测试</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>act </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>指定的行为</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >getActURL</h3>
+            <input type="text"  id="getActURL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取对应操作的对应的地址</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >getActions</h3>
+            <input type="text"  id="getActions" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前控制器的相关行为</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getItems</h3>
+            <input type="text"  id="getItems" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取应用的参数配置</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >model</h3>
+            <input type="text"  id="model" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 设置获取的模型</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>v </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：ORM            </em>
+                    <h3 >recycle</h3>
+            <input type="text"  id="recycle" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 清空临时资源,主要是临时文件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >run</h3>
+            <input type="text"  id="run" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 执行应用的操作行为</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>act </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>执行的行为，默认不指定，由请求参数act指定</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：mixed 返回各行为的数据            </em>
+                    <h3 >showMsg</h3>
+            <input type="text"  id="showMsg" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 展示消息</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>msg </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>提示信息</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>int</td>
+                    <td>1</td>
+                    <td>消息类型:1提示,2错误</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >system</h3>
+            <input type="text"  id="system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前对象所属的系统</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system            </em>
+                    <h3 >validVars</h3>
+            <input type="text"  id="validVars" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 验证用户单个数据项的合法性,支持validate验证</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>var </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>string/array,变量类型,array('type'=>array(类型方法名=>array(参数1,参数2))</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false            </em>
+            </fieldset>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>目录</title>
+<style>
+body{padding:0;margin:0;font-size:13px;}
+ul{padding:5px;margin:0}
+</style>
+</head>
+
+<body>
+<ul type="none">
+	<{foreach item=block from=$doc_index}>
+    	<li>
+        	<dd><{$block.name}></dd>
+        	<ul>
+            <{foreach item=cls from=$block.class_list}>
+            	<dd><a href="<{$url}>?class=<{$cls}>" target="doc_show"><{$cls}></a></dd>
+            <{/foreach}>
+            </ul>
+        </li>
+    <{/foreach}>
+</ul>
+</body>
+</html>

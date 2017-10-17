@@ -1,0 +1,1014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类template的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>template (<small>template</small>) </h1>
+    <em>
+    版本：2.0.11   作者：jackbrown;  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	模板生成类模板生成主要包括，对模板中模板标记的解板流程控制解板主要有:if foreach 和 dbfor等流程块的解析环境变量的解析:session,cookie和其它变量系统插件的解析如textbox,msgbox等支持cache缓存,插件和即时输出和gzip输出    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="__construct" href="#__construct" style="color:green" >__construct</a></li>
+                        <li><a onclick="focusMethod(this)" for="__destruct" href="#__destruct" style="color:green" >__destruct</a></li>
+                        <li><a onclick="focusMethod(this)" for="addHeader" href="#addHeader" style="color:gray" >addHeader</a></li>
+                        <li><a onclick="focusMethod(this)" for="assign" href="#assign" style="color:green" >assign</a></li>
+                        <li><a onclick="focusMethod(this)" for="clearAllVars" href="#clearAllVars" style="color:green" >clearAllVars</a></li>
+                        <li><a onclick="focusMethod(this)" for="compile" href="#compile" style="color:gray" >compile</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileCss" href="#compileCss" style="color:gray" >compileCss</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileError" href="#compileError" style="color:gray" >compileError</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileFunc" href="#compileFunc" style="color:gray" >compileFunc</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileIfTag" href="#compileIfTag" style="color:gray" >compileIfTag</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileInclude" href="#compileInclude" style="color:gray" >compileInclude</a></li>
+                        <li><a onclick="focusMethod(this)" for="compilePlugins" href="#compilePlugins" style="color:gray" >compilePlugins</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileScript" href="#compileScript" style="color:gray" >compileScript</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileVars" href="#compileVars" style="color:gray" >compileVars</a></li>
+                        <li><a onclick="focusMethod(this)" for="compiledbforTag" href="#compiledbforTag" style="color:gray" >compiledbforTag</a></li>
+                        <li><a onclick="focusMethod(this)" for="compileforeachTag" href="#compileforeachTag" style="color:gray" >compileforeachTag</a></li>
+                        <li><a onclick="focusMethod(this)" for="compress" href="#compress" style="color:gray" >compress</a></li>
+                        <li><a onclick="focusMethod(this)" for="display" href="#display" style="color:green" >display</a></li>
+                        <li><a onclick="focusMethod(this)" for="error" href="#error" style="color:green" >error</a></li>
+                        <li><a onclick="focusMethod(this)" for="fetchCode" href="#fetchCode" style="color:green" >fetchCode</a></li>
+                        <li><a onclick="focusMethod(this)" for="fetchFile" href="#fetchFile" style="color:green" >fetchFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="fetchSource" href="#fetchSource" style="color:gray" >fetchSource</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTagInfo" href="#getTagInfo" style="color:green" >getTagInfo</a></li>
+                        <li><a onclick="focusMethod(this)" for="getVarVal" href="#getVarVal" style="color:gray" >getVarVal</a></li>
+                        <li><a onclick="focusMethod(this)" for="isEnd" href="#isEnd" style="color:gray" >isEnd</a></li>
+                        <li><a onclick="focusMethod(this)" for="isModified" href="#isModified" style="color:green" >isModified</a></li>
+                        <li><a onclick="focusMethod(this)" for="isTag" href="#isTag" style="color:gray" >isTag</a></li>
+                        <li><a onclick="focusMethod(this)" for="loadPlugins" href="#loadPlugins" style="color:gray" >loadPlugins</a></li>
+                        <li><a onclick="focusMethod(this)" for="readHeader" href="#readHeader" style="color:gray" >readHeader</a></li>
+                        <li><a onclick="focusMethod(this)" for="tidyCode" href="#tidyCode" style="color:gray" >tidyCode</a></li>
+                        <li><a onclick="focusMethod(this)" for="toTargetCode" href="#toTargetCode" style="color:gray" >toTargetCode</a></li>
+                        <li><a onclick="focusMethod(this)" for="trimQuote" href="#trimQuote" style="color:green" >trimQuote</a></li>
+                    </ol>
+                    <h3 >__construct</h3>
+            <input type="text"  id="__construct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>selfTpl </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否为自己的模板，自己的模板的情况下，不使用配置的模板</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__destruct</h3>
+            <input type="text"  id="__destruct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >addHeader</h3>
+            <input type="text"  id="addHeader" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>给编译文件添加头部信息</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>tpl </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$tpl模板文件</td>
+                </tr>
+                                 <tr>
+                    <td>cache </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否可缓存此文件true/false;</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 设置的头部信息字符            </em>
+                    <h3 >assign</h3>
+            <input type="text"  id="assign" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 添加模板变量</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>varName </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>变量名称或数组列表</td>
+                </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>变量值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >clearAllVars</h3>
+            <input type="text"  id="clearAllVars" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>清除所有变量</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compile</h3>
+            <input type="text"  id="compile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 编译模板文件</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>tplFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>模板文件路径</td>
+                </tr>
+                                 <tr>
+                    <td>compFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>编译文件路径</td>
+                </tr>
+                                 <tr>
+                    <td>cache </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否缓存</td>
+                </tr>
+                                 <tr>
+                    <td>cacheTime </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>缓存时间秒</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileCss</h3>
+            <input type="text"  id="compileCss" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 标签&lt;{css href='xx,xx...' }&gt;</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileError</h3>
+            <input type="text"  id="compileError" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 检没是否有错误</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>模板代码</td>
+                </tr>
+                                 <tr>
+                    <td>line </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileFunc</h3>
+            <input type="text"  id="compileFunc" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编译function</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>模板源码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileIfTag</h3>
+            <input type="text"  id="compileIfTag" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编译if标签</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>模板源码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileInclude</h3>
+            <input type="text"  id="compileInclude" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>include file	&lt;{include tpl='xx' cache=true/false time=number }&gt;</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compilePlugins</h3>
+            <input type="text"  id="compilePlugins" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编译插件</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>global </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileScript</h3>
+            <input type="text"  id="compileScript" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编译script	&lt;{script src='xx,'xx' }&gt;</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileVars</h3>
+            <input type="text"  id="compileVars" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编辑变量</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compiledbforTag</h3>
+            <input type="text"  id="compiledbforTag" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编译数据库读取	兼容foreach模式	针对标签 &lt;{dbfor item=xx form=$xx name=xx key=xx }&gt;</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>模板源码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compileforeachTag</h3>
+            <input type="text"  id="compileforeachTag" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>编译foreach标签	针对标签 &lt;{foreach item=xx form=$xx }&gt;</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>模板源码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >compress</h3>
+            <input type="text"  id="compress" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 压缩源码</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>代码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string $code;            </em>
+                    <h3 >display</h3>
+            <input type="text"  id="display" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 输出模板内容到浏览器</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>tpl </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>模板名称</td>
+                </tr>
+                                 <tr>
+                    <td>inc </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否为插入模板</td>
+                </tr>
+                                 <tr>
+                    <td>cache </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否需要缓存</td>
+                </tr>
+                                 <tr>
+                    <td>time </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>缓存时间s</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 模板执型后html            </em>
+                    <h3 >error</h3>
+            <input type="text"  id="error" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 显示文件操作消息</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>e </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>level </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>错误级别</td>
+                </tr>
+                                 <tr>
+                    <td>msg </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>错误消息</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >fetchCode</h3>
+            <input type="text"  id="fetchCode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取代码编译后的执行结果html代码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >fetchFile</h3>
+            <input type="text"  id="fetchFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取代码编译后的文件执行结果html代码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>文件路径</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >fetchSource</h3>
+            <input type="text"  id="fetchSource" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 编译源码</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>line </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>源码行</td>
+                </tr>
+                                 <tr>
+                    <td>n </td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>行数</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 编译后的代码            </em>
+                    <h3 >getTagInfo</h3>
+            <input type="text"  id="getTagInfo" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取代码中的标签&lt;{tagname param1='a' param2=&gt;'b' }&gt;</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>tagName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>标签名</td>
+                </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>模板源代码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >getVarVal</h3>
+            <input type="text"  id="getVarVal" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取变量的值</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>var </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>变量字符</td>
+                </tr>
+                                 <tr>
+                    <td>tag </td>
+                    <td>未知</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>quote </td>
+                    <td>boolean</td>
+                    <td>1</td>
+                    <td>是否保留变量的'"字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >isEnd</h3>
+            <input type="text"  id="isEnd" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isModified</h3>
+            <input type="text"  id="isModified" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>模板文件是否已修改</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>tpl </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>模板名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean true/false            </em>
+                    <h3 >isTag</h3>
+            <input type="text"  id="isTag" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >loadPlugins</h3>
+            <input type="text"  id="loadPlugins" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>加载插件函数</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >readHeader</h3>
+            <input type="text"  id="readHeader" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>读取编译文件的头部信息</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>tpl </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$tpl编译文件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array头部信息数组            </em>
+                    <h3 >tidyCode</h3>
+            <input type="text"  id="tidyCode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 整理代码</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 返加整理后的代码            </em>
+                    <h3 >toTargetCode</h3>
+            <input type="text"  id="toTargetCode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取编译后的php代码</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>code </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>模板代码内容</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 返回编对后的代码，如果错误则返回空            </em>
+                    <h3 >trimQuote</h3>
+            <input type="text"  id="trimQuote" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 清除字符串类型的默认又引号或引号</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>var </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>变量值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+            </fieldset>
+    </body>
+</html>

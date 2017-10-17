@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类search的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>search (<small>search</small>) </h1>
+    <em>
+    版本：2.0.2   作者：jackBrown  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	用户搜索类,用于sql搜索或只组建搜索相关的信息，如地址或条件    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="__construct" href="#__construct" style="color:green" >__construct</a></li>
+                        <li><a onclick="focusMethod(this)" for="addCase" href="#addCase" style="color:green" >addCase</a></li>
+                        <li><a onclick="focusMethod(this)" for="addOrder" href="#addOrder" style="color:green" >addOrder</a></li>
+                        <li><a onclick="focusMethod(this)" for="getFilter" href="#getFilter" style="color:green" >getFilter</a></li>
+                        <li><a onclick="focusMethod(this)" for="getSource" href="#getSource" style="color:green" >getSource</a></li>
+                        <li><a onclick="focusMethod(this)" for="getURL" href="#getURL" style="color:green" >getURL</a></li>
+                        <li><a onclick="focusMethod(this)" for="toSafeKeyword" href="#toSafeKeyword" style="color:green" >toSafeKeyword</a></li>
+                    </ol>
+                    <h3 >__construct</h3>
+            <input type="text"  id="__construct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>s </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>数据源，一般为query,有时可以不填，主要获取地址就可以了</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >addCase</h3>
+            <input type="text"  id="addCase" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 增加查询情况</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>name </td>
+                    <td>stirng</td>
+                    <td></td>
+                    <td>请求的字段名称</td>
+                </tr>
+                                 <tr>
+                    <td>cond </td>
+                    <td>callback</td>
+                    <td></td>
+                    <td>处理请求时的回调func($q查询query,$v请求的值,$name请求的键名,$search搜索对象)</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：search            </em>
+                    <h3 >addOrder</h3>
+            <input type="text"  id="addOrder" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 添加一个排序条件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>请求的字段名</td>
+                </tr>
+                                 <tr>
+                    <td>range </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>排序值的列表array(asc,desc,default)第一个值对应asc,第二个值对应desc,第三个值为默认值可选</td>
+                </tr>
+                                 <tr>
+                    <td>fld </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>排序的字段名，可选，默认同$name</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：search            </em>
+                    <h3 >getFilter</h3>
+            <input type="text"  id="getFilter" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取搜索相关的当前查询条件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getSource</h3>
+            <input type="text"  id="getSource" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取搜索的数据源</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getURL</h3>
+            <input type="text"  id="getURL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取搜索相关的url</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array(all所有条件地址，no_order无排序的地址，order=>array()相关排序的地址)            </em>
+                    <h3 >toSafeKeyword</h3>
+            <input type="text"  id="toSafeKeyword" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 过滤搜索时会带来安全问题的字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>keyword </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>kwyword </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+            </fieldset>
+    </body>
+</html>

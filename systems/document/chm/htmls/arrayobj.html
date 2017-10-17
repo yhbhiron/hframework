@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类arrayObj的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>arrayObj (<small>arrayObj</small>) </h1>
+    <em>
+    版本：1.0.0   作者：Hiron Jack  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 数组操作函数库     </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>:</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="arrInArray" href="#arrInArray" style="color:green" >arrInArray</a></li>
+                        <li><a onclick="focusMethod(this)" for="export" href="#export" style="color:green" >export</a></li>
+                        <li><a onclick="focusMethod(this)" for="extend" href="#extend" style="color:green" >extend</a></li>
+                        <li><a onclick="focusMethod(this)" for="forceToArray" href="#forceToArray" style="color:green" >forceToArray</a></li>
+                        <li><a onclick="focusMethod(this)" for="getExistsItem" href="#getExistsItem" style="color:green" >getExistsItem</a></li>
+                        <li><a onclick="focusMethod(this)" for="getItem" href="#getItem" style="color:green" >getItem</a></li>
+                        <li><a onclick="focusMethod(this)" for="getRandMember" href="#getRandMember" style="color:green" >getRandMember</a></li>
+                        <li><a onclick="focusMethod(this)" for="getRightVal" href="#getRightVal" style="color:green" >getRightVal</a></li>
+                        <li><a onclick="focusMethod(this)" for="itemMerge" href="#itemMerge" style="color:green" >itemMerge</a></li>
+                        <li><a onclick="focusMethod(this)" for="map" href="#map" style="color:green" >map</a></li>
+                        <li><a onclick="focusMethod(this)" for="toHashArray" href="#toHashArray" style="color:green" >toHashArray</a></li>
+                        <li><a onclick="focusMethod(this)" for="trim" href="#trim" style="color:green" >trim</a></li>
+                    </ol>
+                    <h3 >arrInArray</h3>
+            <input type="text"  id="arrInArray" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 查找一个数组是否为别一数组的子集</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>arr1 </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>array(a,b,c,d)</td>
+                </tr>
+                                 <tr>
+                    <td>arr2 </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>array(e,f,g,h)</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >export</h3>
+            <input type="text"  id="export" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 导出数组为字符串，美化格式化</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>arr </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>需要导出的数组</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >extend</h3>
+            <input type="text"  id="extend" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 把两个数组按继承的方式合并</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>uparams </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>新设置的数组</td>
+                </tr>
+                                 <tr>
+                    <td>defParams </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>默认设置的数组</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >forceToArray</h3>
+            <input type="text"  id="forceToArray" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 强制转化为一数组</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>list </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >getExistsItem</h3>
+            <input type="text"  id="getExistsItem" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个数组的指定key的数据项</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>array </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>查找的数组array(k=>v,k2=>v)</td>
+                </tr>
+                                 <tr>
+                    <td>mathKey </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>指定key值的数据array(a,b,c,d)</td>
+                </tr>
+                                 <tr>
+                    <td>notNull </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否去掉空值的数项</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array 部分数据            </em>
+                    <h3 >getItem</h3>
+            <input type="text"  id="getItem" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个数组中的某元素，不存在返回默认值</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>arr </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>数组</td>
+                </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>键名</td>
+                </tr>
+                                 <tr>
+                    <td>def </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>不存时的,默认值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：mixed            </em>
+                    <h3 >getRandMember</h3>
+            <input type="text"  id="getRandMember" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 随机获取数组的成员</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>arr </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>num </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>获取的数量,如果超过数组的长度，则返回随机位置的所有数据</td>
+                </tr>
+                                 <tr>
+                    <td>unset </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否去除获取到的成员</td>
+                </tr>
+                                 <tr>
+                    <td>array </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$arr　数组</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >getRightVal</h3>
+            <input type="text"  id="getRightVal" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取规定列表中的值，不合法时返回默认值</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>检测值</td>
+                </tr>
+                                 <tr>
+                    <td>list </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>查找数组列表array(va1,va2,val3)</td>
+                </tr>
+                                 <tr>
+                    <td>def </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>找不到时返回的默认值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >itemMerge</h3>
+            <input type="text"  id="itemMerge" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 将数组中的元素合并成一个数组</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>array </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>array,格式array( </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>array(),array())转化成array(array(a1,a2),array(a1,a2))</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array;            </em>
+                    <h3 >map</h3>
+            <input type="text"  id="map" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 通过回调修改一个数组的结构</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>array </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>需要修改的数组</td>
+                </tr>
+                                 <tr>
+                    <td>callback </td>
+                    <td>callback</td>
+                    <td></td>
+                    <td>应用的回调函数callback($key键,$val值,$list修改后的数组列表）,返回$list</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >toHashArray</h3>
+            <input type="text"  id="toHashArray" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 使用数组中的数据，组件成新的hash数组key=&gt;val形式</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>arr </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>输入数组</td>
+                </tr>
+                                 <tr>
+                    <td>keyName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>新数组的键值</td>
+                </tr>
+                                 <tr>
+                    <td>valName </td>
+                    <td>array/string</td>
+                    <td></td>
+                    <td>新数组的值</td>
+                </tr>
+                                 <tr>
+                    <td>keyPre </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>链值前辍</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >trim</h3>
+            <input type="text"  id="trim" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 过滤掉空的数据</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>array </td>
+                    <td>array</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+            </fieldset>
+    </body>
+</html>

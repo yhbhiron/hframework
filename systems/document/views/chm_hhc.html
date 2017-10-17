@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <meta name="generator" content="Hiron Document Automatic">
+  <!-- Sitemap 1.0 -->
+</head><body><OBJECT type="text/site properties">
+	<param name="ExWindow Styles" value="0x200">
+	<param name="Window Styles" value="0x800025">
+    <param name="Font" value="MS Sans Serif,9,0">
+</OBJECT>
+  <UL>
+  	<{foreach item=block from=$doc_index}>
+    <li><OBJECT type="text/sitemap">
+      <param name="Name" value="<{$block.name}>">
+      <param name="ImageNumber" value="1">
+      </OBJECT>
+      <UL>
+      	<{foreach item=cls from=$block.class_list}>
+            <li><OBJECT type="text/sitemap">
+              <param name="Name" value="<{$cls}>">
+              <param name="Local" value="htmls/<{$cls}>.html">
+              <param name="ImageNumber" value="11">
+              </OBJECT>
+        <{/foreach}>
+      </UL>
+    <{/foreach}>
+  </UL>
+</body>
+</html>

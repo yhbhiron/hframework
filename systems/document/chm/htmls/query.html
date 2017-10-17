@@ -1,0 +1,1682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类query的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>query (<small>查询组装器</small>) </h1>
+    <em>
+    版本：1.0.0   作者：jackbrown  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	数据查询组装类，用户组装各种复杂的查询    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class=model"> model</a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>$query->select(array('id','title'=>'cat_name') )->from('guu_prodcat')->whereEq(array(
+	array('fld'=>'a','val'=>'b','logic'=>query::COND_AND),
+	array('fld'=>'c','val'=>'d','logic'=>query::COND_OR),
+	array('fld'=>'e','val'=>'f','logic'=>query::COND_AND),
+),query::COND_AND)->limit(1,2);
+		
+$a = query::factory()->select('a')->from('b');
+$b = query::factory()->select('c')->from('d');
+
+$query->union($a,$b)->distinct()->select(array('id','name'))->from('user')->useIndex('user_type')
+->leftJoin('info','s')
+->using('user_id')
+->leftJoin('address','ad')
+->on(array(
+	array('cd','`ef`',query::COND_AND,'whereEq'),
+))		
+->rightJoin('score','sc')
+->on(array(
+	array('ghg','`efx`',query::COND_AND,'whereEq'),
+))
+->whereGroup(
+	array(
+		array('id','23',query::COND_AND,'whereEq'),
+		array('user_name','16',query::COND_AND,'whereEq'),
+		array(
+			array('user_email','23',query::COND_OR,'whereEq'),
+			array('user_mobile','23',query::COND_OR,'whereEq'),
+		),
+		array(
+			array('user_money',0,query::COND_OR,'whereMaxEq'),
+			array('user_score',0,query::COND_OR,'whereMaxEq'),
+		)				
+	),
+	
+	query::COND_AND
+)->whereEq(array(
+	array('fld'=>'a','val'=>':b','logic'=>query::COND_AND),
+	array('fld'=>'c','val'=>':d','logic'=>query::COND_AND),
+),query::COND_AND)->param(':b',"xxsfd'")->having('a','>=',3);</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="__call" href="#__call" style="color:green" >__call</a></li>
+                        <li><a onclick="focusMethod(this)" for="__construct" href="#__construct" style="color:green" >__construct</a></li>
+                        <li><a onclick="focusMethod(this)" for="__get" href="#__get" style="color:green" >__get</a></li>
+                        <li><a onclick="focusMethod(this)" for="__set" href="#__set" style="color:green" >__set</a></li>
+                        <li><a onclick="focusMethod(this)" for="__toString" href="#__toString" style="color:green" >__toString</a></li>
+                        <li><a onclick="focusMethod(this)" for="_system" href="#_system" style="color:gray" >_system</a></li>
+                        <li><a onclick="focusMethod(this)" for="buildWhere" href="#buildWhere" style="color:gray" >buildWhere</a></li>
+                        <li><a onclick="focusMethod(this)" for="cacheType" href="#cacheType" style="color:green" >cacheType</a></li>
+                        <li><a onclick="focusMethod(this)" for="checkType" href="#checkType" style="color:green" >checkType</a></li>
+                        <li><a onclick="focusMethod(this)" for="distinct" href="#distinct" style="color:green" >distinct</a></li>
+                        <li><a onclick="focusMethod(this)" for="error" href="#error" style="color:gray" >error</a></li>
+                        <li><a onclick="focusMethod(this)" for="execute" href="#execute" style="color:green" >execute</a></li>
+                        <li><a onclick="focusMethod(this)" for="factory" href="#factory" style="color:green" >factory</a></li>
+                        <li><a onclick="focusMethod(this)" for="forUpdate" href="#forUpdate" style="color:green" >forUpdate</a></li>
+                        <li><a onclick="focusMethod(this)" for="formatKey" href="#formatKey" style="color:gray" >formatKey</a></li>
+                        <li><a onclick="focusMethod(this)" for="from" href="#from" style="color:green" >from</a></li>
+                        <li><a onclick="focusMethod(this)" for="getParam" href="#getParam" style="color:gray" >getParam</a></li>
+                        <li><a onclick="focusMethod(this)" for="getTables" href="#getTables" style="color:green" >getTables</a></li>
+                        <li><a onclick="focusMethod(this)" for="getWhereExp" href="#getWhereExp" style="color:green" >getWhereExp</a></li>
+                        <li><a onclick="focusMethod(this)" for="groupby" href="#groupby" style="color:green" >groupby</a></li>
+                        <li><a onclick="focusMethod(this)" for="having" href="#having" style="color:green" >having</a></li>
+                        <li><a onclick="focusMethod(this)" for="innerJoin" href="#innerJoin" style="color:green" >innerJoin</a></li>
+                        <li><a onclick="focusMethod(this)" for="leftJoin" href="#leftJoin" style="color:green" >leftJoin</a></li>
+                        <li><a onclick="focusMethod(this)" for="limit" href="#limit" style="color:green" >limit</a></li>
+                        <li><a onclick="focusMethod(this)" for="lockInShareMode" href="#lockInShareMode" style="color:green" >lockInShareMode</a></li>
+                        <li><a onclick="focusMethod(this)" for="on" href="#on" style="color:green" >on</a></li>
+                        <li><a onclick="focusMethod(this)" for="orderby" href="#orderby" style="color:green" >orderby</a></li>
+                        <li><a onclick="focusMethod(this)" for="outerJoin" href="#outerJoin" style="color:green" >outerJoin</a></li>
+                        <li><a onclick="focusMethod(this)" for="page" href="#page" style="color:green" >page</a></li>
+                        <li><a onclick="focusMethod(this)" for="param" href="#param" style="color:green" >param</a></li>
+                        <li><a onclick="focusMethod(this)" for="reset" href="#reset" style="color:green" >reset</a></li>
+                        <li><a onclick="focusMethod(this)" for="rightJoin" href="#rightJoin" style="color:green" >rightJoin</a></li>
+                        <li><a onclick="focusMethod(this)" for="select" href="#select" style="color:green" >select</a></li>
+                        <li><a onclick="focusMethod(this)" for="setCondition" href="#setCondition" style="color:green" >setCondition</a></li>
+                        <li><a onclick="focusMethod(this)" for="system" href="#system" style="color:gray" >system</a></li>
+                        <li><a onclick="focusMethod(this)" for="toSQL" href="#toSQL" style="color:green" >toSQL</a></li>
+                        <li><a onclick="focusMethod(this)" for="union" href="#union" style="color:green" >union</a></li>
+                        <li><a onclick="focusMethod(this)" for="useIndex" href="#useIndex" style="color:green" >useIndex</a></li>
+                        <li><a onclick="focusMethod(this)" for="useKey" href="#useKey" style="color:green" >useKey</a></li>
+                        <li><a onclick="focusMethod(this)" for="using" href="#using" style="color:green" >using</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereEq" href="#whereEq" style="color:green" >whereEq</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereExists" href="#whereExists" style="color:green" >whereExists</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereFindInSet" href="#whereFindInSet" style="color:green" >whereFindInSet</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereGroup" href="#whereGroup" style="color:green" >whereGroup</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereIn" href="#whereIn" style="color:green" >whereIn</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereLike" href="#whereLike" style="color:green" >whereLike</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereMax" href="#whereMax" style="color:green" >whereMax</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereMaxEq" href="#whereMaxEq" style="color:green" >whereMaxEq</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereMin" href="#whereMin" style="color:green" >whereMin</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereMinEq" href="#whereMinEq" style="color:green" >whereMinEq</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereNotEq" href="#whereNotEq" style="color:green" >whereNotEq</a></li>
+                        <li><a onclick="focusMethod(this)" for="whereNotExists" href="#whereNotExists" style="color:green" >whereNotExists</a></li>
+                    </ol>
+                    <h3 >__call</h3>
+            <input type="text"  id="__call" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>method </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__construct</h3>
+            <input type="text"  id="__construct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__get</h3>
+            <input type="text"  id="__get" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__set</h3>
+            <input type="text"  id="__set" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>vars </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >__toString</h3>
+            <input type="text"  id="__toString" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >_system</h3>
+            <input type="text"  id="_system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前对象所属的系统</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system            </em>
+                    <h3 >buildWhere</h3>
+            <input type="text"  id="buildWhere" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 组建条件</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件设置数组由各个条件函数提供array(array(fld=>字段名,req请求名或值,logic逻辑,to_url是否加入地址)),</td>
+                </tr>
+                                 <tr>
+                    <td>relation </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件关系，由各个条件函数提供</td>
+                </tr>
+                                 <tr>
+                    <td>quote </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>值是否需要加引号</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>是条件组信息</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >cacheType</h3>
+            <input type="text"  id="cacheType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 查询缓存类别</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>SQL_NO_CACHE不缓存,SQL_CACHE缓存,</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >checkType</h3>
+            <input type="text"  id="checkType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 检查方法输入参数</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>params </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>参数列表</td>
+                </tr>
+                                 <tr>
+                    <td>types </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>类型列表</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >distinct</h3>
+            <input type="text"  id="distinct" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 过滤重复值语句</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >error</h3>
+            <input type="text"  id="error" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>msg </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >execute</h3>
+            <input type="text"  id="execute" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 执行sql;</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>driver </td>
+                    <td>db/string</td>
+                    <td></td>
+                    <td>数据连接对象,不填刚采用默认的连接</td>
+                </tr>
+                                 <tr>
+                    <td>rowCallback </td>
+                    <td>callback</td>
+                    <td></td>
+                    <td>对每行执行回调</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >factory</h3>
+            <input type="text"  id="factory" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建query</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>query </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >forUpdate</h3>
+            <input type="text"  id="forUpdate" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 独占锁</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >formatKey</h3>
+            <input type="text"  id="formatKey" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 格式化字段表名或别加上··符号</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >from</h3>
+            <input type="text"  id="from" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 查找表</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string/array</td>
+                    <td></td>
+                    <td>表名或查询</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >getParam</h3>
+            <input type="text"  id="getParam" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>sql </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getTables</h3>
+            <input type="text"  id="getTables" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getWhereExp</h3>
+            <input type="text"  id="getWhereExp" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 只获取条件表达式</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>condtions </td>
+                    <td>array</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>logic </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >groupby</h3>
+            <input type="text"  id="groupby" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 分组</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>exp </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>字段或别名</td>
+                </tr>
+                                 <tr>
+                    <td>sort </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>DESC,ASC</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >having</h3>
+            <input type="text"  id="having" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> having 子句</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>fld </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>字段或别名</td>
+                </tr>
+                                 <tr>
+                    <td>exp </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>表达式><>=in</td>
+                </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>值</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >innerJoin</h3>
+            <input type="text"  id="innerJoin" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 内连接</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string/query</td>
+                    <td></td>
+                    <td>表名或子查询</td>
+                </tr>
+                                 <tr>
+                    <td>alias </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$alias　别名　</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >leftJoin</h3>
+            <input type="text"  id="leftJoin" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 左连接</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string/query</td>
+                    <td></td>
+                    <td>表名或子查询</td>
+                </tr>
+                                 <tr>
+                    <td>alias </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$alias　别名,第一参数不为数据时，必填　</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >limit</h3>
+            <input type="text"  id="limit" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> sql limit</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>num </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>多少数量</td>
+                </tr>
+                                 <tr>
+                    <td>offset </td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>偏移</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >lockInShareMode</h3>
+            <input type="text"  id="lockInShareMode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 共享锁</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >on</h3>
+            <input type="text"  id="on" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> on 条件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>condtions </td>
+                    <td>array</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>defLogic </td>
+                    <td>string</td>
+                    <td> AND </td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >orderby</h3>
+            <input type="text"  id="orderby" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 排序</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>order </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>//iddesc,array('iddesc','edesc'),array('id'=>'asc','time'=>'desc')</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >outerJoin</h3>
+            <input type="text"  id="outerJoin" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 外连接</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string/query</td>
+                    <td></td>
+                    <td>表名或子查询</td>
+                </tr>
+                                 <tr>
+                    <td>alias </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$alias　别名　</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >page</h3>
+            <input type="text"  id="page" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 分页</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>page </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>当前页</td>
+                </tr>
+                                 <tr>
+                    <td>size </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>大小</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >param</h3>
+            <input type="text"  id="param" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 增加参数绑定</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>p </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>v </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >reset</h3>
+            <input type="text"  id="reset" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 重置所有条件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：Query            </em>
+                    <h3 >rightJoin</h3>
+            <input type="text"  id="rightJoin" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 右连接</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>table </td>
+                    <td>string/query</td>
+                    <td></td>
+                    <td>表名或子查询</td>
+                </tr>
+                                 <tr>
+                    <td>alias </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$alias　别名　</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >select</h3>
+            <input type="text"  id="select" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 选择字段</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>fields </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >setCondition</h3>
+            <input type="text"  id="setCondition" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 设置sql条件,通用</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>字段名</td>
+                </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>值</td>
+                </tr>
+                                 <tr>
+                    <td>relation </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>关系>=,>等</td>
+                </tr>
+                                 <tr>
+                    <td>logic </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>逻辑关系andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >system</h3>
+            <input type="text"  id="system" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取当前对象所属的系统</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：system            </em>
+                    <h3 >toSQL</h3>
+            <input type="text"  id="toSQL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 组装生成sql</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >union</h3>
+            <input type="text"  id="union" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> union查询</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>query1 </td>
+                    <td>query</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>query2 </td>
+                    <td>query</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >useIndex</h3>
+            <input type="text"  id="useIndex" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >useKey</h3>
+            <input type="text"  id="useKey" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 使用索引</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>key </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>索引名</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >using</h3>
+            <input type="text"  id="using" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>field </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >whereEq</h3>
+            <input type="text"  id="whereEq" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件=</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置array(fld=>字段名,值,logic逻辑),</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereExists</h3>
+            <input type="text"  id="whereExists" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 子条件exists</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置array(val,logic),没有fld</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereFindInSet</h3>
+            <input type="text"  id="whereFindInSet" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >whereGroup</h3>
+            <input type="text"  id="whereGroup" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件组合</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>conditions </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件组array(array(fld,val,logic,relation),array(array(fld,val,logic,relation),array(fld,val,logic,relation)))</td>
+                </tr>
+                                 <tr>
+                    <td>logic </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组合逻辑</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereIn</h3>
+            <input type="text"  id="whereIn" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 	  条件 IN</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>fld,val:可以是数组或子查询</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>and/or</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >whereLike</h3>
+            <input type="text"  id="whereLike" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件like</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereMax</h3>
+            <input type="text"  id="whereMax" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件&gt;</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereMaxEq</h3>
+            <input type="text"  id="whereMaxEq" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件&gt;=</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereMin</h3>
+            <input type="text"  id="whereMin" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件&lt;</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereMinEq</h3>
+            <input type="text"  id="whereMinEq" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件&lt;=</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereNotEq</h3>
+            <input type="text"  id="whereNotEq" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 条件!=</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件andorxor</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+                    <h3 >whereNotExists</h3>
+            <input type="text"  id="whereNotExists" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 子条件not exists</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>flds </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>条件配置array(val,logic),没有fld,val必段为子查询query</td>
+                </tr>
+                                 <tr>
+                    <td>group </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>组条件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：query            </em>
+            </fieldset>
+    </body>
+</html>

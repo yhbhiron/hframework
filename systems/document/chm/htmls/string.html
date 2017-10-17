@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类string的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>string (<small>string</small>) </h1>
+    <em>
+    版本：1.0.0   作者：Hiron Jack  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 本类主要是提供字符串处理函数    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>$error = new error();
+  $error->showError('用户错误',2,1);</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="WriteCli" href="#WriteCli" style="color:green" >WriteCli</a></li>
+                        <li><a onclick="focusMethod(this)" for="addNotHasStrL" href="#addNotHasStrL" style="color:green" >addNotHasStrL</a></li>
+                        <li><a onclick="focusMethod(this)" for="addNotHasStrR" href="#addNotHasStrR" style="color:green" >addNotHasStrR</a></li>
+                        <li><a onclick="focusMethod(this)" for="addStrLR" href="#addStrLR" style="color:green" >addStrLR</a></li>
+                        <li><a onclick="focusMethod(this)" for="addStrR" href="#addStrR" style="color:green" >addStrR</a></li>
+                        <li><a onclick="focusMethod(this)" for="conv" href="#conv" style="color:green" >conv</a></li>
+                        <li><a onclick="focusMethod(this)" for="count" href="#count" style="color:green" >count</a></li>
+                        <li><a onclick="focusMethod(this)" for="def" href="#def" style="color:green" >def</a></li>
+                        <li><a onclick="focusMethod(this)" for="delimerClassName" href="#delimerClassName" style="color:green" >delimerClassName</a></li>
+                        <li><a onclick="focusMethod(this)" for="explode" href="#explode" style="color:green" >explode</a></li>
+                        <li><a onclick="focusMethod(this)" for="getClassName" href="#getClassName" style="color:green" >getClassName</a></li>
+                        <li><a onclick="focusMethod(this)" for="getClassPath" href="#getClassPath" style="color:green" >getClassPath</a></li>
+                        <li><a onclick="focusMethod(this)" for="haddslashes" href="#haddslashes" style="color:green" >haddslashes</a></li>
+                        <li><a onclick="focusMethod(this)" for="hencode" href="#hencode" style="color:green" >hencode</a></li>
+                        <li><a onclick="focusMethod(this)" for="ipToInt" href="#ipToInt" style="color:green" >ipToInt</a></li>
+                        <li><a onclick="focusMethod(this)" for="isSameText" href="#isSameText" style="color:green" >isSameText</a></li>
+                        <li><a onclick="focusMethod(this)" for="isUtf8" href="#isUtf8" style="color:green" >isUtf8</a></li>
+                        <li><a onclick="focusMethod(this)" for="left" href="#left" style="color:green" >left</a></li>
+                        <li><a onclick="focusMethod(this)" for="pinyinFirst" href="#pinyinFirst" style="color:green" >pinyinFirst</a></li>
+                        <li><a onclick="focusMethod(this)" for="randStr" href="#randStr" style="color:green" >randStr</a></li>
+                        <li><a onclick="focusMethod(this)" for="right" href="#right" style="color:green" >right</a></li>
+                        <li><a onclick="focusMethod(this)" for="saltEncode" href="#saltEncode" style="color:green" >saltEncode</a></li>
+                        <li><a onclick="focusMethod(this)" for="secho" href="#secho" style="color:green" >secho</a></li>
+                        <li><a onclick="focusMethod(this)" for="shaEncode" href="#shaEncode" style="color:green" >shaEncode</a></li>
+                        <li><a onclick="focusMethod(this)" for="striptags" href="#striptags" style="color:green" >striptags</a></li>
+                        <li><a onclick="focusMethod(this)" for="substr" href="#substr" style="color:green" >substr</a></li>
+                        <li><a onclick="focusMethod(this)" for="toSafeHtml" href="#toSafeHtml" style="color:green" >toSafeHtml</a></li>
+                    </ol>
+                    <h3 >WriteCli</h3>
+            <input type="text"  id="WriteCli" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 输出一段字符到cli控制台</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：否    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>text </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >addNotHasStrL</h3>
+            <input type="text"  id="addNotHasStrL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 添加不存的字符到指定字符的前面</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查找字符范围</td>
+                </tr>
+                                 <tr>
+                    <td>after </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查要追加的字符</td>
+                </tr>
+                                 <tr>
+                    <td>notStr </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>找不到时需要追加的字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 处理后的字符            </em>
+                    <h3 >addNotHasStrR</h3>
+            <input type="text"  id="addNotHasStrR" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 添加不存的字符到指定字符的后面	  如查找地址&amp;时，不存在加?,存在则</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查找字符范围</td>
+                </tr>
+                                 <tr>
+                    <td>after </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查要追加的字符</td>
+                </tr>
+                                 <tr>
+                    <td>notStr </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>找不到时需要追加的字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 处理后的字符            </em>
+                    <h3 >addStrLR</h3>
+            <input type="text"  id="addStrLR" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 给字符串两边加字符串</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要操作的字符串</td>
+                </tr>
+                                 <tr>
+                    <td>add </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>追加的字符串</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >addStrR</h3>
+            <input type="text"  id="addStrR" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>padstr </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >conv</h3>
+            <input type="text"  id="conv" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 转化数组或字符的编码</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>data </td>
+                    <td>array/string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>inCharset </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>输入字符集</td>
+                </tr>
+                                 <tr>
+                    <td>outCharset </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$outCharset　输出字符集</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：mixed            </em>
+                    <h3 >count</h3>
+            <input type="text"  id="count" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 返回字符串个数，适用于utf8字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>计算的字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：int 个数            </em>
+                    <h3 >def</h3>
+            <input type="text"  id="def" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 设置字符的默认值,当有$case参数时，如果$val!=$case则使用$def,默认为与空进行比较</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>val </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>查找的字符串</td>
+                </tr>
+                                 <tr>
+                    <td>def </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>黙认值</td>
+                </tr>
+                                 <tr>
+                    <td>case </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>比较值，可选</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >delimerClassName</h3>
+            <input type="text"  id="delimerClassName" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 把峰驼型类名转化成用分隔符分开的字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>className </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>类名</td>
+                </tr>
+                                 <tr>
+                    <td>delimer </td>
+                    <td>string</td>
+                    <td>_</td>
+                    <td>分隔符，可选，默认_</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >explode</h3>
+            <input type="text"  id="explode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 安全级的explode</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>delimer </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>分隔字符</td>
+                </tr>
+                                 <tr>
+                    <td>haystack </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要分隔的字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array;            </em>
+                    <h3 >getClassName</h3>
+            <input type="text"  id="getClassName" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 把带有.或下划线的字符变成abcAbc类型的类名</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>virtualName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>虚拟名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >getClassPath</h3>
+            <input type="text"  id="getClassPath" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个类名的可能路径</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>className </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array();            </em>
+                    <h3 >haddslashes</h3>
+            <input type="text"  id="haddslashes" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 转义gpc魔术引号</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>需要转义的字符</td>
+                </tr>
+                                 <tr>
+                    <td>force </td>
+                    <td>boolean</td>
+                    <td></td>
+                    <td>是否需要强制转化,如果没有开启魔术引号</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：转化后的字符            </em>
+                    <h3 >hencode</h3>
+            <input type="text"  id="hencode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >ipToInt</h3>
+            <input type="text"  id="ipToInt" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 把ip转换成整型</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>ip </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>ip地址字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isSameText</h3>
+            <input type="text"  id="isSameText" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 测试两个字符串是符相似</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>text1 </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>字符一</td>
+                </tr>
+                                 <tr>
+                    <td>text2 </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>符符二</td>
+                </tr>
+                                 <tr>
+                    <td>sameRate </td>
+                    <td>float</td>
+                    <td>0.8</td>
+                    <td>相似度</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：true/false            </em>
+                    <h3 >isUtf8</h3>
+            <input type="text"  id="isUtf8" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为utf8字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean            </em>
+                    <h3 >left</h3>
+            <input type="text"  id="left" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>len </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >pinyinFirst</h3>
+            <input type="text"  id="pinyinFirst" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>s0 </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >randStr</h3>
+            <input type="text"  id="randStr" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 随机字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>len </td>
+                    <td>未知</td>
+                    <td>11</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>string</td>
+                    <td>1</td>
+                    <td>字符类型：Mixed混合、Num-数字、Lower小写字母、Upper大写字符</td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$len字符长度</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 返回随机字符            </em>
+                    <h3 >right</h3>
+            <input type="text"  id="right" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>len </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >saltEncode</h3>
+            <input type="text"  id="saltEncode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> salt加密</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>pwd </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要加密的字符</td>
+                </tr>
+                                 <tr>
+                    <td>sec </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>密匙</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 加密后的字符            </em>
+                    <h3 >secho</h3>
+            <input type="text"  id="secho" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 根据平台输出字符换行</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >shaEncode</h3>
+            <input type="text"  id="shaEncode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> shal加密</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>pwd </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要加密的字符</td>
+                </tr>
+                                 <tr>
+                    <td>sec </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>密匙</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 加密后的字符            </em>
+                    <h3 >striptags</h3>
+            <input type="text"  id="striptags" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 却除html，包括空格</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>html </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>HTML代码</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >substr</h3>
+            <input type="text"  id="substr" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 从开始位置截取一段字符,用于utf8</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要处理的字符串</td>
+                </tr>
+                                 <tr>
+                    <td>len </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>长度</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>int</td>
+                    <td>1</td>
+                    <td>截取模式1宽度模式、2-个数模式,默认为宽度模式</td>
+                </tr>
+                                 <tr>
+                    <td>after </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$after截取后字符追加字符,可选</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 截取后的字符            </em>
+                    <h3 >toSafeHtml</h3>
+            <input type="text"  id="toSafeHtml" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 转换字符为html案全字符</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>str </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要转化的字符</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 转化后的字符            </em>
+            </fieldset>
+    </body>
+</html>

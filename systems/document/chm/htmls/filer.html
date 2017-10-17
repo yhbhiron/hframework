@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类filer的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>filer (<small>filer</small>) </h1>
+    <em>
+    版本：: 1.0.1   作者：: Hiron Jack  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	 本类主要是文件处理函数    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre>:</pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="copy" href="#copy" style="color:green" >copy</a></li>
+                        <li><a onclick="focusMethod(this)" for="copyDir" href="#copyDir" style="color:green" >copyDir</a></li>
+                        <li><a onclick="focusMethod(this)" for="deleteDir" href="#deleteDir" style="color:green" >deleteDir</a></li>
+                        <li><a onclick="focusMethod(this)" for="deleteFile" href="#deleteFile" style="color:green" >deleteFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="doHttpReq" href="#doHttpReq" style="color:green" >doHttpReq</a></li>
+                        <li><a onclick="focusMethod(this)" for="doHttpReqEx" href="#doHttpReqEx" style="color:green" >doHttpReqEx</a></li>
+                        <li><a onclick="focusMethod(this)" for="downloadFile" href="#downloadFile" style="color:green" >downloadFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="error" href="#error" style="color:gray" >error</a></li>
+                        <li><a onclick="focusMethod(this)" for="getFileName" href="#getFileName" style="color:green" >getFileName</a></li>
+                        <li><a onclick="focusMethod(this)" for="getFullURL" href="#getFullURL" style="color:green" >getFullURL</a></li>
+                        <li><a onclick="focusMethod(this)" for="getMimeExt" href="#getMimeExt" style="color:green" >getMimeExt</a></li>
+                        <li><a onclick="focusMethod(this)" for="getMimeType" href="#getMimeType" style="color:green" >getMimeType</a></li>
+                        <li><a onclick="focusMethod(this)" for="getVisitURL" href="#getVisitURL" style="color:green" >getVisitURL</a></li>
+                        <li><a onclick="focusMethod(this)" for="isFullPath" href="#isFullPath" style="color:green" >isFullPath</a></li>
+                        <li><a onclick="focusMethod(this)" for="isMineURL" href="#isMineURL" style="color:green" >isMineURL</a></li>
+                        <li><a onclick="focusMethod(this)" for="isRightMine" href="#isRightMine" style="color:gray" >isRightMine</a></li>
+                        <li><a onclick="focusMethod(this)" for="isWritable" href="#isWritable" style="color:green" >isWritable</a></li>
+                        <li><a onclick="focusMethod(this)" for="mkTimeDir" href="#mkTimeDir" style="color:green" >mkTimeDir</a></li>
+                        <li><a onclick="focusMethod(this)" for="mkTimeFile" href="#mkTimeFile" style="color:green" >mkTimeFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="mkdir" href="#mkdir" style="color:green" >mkdir</a></li>
+                        <li><a onclick="focusMethod(this)" for="move" href="#move" style="color:green" >move</a></li>
+                        <li><a onclick="focusMethod(this)" for="readFile" href="#readFile" style="color:green" >readFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="readFileLine" href="#readFileLine" style="color:green" >readFileLine</a></li>
+                        <li><a onclick="focusMethod(this)" for="realpath" href="#realpath" style="color:green" >realpath</a></li>
+                        <li><a onclick="focusMethod(this)" for="relativeHostPath" href="#relativeHostPath" style="color:green" >relativeHostPath</a></li>
+                        <li><a onclick="focusMethod(this)" for="relativePath" href="#relativePath" style="color:green" >relativePath</a></li>
+                        <li><a onclick="focusMethod(this)" for="saveVarsFile" href="#saveVarsFile" style="color:green" >saveVarsFile</a></li>
+                        <li><a onclick="focusMethod(this)" for="scandir" href="#scandir" style="color:green" >scandir</a></li>
+                        <li><a onclick="focusMethod(this)" for="upload" href="#upload" style="color:green" >upload</a></li>
+                        <li><a onclick="focusMethod(this)" for="uploadToRemote" href="#uploadToRemote" style="color:green" >uploadToRemote</a></li>
+                        <li><a onclick="focusMethod(this)" for="writeFile" href="#writeFile" style="color:green" >writeFile</a></li>
+                    </ol>
+                    <h3 >copy</h3>
+            <input type="text"  id="copy" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 复制一个文件到指定目标</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>from </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要移动的文件</td>
+                </tr>
+                                 <tr>
+                    <td>des </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>目标目录或文件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 新文件的相对路径            </em>
+                    <h3 >copyDir</h3>
+            <input type="text"  id="copyDir" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>复制目录</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>s </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>源目录</td>
+                </tr>
+                                 <tr>
+                    <td>d </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>目标目录</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >deleteDir</h3>
+            <input type="text"  id="deleteDir" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 删除文件夹</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dir </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>被删除的目录</td>
+                </tr>
+                                 <tr>
+                    <td>delSelf </td>
+                    <td>boolean</td>
+                    <td>1</td>
+                    <td>是否删除自己</td>
+                </tr>
+                                 <tr>
+                    <td>issub </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >deleteFile</h3>
+            <input type="text"  id="deleteFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >doHttpReq</h3>
+            <input type="text"  id="doHttpReq" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 读取或发送远程请求的文件,使用curl扩展库</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>url </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>请求地址</td>
+                </tr>
+                                 <tr>
+                    <td>method </td>
+                    <td>string</td>
+                    <td>get</td>
+                    <td>请求方式get,post</td>
+                </tr>
+                                 <tr>
+                    <td>param </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>请求参数，一般在post时使用</td>
+                </tr>
+                                 <tr>
+                    <td>wait </td>
+                    <td>未知</td>
+                    <td>10</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >doHttpReqEx</h3>
+            <input type="text"  id="doHttpReqEx" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>url </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>method </td>
+                    <td>未知</td>
+                    <td>get</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>param </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>return </td>
+                    <td>未知</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >downloadFile</h3>
+            <input type="text"  id="downloadFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 下载远程文件到服务器</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>removeFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>远程地址</td>
+                </tr>
+                                 <tr>
+                    <td>savePath </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>保存的文件</td>
+                </tr>
+                                 <tr>
+                    <td>newName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>设定新文件名，可选，不填时为随机数字名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >error</h3>
+            <input type="text"  id="error" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 显示文件操作消息</p>
+            <p><strong>访问类型</strong>：Protected</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>msg </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>错误消息</td>
+                </tr>
+                                 <tr>
+                    <td>level </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>错误级别</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getFileName</h3>
+            <input type="text"  id="getFileName" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个文件的文件名</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件完整路径</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getFullURL</h3>
+            <input type="text"  id="getFullURL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个相对地址的绝对地址</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>url </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>要解析的相对地址</td>
+                </tr>
+                                 <tr>
+                    <td>locateURL </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>当前着陆地址</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >getMimeExt</h3>
+            <input type="text"  id="getMimeExt" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取mime类型对应的扩展名</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>mime </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getMimeType</h3>
+            <input type="text"  id="getMimeType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取扩展名对应该mime类型</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>ext </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>扩展名小写</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string mime类型字符            </em>
+                    <h3 >getVisitURL</h3>
+            <input type="text"  id="getVisitURL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取一个地址的http访问地址</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dir </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string            </em>
+                    <h3 >isFullPath</h3>
+            <input type="text"  id="isFullPath" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isMineURL</h3>
+            <input type="text"  id="isMineURL" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 是否为自己的链接</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>url </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>链接地址</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean true/false            </em>
+                    <h3 >isRightMine</h3>
+            <input type="text"  id="isRightMine" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获断是否为正确的类型</p>
+            <p><strong>访问类型</strong>：Private</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>mime </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>match </td>
+                    <td>array</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >isWritable</h3>
+            <input type="text"  id="isWritable" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 文件或目录是否可写，解决is_writable问题</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：boolean            </em>
+                    <h3 >mkTimeDir</h3>
+            <input type="text"  id="mkTimeDir" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建时间文件夹</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dirname </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件夹名称</td>
+                </tr>
+                                 <tr>
+                    <td>parent </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>父目录</td>
+                </tr>
+                                 <tr>
+                    <td>string </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>返回创建后的目录路径</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >mkTimeFile</h3>
+            <input type="text"  id="mkTimeFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建一个时间文件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>fileName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件名称</td>
+                </tr>
+                                 <tr>
+                    <td>parent </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>存在路径</td>
+                </tr>
+                                 <tr>
+                    <td>pre </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件名前辍</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >mkdir</h3>
+            <input type="text"  id="mkdir" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dir </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >move</h3>
+            <input type="text"  id="move" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 移动一个文件到指定目标</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>from </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>需要移动的文件</td>
+                </tr>
+                                 <tr>
+                    <td>des </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>目标目录或文件</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：string 移动目录的相对路径            </em>
+                    <h3 >readFile</h3>
+            <input type="text"  id="readFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 读取文件</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>filename </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件名</td>
+                </tr>
+                                 <tr>
+                    <td>flags </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>读取</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >readFileLine</h3>
+            <input type="text"  id="readFileLine" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 按行来读取文件,并写到一个数组</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>filename </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件名</td>
+                </tr>
+                                 <tr>
+                    <td>callback </td>
+                    <td>callback</td>
+                    <td></td>
+                    <td>回调函数func($line行代码,$data数据列表)</td>
+                </tr>
+                                 <tr>
+                    <td>csv </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array            </em>
+                    <h3 >realpath</h3>
+            <input type="text"  id="realpath" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 格式化路径</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>load </td>
+                    <td>未知</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >relativeHostPath</h3>
+            <input type="text"  id="relativeHostPath" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取某路径相对于域名的网站目录</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>path </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>完整文件或目录路径</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >relativePath</h3>
+            <input type="text"  id="relativePath" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 获取某路径相对于网站某一目录的相对地址</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>path </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>完整文件或目录路径</td>
+                </tr>
+                                 <tr>
+                    <td>parent </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >saveVarsFile</h3>
+            <input type="text"  id="saveVarsFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 将变量直接保存到PHP文件,便于引用</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>varData </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>变量数据</td>
+                </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>保存的文件</td>
+                </tr>
+                                 <tr>
+                    <td>header </td>
+                    <td>array</td>
+                    <td></td>
+                    <td>文件头信息</td>
+                </tr>
+                                 <tr>
+                    <td>varName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>变量名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >scandir</h3>
+            <input type="text"  id="scandir" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 遍历文件目录,并可以运用回调函数处理</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>dir </td>
+                    <td>string</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>callback </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$callback($file)</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >upload</h3>
+            <input type="text"  id="upload" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong>上传文件，支持数组文件上传和单个文件上传</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>_file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件字段名称</td>
+                </tr>
+                                 <tr>
+                    <td>savePath </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>保存文件的路径</td>
+                </tr>
+                                 <tr>
+                    <td>newName </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>保存文件的新名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：array/string 上传后的路径地址或数组 array(old_name=>上传名称,save_path保存的路径)            </em>
+                    <h3 >uploadToRemote</h3>
+            <input type="text"  id="uploadToRemote" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 将文件上传到完程服务器</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>本地文件或远程地址</td>
+                </tr>
+                                 <tr>
+                    <td>removeURL </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>上传的目标地址</td>
+                </tr>
+                                 <tr>
+                    <td>name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>上传的file字段名称</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >writeFile</h3>
+            <input type="text"  id="writeFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 创建文件,使用file_put_contents函数写入</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>filename </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>文件名，必须为绝对路径</td>
+                </tr>
+                                 <tr>
+                    <td>data </td>
+                    <td>mixed</td>
+                    <td></td>
+                    <td>数据</td>
+                </tr>
+                                 <tr>
+                    <td>flags </td>
+                    <td>int</td>
+                    <td></td>
+                    <td>写入类型标型FILE_APPEND|LOCK_EX等参数</td>
+                </tr>
+                                 <tr>
+                    <td>context </td>
+                    <td>int</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+            </fieldset>
+    </body>
+</html>

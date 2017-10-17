@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类imgCtrol的相关文档说明</title>
+<style>
+body{}
+p{text-indent:24px;margin:2px 0;padding:0}
+table{background:#999}
+table td{background:#ffffff;padding:4px;}
+table th{background:#dddddd;color:#333333;padding:3px 0}
+h1,h2,h3,h4,h5{border-bottom:solid 1px #888888;padding-bottom:10px;}
+h2,h3,h4,h5{color:blue}
+pre{background:#eeeeee;padding:15px;font-size:14px;border:solid 1px #cccccc;display:block}
+em{font-size:12px;font-family:Arial, Helvetica, sans-serif;display:block;margin:4px 0;background:#EFEFEF;padding:8px;font-style:normal}
+img{margin:10px 0}
+fieldset{padding:15px;border:solid 1px #dddddd;margin:10px 0;font-size:13px;color:#222222;}
+fieldset legend{font-weight:bold}
+</style>
+<script>
+	function focusMethod(a){
+		var target 	 = a.getAttribute('for');
+		var tob = document.getElementById(target);
+		if(tob){
+			tob.focus();	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<h1>imgCtrol (<small>imgCtrol</small>) </h1>
+    <em>
+    版本：   作者：: Jack Brown  
+    抽象类：否    接口：否  
+     </em>
+    <fieldset>
+    	<legend>说明</legend>
+    	图片操作类    </fieldset>
+    <fieldset>
+    	<legend>依赖库</legend>
+    	<p><strong>父类:</strong>
+                <a href="?class="> </a>
+        </p>
+        <p><strong>接口:</strong> </p>
+        <p><strong>其它:</strong></p>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>使用示例</legend>
+    	<pre></pre>
+    </fieldset>
+    
+    <fieldset>
+    	<legend>相关方法</legend>
+    	        <ol>
+        	            <li><a onclick="focusMethod(this)" for="addWaterMark" href="#addWaterMark" style="color:green" >addWaterMark</a></li>
+                        <li><a onclick="focusMethod(this)" for="getImageType" href="#getImageType" style="color:green" >getImageType</a></li>
+                        <li><a onclick="focusMethod(this)" for="randCode" href="#randCode" style="color:green" >randCode</a></li>
+                        <li><a onclick="focusMethod(this)" for="resizeTo" href="#resizeTo" style="color:green" >resizeTo</a></li>
+                        <li><a onclick="focusMethod(this)" for="saveFile" href="#saveFile" style="color:green" >saveFile</a></li>
+                    </ol>
+                    <h3 >addWaterMark</h3>
+            <input type="text"  id="addWaterMark" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 给指定图片文件加个水印</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>file </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>图片文件路径</td>
+                </tr>
+                                 <tr>
+                    <td>wFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>水印文件路径,默认　/images/water.gif</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >getImageType</h3>
+            <input type="text"  id="getImageType" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>fileName </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >randCode</h3>
+            <input type="text"  id="randCode" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 验证码生成</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>name </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>session名称</td>
+                </tr>
+                                 <tr>
+                    <td>type </td>
+                    <td>int</td>
+                    <td>1</td>
+                    <td>生成类型1数字2大写字母3加法运算,默认1</td>
+                </tr>
+                                 <tr>
+                    <td>w </td>
+                    <td>int</td>
+                    <td>100</td>
+                    <td>宽度,默认100</td>
+                </tr>
+                                 <tr>
+                    <td>h </td>
+                    <td>int</td>
+                    <td>30</td>
+                    <td>高度,默认30</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >resizeTo</h3>
+            <input type="text"  id="resizeTo" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong> 重定义图片大小</p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>srcFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>源图片路径</td>
+                </tr>
+                                 <tr>
+                    <td>destFile </td>
+                    <td>string</td>
+                    <td></td>
+                    <td>另存为的图片路径</td>
+                </tr>
+                                 <tr>
+                    <td>width </td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>新宽度</td>
+                </tr>
+                                 <tr>
+                    <td>height </td>
+                    <td>未知</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>mode </td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>MODE_CUT剪切模式,MODE_SCALE等比缩放</td>
+                </tr>
+                                 <tr>
+                    <td>int </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td>$height　新高度</td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+                    <h3 >saveFile</h3>
+            <input type="text"  id="saveFile" style="border:none;" />
+            <em>
+            <p><strong>描述：</strong></p>
+            <p><strong>访问类型</strong>：Public</p>
+            <p><strong>静态方法</strong>：是    </p>
+            </em>
+            <fieldset>
+                <legend>参数列表</legend>
+                <table bgcolor="0" width="60%" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th>参数</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                        <th>描述</th>
+                    </tr>
+                                 <tr>
+                    <td>image </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>destFile </td>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                                 <tr>
+                    <td>saveType </td>
+                    <td>未知</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                                </table>
+            </fieldset>
+            <em>
+            	<strong>返回值</strong>：            </em>
+            </fieldset>
+    </body>
+</html>

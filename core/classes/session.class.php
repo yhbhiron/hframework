@@ -55,8 +55,6 @@ class session {
 			return $_SESSION[$name];
 		}
 		
-
-		var_dump(self::$sessDriver);
 		return self::$sessDriver->get($name);
 		
 	}

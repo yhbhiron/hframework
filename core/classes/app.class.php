@@ -252,8 +252,16 @@ class app extends model{
 			
 			website::debugAdd('运行应用'.$this->appName.';action:'.$this->curAct,$t);
 			if(website::$responseType == 'json' && $direct==true){
+			    
 			    httpd::setMimeType(website::$responseType);
+			    $default = array(
+			        'error'=>0,
+			        'msg'=>'ok'
+			    );
+			    
+			    $data = arrayObj::extend($data, $default);
 				die( json_encode($data) );
+				
 			}
 			
 			return $data;
@@ -492,9 +500,6 @@ class app extends model{
 				
 			});
 			
-			if($items == null){
-				return '';
-			}
 			
 			$fields = '';
 			$hasPost = false;
@@ -527,7 +532,7 @@ class app extends model{
 			}
 			
 			$act = arrayObj::getItem(arrayObj::getItem($this->getActURL(),$act),'url');
-			$form = '<form method="'.($hasPost ? 'post' : 'true').'" action="'.$act.'" '.($hasFile ? 'enctype="multipart/form-data"' : '').'>'
+			$form = '<form target="_blank" method="'.($hasPost ? 'post' : 'true').'" action="'.$act.'" '.($hasFile ? 'enctype="multipart/form-data"' : '').'>'
 			.$fields
 			.'<input type="submit" value="测试" />'
 			.'</form>';

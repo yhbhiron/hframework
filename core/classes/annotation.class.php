@@ -8,7 +8,7 @@
  * @version 1.0
  * @since 2017-01-24
  */
-class annotation extends model{
+class Annotation extends model{
 	
     /**
      * 实例化的对象

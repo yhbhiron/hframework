@@ -560,14 +560,14 @@ class website{
 			$path = substr($path,0,-3);
 		}
 		
-		$classDir = APP_PATH.'/apps/'.strtolower($path).'app.php';
+		$classDir = APP_PATH.'/apps/'.strtolower($path).'.app.php';
 		if(!self::loadAutoFile($classDir,'app_files')){
 			$files = StrObj::getClassPath($path);
 			foreach($files as $k=>$f){
 				
 				$classDir = APP_PATH.'/apps/'.$f.'.app.php';
 				if(self::loadAutoFile($classDir,'app_files')){
-					return;
+					return true;
 				}
 				
 			}

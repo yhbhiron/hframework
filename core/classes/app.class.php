@@ -559,7 +559,7 @@ class app extends model{
 			foreach($this->needAct as $k=>$act){
 				$act = strtolower(substr($act,6));
 				$urls[$act]['route_key'] = StrObj::delimerClassName($this->appName).'_'.$act;
-				$urls[$act]['url']   = website::$route ? website::$route->getURL($urls[$act]['route_key']) : '';
+				$urls[$act]['url']   = website::$route ? website::$route->getURL($urls[$act]['route_key'],$this->appName,$act) : '';
 				$urls[$act]['title'] = arrayObj::getItem($this->actTitle,$act); 
 			}
 

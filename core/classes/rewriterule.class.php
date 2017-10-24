@@ -67,6 +67,7 @@ class rewriteRule extends model{
 	 */
 	public function getURL($key=null){
 		
+		$args   = func_get_args();
 		if($key==null || !isset($this->cnfData[$key])){
 			$key = 'default';
 		}
@@ -76,7 +77,6 @@ class rewriteRule extends model{
 			return website::$url['host'].$key;
 		}
 		
-		$args   = func_get_args();
 		$route  = arrayObj::getItem($cfg,'uri_to');
 		
 		/**快速获取url_to的一个回调*/
@@ -87,10 +87,10 @@ class rewriteRule extends model{
 			
 			return arrayObj::getItem($route,$v);
 		});
-		
+			
 		$callback = $cfg['get_uri'];
 		return call_user_func_array($callback,$args);
-		
+			
 	}
 	
 	

@@ -536,11 +536,6 @@ class website{
 				return true;
 			}
 		}
-		
-		if( self::loadAppClass($clsName)){
-			return true;
-		}
-		
 
 		
 		return false;
@@ -881,6 +876,8 @@ class website{
 		$res == false  && $res = self::loadModuleBases($clsName,'class');
 		$res == false  && $res = self::loadModuleBases($clsName,'func');
 		$res == false && $res = self::loadModuleClasses($clsName);
+		$res == false && $res = self::loadAppClass($clsName);
+		
 		self::debugAdd('自动加载类:'.$clsName,$t);
 	}
 	
@@ -989,7 +986,7 @@ class website{
 		}
 		
 		website::debugAdd('查找模块类'.$name,$t);
-		return true;
+		return false;
 		
 	}
 	

@@ -914,7 +914,7 @@ class query extends model{
 	    $values = array();
 	    $fields = array();
 	    foreach($datas as $k=>$v){
-            $v = @mysql_escape_string($v);
+	        $v = StrObj::escape_string($v);
             $values[] = "'$v'";
             $fields[] = $this->formatKey($k);
 	    }
@@ -1033,7 +1033,7 @@ class query extends model{
 		}
 		
 		foreach($this->params as $p=>$v){
-			$sql = str_replace($p,@mysql_escape_string($v),$sql );
+		    $sql = str_replace($p,StrObj::escape_string($v),$sql );
 		}
 		
 		return $sql;

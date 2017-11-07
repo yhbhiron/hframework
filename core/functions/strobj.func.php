@@ -731,6 +731,10 @@ class StrObj{
 	
 	
     public static function escape_string($str){
+        
+        if(function_exists('mysql_escape_string')){
+            return mysql_escape_string($str);
+        }
 
         if (function_exists('mb_ereg_replace'))
         {

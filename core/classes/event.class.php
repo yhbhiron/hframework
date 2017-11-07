@@ -140,7 +140,7 @@ class event extends model{
 		
 		Queue::factory()->enter(
 			'
-				$actStr = \''.unserialze($class).'\';
+				$actStr = \''.unserialize($class).'\';
 				$act = @unserialzie($actStr);
 				$act->run();
 			'

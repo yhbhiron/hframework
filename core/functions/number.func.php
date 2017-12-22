@@ -8,7 +8,7 @@
  */
 
 
-class number{
+class Number{
 	
 	
 	/**

@@ -5,7 +5,7 @@
  * @since 2016.07.22
  * @version 1.0.0
  */
-abstract class queue extends  model{
+abstract class Queue extends  Model{
 	
 	public static $default = 'db';
 	

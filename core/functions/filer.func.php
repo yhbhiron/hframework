@@ -10,7 +10,7 @@ if(!defined('IN_WEB')){
  * @example:
  */
 
-class filer{
+class Filer{
 	
 	/**允许上传的文件格式*/
 	public static $allowFormat = array('jpg','jpeg','png','gif');
@@ -710,6 +710,53 @@ class filer{
 	
 	
 	/**
+	 * 下载源文件，并保存与源同样路径的目录和文件名
+	 * @param string $remote 远程文件路径
+	 * @param string $base 远程相对根目录
+	 * @param string $savePath 本地保存路径
+	 * @param callback $codeCallback 代码回调函数
+	 * @return boolen 是否成功
+	 */
+	public static function downloadSource($remote,$base,$savePath,$codeCallback=null){
+	    
+	    if(is_dir($savePath) == false || !Validate::isURL($remote)){
+	        return false;
+	    }
+	    
+	    $http = new HttpRequest($remote);
+	    $code = $http->get();
+	    is_callable($codeCallback) && $code = call_user_func($codeCallback,$code,$remote,$base,$savePath);
+	    $dirs = substr($remote,strlen(trim($base.'/','/') ) );
+	    $dirArr = StrObj::explode('/',$dirs);
+	    if($dirArr == null){
+	        return false;
+	    }
+	    
+	    $targetDir = $savePath;
+	    $len = count($dirArr)-1;
+	    foreach($dirArr as $k=>$dir){
+	        
+	        if(trim($dir,'/')==''){
+	            continue;
+	        }
+	        
+	        $targetDir = $targetDir .'/'.$dir;
+	        if($k < $len && !is_dir($targetDir)){
+	            @mkdir($targetDir);
+	        }
+	        
+	        if($k>=$len){
+	            @file_put_contents($targetDir, $code);
+	            break;
+	        }
+	        
+	    }
+	        
+	   return true;         
+	}
+	
+	
+	/**
 	 * 获取某路径相对于某一目录的相对地址
 	 * @param string $path 完整文件或目录路径
 	 * @param string $parent 相对于的父路径，默认为APP_PATH
@@ -933,7 +980,7 @@ class filer{
 		if(@copy($from,$des)  && self::$apiMode == false){
 			website::doEvent('file.oncopy',array(self::relativePath($from,WEB_ROOT),self::relativePath($des,WEB_ROOT)));
 		}
-		return realpath($des);
+		return self::realpath($des);
 	}	
 	
 	
@@ -1008,7 +1055,14 @@ class filer{
 		
 		$Urlinfo = parse_url($locateURL);
 		$info = explode('/',$url);
-		$info2 = explode('/',arrayObj::getItem($Urlinfo,'path'));
+		$path = trim(arrayObj::getItem($Urlinfo,'path'),'/');
+		$info2 = explode('/',$path);
+		$dirLast = count($info2)-1;
+		if(strstr($info2[$dirLast],'.')){
+		    unset($info2[$dirLast]);
+		}
+		
+		
 		$afterQuery = substr($url,0,1) == '?';
 			
 		if(substr($url,0,1) == '/'){
@@ -1025,13 +1079,13 @@ class filer{
 		if($info!=null){
 			foreach($info as $k=>$f){
 				
-				if($f == '..' && count($info2)>3){
+				if($f == '..' && count($info2)>=1){
 					array_pop($info2);
 				}
 			}
 		}
 			
-		return $Urlinfo['scheme'].'://'.rtrim($Urlinfo['host'],'/').'/'.ltrim(implode('/',$info2),'/').( $afterQuery ? '' : '/') .ltrim($url,'./');			
+		return $Urlinfo['scheme'].'://'.trim($Urlinfo['host'],'/').'/'.trim(implode('/',$info2),'/').( $afterQuery ? '' : '/') .ltrim($url,'./');			
 	
 	}
 	

@@ -5,7 +5,7 @@
  * @author yhb
  * @since 2016-05-26
  */
-abstract class service extends model{
+abstract class Service extends Model{
 	
 	/**模型名称*/
 	protected $name = '';

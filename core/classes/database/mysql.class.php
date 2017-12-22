@@ -144,6 +144,8 @@ class dataBaseMysql extends db{
 	        website::doEvent('database.mysql.delete',$params);
 	    }else if($qtype == self::UPDATE){
 	        website::doEvent('database.mysql.update',$params);
+	    }else if($qtype == self::SELECT){
+	        website::doEvent('database.mysql.select',$params);
 	    }
 	    
 	    
@@ -382,7 +384,7 @@ class dataBaseMysql extends db{
 				
 				$eachData = '';
 				foreach($row as $key=>$value){
-					$eachData .= is_null($value) ? 'NULL,' : "'".@mysql_real_escape_string($value)."',";
+					$eachData .= is_null($value) ? 'NULL,' : "'".StrObj::escape_string($value)."',";
 				}
 				
 				$eachData = substr($eachData,0,-1);

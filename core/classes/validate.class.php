@@ -9,7 +9,7 @@ if(!defined('IN_WEB')){
  * @author Jack Hiron
  * @version 1.0
  */
- class validate{
+ class Validate{
  	
  	/**
  	 * 判断是否为空

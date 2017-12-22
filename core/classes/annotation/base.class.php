@@ -3,7 +3,7 @@
  * 注解的相关实现基类函数
  * @author yhb
  */
-abstract class annotationBase extends model {
+abstract class AnnotationBase extends Model {
 	
 	/**
 	 * 源类

@@ -9,7 +9,7 @@ if(!defined('IN_WEB')){
  * @version 1.0.0
  * @since 2016-4-10
  */
-class request extends model{
+class Request extends Model{
 	
 	/**get数据*/
 	protected static $get = array();

@@ -64,6 +64,16 @@ class ORM extends model{
 	/**数据驱动支持列表*/
 	protected $supportDbDriver = array('mysql');
 	
+	/**
+	 * 更新时间属性名称
+	 */
+	protected $updateTimeAttrName = '';
+	
+	/**
+	 * 添加时间属性名称
+	 */
+	protected $addTimeAttrName = '';
+	
 	
 	/**
 	 * 构造
@@ -75,7 +85,7 @@ class ORM extends model{
 		/**模型中不能通过构造指定*/
 		if($isModel){
 			$this->modTable = $this->modTable!='' ? $this->modTable : substr(get_class($this),0,-5);
-			$this->modVal = func_get_arg(0);
+			$this->modVal = @func_get_arg(0);
 		}else{
 			$this->modTable = $mod!='' ? $mod : ($this->modTable!='' ? $this->modTable : substr(get_class($this),0,-5));
 			$this->modKey   = $key!='' ? $key : $this->modKey;
@@ -96,9 +106,7 @@ class ORM extends model{
 	public static function factory($model,$value='',$key=null){
 		
 		$className = StrObj::getClassName($model).'Model';
-		!class_exists($className,false) && website::loadClass('models.'.$model);
-		  
-		if(!class_exists($className,false)){
+		if(!class_exists($className)){
 			return new static($model,$value,$key);
 		}
 		
@@ -218,11 +226,12 @@ class ORM extends model{
 		
 		$flds = $this->db->getTableFields($this->modTable);
 		$info = $flds[$this->modKey];
+		$val = '';
 		if($info['Key'] == 'PRI'){
-			return $this->{$this->modKey} = $this->db->lastInsertID();
+		    $val =  $this->modVal = $this->{$this->modKey} = $this->db->lastInsertID();
 		}
 		
-		return $this->{$this->modKey};
+		return $val;
 		
 	}
 	
@@ -285,7 +294,7 @@ class ORM extends model{
 			}
 			
 			if(arrayObj::getItem($valid,'max_length')!=null && strlen($v)>$valid['max_length']){
-				$this->error($label.$k.'='.htmlspecialchars($v).'不能超过'.$valid['max_lenth']);
+				$this->error($label.$k.'='.htmlspecialchars($v).'不能超过'.$valid['max_length']);
 				return false;
 			}
 					
@@ -538,9 +547,14 @@ class ORM extends model{
 			}
 		}
 		
+		if($this->updateTimeAttrName!='' && !isset($item[$this->updateTimeAttrName])){
+	          $item[$this->updateTimeAttrName] = time();
+	    }
+		
 		if($this->_valid($item,true) == false){
 			return false;
-		}		
+		}
+		
 		
 		unset($item[$this->modKey]);
 		$res = query::factory()->update($item)->from($this->modTable)->whereEq(array(
@@ -569,13 +583,16 @@ class ORM extends model{
 			return false;
 		}
 		
+		if($this->addTimeAttrName!='' && !isset($item[$this->addTimeAttrName])){
+		    $item[$this->addTimeAttrName] = time();
+		}
 		
 		if(!$this->_valid($item)){
 			return false;
 		}
 		
 		
-		/**如果设置了属性，刚更新属性*/
+		/**如果设置了属性，则更新属性*/
 		foreach($this->modItems as $k=>$fld){
 			if(isset($this->$fld) &&  !isset($item[$fld])){
 				$item[$fld] = $this->$fld;
@@ -586,10 +603,11 @@ class ORM extends model{
 		$res =  query::factory()->insert($this->modTable,$item)->execute($this->db);
 		if($res){
 			$this->setAttr($item);
+			$this->loaded = true;
+			$this->finded = true;
 		}
 		
 		$this->setModKeyVal();
-		
 		return $res;
 	}
 	
@@ -616,6 +634,28 @@ class ORM extends model{
 	 */
 	public function getChanged(){
 		return $this->changedDatas;		
+	}
+	
+	
+	/**
+	 * 将数组转化为对象
+	 * @param array $attrs 对象中的元素key=>value
+	 * @return self
+	 */
+	public static function attatch(array $attrs){
+	    
+	    $model = new static();
+	    if( ($diff = array_diff(array_keys($attrs),$model->modItems)) !=null){
+	        $model->error('加载的数组中与模型的字段不完全匹配:'.json_encode($diff));
+	        return $model;
+	    }
+	    
+	    $model->setAttr($attrs);
+	    $model->loaded = true;
+	    $model->finded = true;
+	    
+	    
+	    return $model;
 	}
 	
 	

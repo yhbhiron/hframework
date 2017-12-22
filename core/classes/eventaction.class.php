@@ -3,7 +3,7 @@ if(!defined('IN_WEB')){
 	exit;
 }
 
-abstract class eventAction extends model{
+abstract class EventAction extends Model{
 	
 	/**
 	 * 常量状态开启
@@ -37,8 +37,17 @@ abstract class eventAction extends model{
 	 * 构造
 	 * @param event $executor
 	 */
-	public function __construct($executor){
+	public function __construct(Event $executor){
 		$this->executor = $executor;
+	}
+	
+	
+	/**
+	 * 更新当前执行对象
+	 * @param Event $class
+	 */
+	public function setExecutor(Event $class){
+	    $this->executor = $class;
 	}
 	
 	

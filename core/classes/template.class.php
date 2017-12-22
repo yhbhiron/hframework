@@ -24,7 +24,7 @@ $t->assign('body','<h1> This is my body</h1>');
 $t->assign('my',array('name'=>'yhb'));
 $t->display('test.html');
 **/
-class template{
+class Template{
 	
 	/**左分隔符**/
 	protected $leftSpe	= '';
@@ -89,6 +89,12 @@ class template{
 	
 	/**当前编译文件**/
 	protected $curCompFile = '';
+	
+	/**
+	 * 去除html注释
+	 * @var boolean
+	 */
+	public $stripComment = true;
 	
 	
 	/**
@@ -727,9 +733,9 @@ class template{
 	protected function tidyCode($code){
 		
 		$code = preg_replace('/\?>\s*<\?php/i',"\r\n",$code);
-		$code = preg_replace('/<!--[^>]+-->/i','',$code);
+		$this->stripComment == true && $code = preg_replace('/<!--[^>]+-->/i','',$code);
 		
-		if(website::$env == 'online'){
+		if(Website::$env == Website::ENV_PROD){
 			$code =$this->compress($code);
 		}
 		

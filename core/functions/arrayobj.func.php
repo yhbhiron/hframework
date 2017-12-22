@@ -7,7 +7,7 @@
  * @version 1.0.0
  * @example:
  */	
-	class arrayObj{
+	class ArrayObj{
 		
 		/**
 		 * 查找一个数组是否为别一数组的子集
@@ -135,8 +135,11 @@
 		
 		/**
 		 * 获取一个数组中的某元素，不存在返回默认值
+		 * @example
+		 * arrayObj::getItem($a,'a');
+		 * arrayObj::getItem($a,array('a','b','c') );
 		 * @param array $arr 数组
-		 * @param string $key 键名
+		 * @param string/array $key 键名 ，可以使用数据获取数组下边的所有键
 		 * @param mixed $def  不存时的,默认值
 		 * @return mixed 
 		 */
@@ -144,6 +147,19 @@
 			
 			if(!is_array($arr)){
 				return $def!=null ? $def : $arr;
+			}
+			
+			if(is_array($key)){
+			    $last = $arr;
+			    foreach($key as $k){
+			        if(!isset($last[$k])){
+			            return $def;
+			        }else{
+			            $last = $last[$k];
+			        }
+			    }
+			    
+			    return $last;
 			}
 			
 			return !isset($arr[$key]) ? $def : $arr[$key];

@@ -7,7 +7,7 @@
  * @author Jack Hiron
  *
  */
-class cacheDb extends superCache{
+class CacheDb extends superCache{
 	
 	/**配置**/
 	protected $cacheConfig = array();

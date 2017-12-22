@@ -8,7 +8,7 @@ if(!defined('IN_WEB')){
  * @version 2.0.1
  * @since 2016
  */
-class event extends model{
+class Event extends Model{
 	
 	
 	/**事件使用的参数**/
@@ -65,6 +65,11 @@ class event extends model{
 		}
 		
 		if(isset(self::$loadedEvents[$this->name])){
+		    
+		    foreach(self::$loadedEvents[$this->name] as $k=>&$event){
+		        $event['event']->setExecutor($this);
+		    }
+		    
 			return self::$loadedEvents[$this->name];
 		}
 		

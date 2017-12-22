@@ -17,24 +17,19 @@ if(!defined('IN_WEB')){
  */
 return array (
 
-  'default'=>array(
-	'sort'=>'-1',
-	'from_uri'=>'([a-z_]+)_([a-z]+)\/?',
-	'get_uri'=>function($callback,$key,$params=array()){
-		
-		if($key!=null){
-			
-			$key = preg_replace('/(?<=[^A-Z])([A-Z])/',' $1',$key);
-			$list = array_map(function($v){ return trim(strtolower($v),'_'); },preg_split('/ /',$key));
-			
-			return website::$route->buildUrlParams(website::$url['host'].implode('_',$list),$params);
-			
-		}else{
-			return website::$route->buildUrlParams(website::$url['host'].$key,$params);
-		}
-	
-		
-	}
-  ),   
+    'default' => array(
+        'sort' => '-1',
+        'from_uri' =>array('([a-z]+)_([a-z_]+)\/?','([a-z]+)\/?'),
+        'get_uri' => function ($callback, $key, $act,$app,$params = array()) {
+        
+        $key = preg_replace('/(?<=[^A-Z])([A-Z])/', ' $1', $key);
+        $list = array_map(function ($v) {
+            return trim(strtolower($v), '_');
+        }, preg_split('/ /', $key));
+            
+            return website::$route->buildUrlParams(website::$url['host'] . implode('_', $list), $params);
+        }
+        
+    ),
 ) ;
 ?>

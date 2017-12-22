@@ -6,7 +6,7 @@
  * @since 2015
  *
  */
-class httpd{
+class Httpd{
 	
 	protected static $headerSended = false;
 

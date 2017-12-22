@@ -7,7 +7,7 @@
  * @example:
  */
 
-class menu extends ORM{
+class Menu extends ORM{
 
 	/**直接父类的字段名**/
 	protected  $fkey     = 'father';
@@ -17,6 +17,10 @@ class menu extends ORM{
 	
 	/**相关模型表**/
 	protected  $mtable  =  'memu';
+	
+	const TYPE_OBJECT = 1;
+	
+	const TYPE_ASSOC = 2;
 	
 	
 	/**
@@ -34,7 +38,7 @@ class menu extends ORM{
 	 * 菜单下的所有子类
 	 * @return array 子菜单数组
 	 */
-	public function getChildren($all=false){
+	public function getChildren($all=false,$type=self::TYPE_ASSOC){
 
 		if($this->id<=0){
 			return false;
@@ -42,8 +46,8 @@ class menu extends ORM{
 		
 		if(!$all){
 		    
-		    $q = new query();
-			$chs = $q->select(array($this->modKey))->from($this->tableName())->whereEq(
+		    $q = new Query();
+			$chs = $q->from($this->tableName())->whereEq(
 				array(
 				  array($this->fkey,$this->id)       
 				)        
@@ -51,8 +55,8 @@ class menu extends ORM{
 			
 		}else{
 		    
-		    $q = new query();
-		    $chs = $q->select(array($this->modKey))->from($this->tableName())->whereFindInSet(
+		    $q = new Query();
+		    $chs = $q->from($this->tableName())->whereFindInSet(
 		            array(
 		                array($this->afkey,$this->id)
 		            )
@@ -60,10 +64,12 @@ class menu extends ORM{
 		    
 		}
 		
-		if($chs!=null){
-			foreach($chs as $k=>$ch){
-				$chs[$k] = new menu($ch);
-			}
+		if($type == self::TYPE_OBJECT){
+    		if($chs!=null){
+    			foreach($chs as $k=>$ch){
+    				$chs[$k] = new menu($ch);
+    			}
+    		}
 		}
 		
 		return $chs;

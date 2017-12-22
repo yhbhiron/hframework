@@ -87,6 +87,8 @@ return array(
 	
     /**系统默认数据库**/
 	'def_db'=>'hiron',
+    
+    'php_bin_path'=>'/usr/soft/php5.5.38/bin/php',
 
 );
 

@@ -4,7 +4,7 @@
  * @desc 不存在的方法则调用反射类的方法
  * @author Administrator
  */
-class reflectorExt extends model {
+class ReflectorExt extends Model {
 	
 	/**
 	 * 代理反射 类

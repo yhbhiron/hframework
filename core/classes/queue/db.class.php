@@ -40,10 +40,16 @@ class queueDb extends queue{
 	public  function listen(){
 	
 		$table = ORM::factory(self::$model)->tableName();
-		db::instance()->start();
-		db::instance()->query('SET @update_id:=0');
-		db::instance()->update($table,array('status'=>2,'id'=>'(select @update_id:=id)'),"status=1",false,1);
-		$id = arrayObj::getItem(db::instance()->getResArray('select @update_id',true),'@update_id');
+		$db = DB::instance();
+		$db->start();
+		$db->query('SET @update_id:=0');
+		Query::factory()->update(array('status'=>2,'id'=>'`(select @update_id:=id)`'))
+		->from($table)
+		->whereEq(array(
+		    array('status','1')
+		))->limit(1)->execute($db);
+		
+		$id = arrayObj::getItem($db->getResArray('select @update_id',true),'@update_id');
 		if($id<=0){
 			return;
 		}
@@ -62,8 +68,7 @@ class queueDb extends queue{
 		}
 
 		$model->remove();
-		
-		db::instance()->commit();
+		$db->commit();
 		if($q != null){
 			$this->execute($model);
 		}

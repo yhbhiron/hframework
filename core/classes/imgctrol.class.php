@@ -5,7 +5,7 @@
 @copyright: from online
 @since 2013-12-27
  */
-class imgCtrol{
+class ImgCtrol{
 	const SAVE_PNG = 0;
 	const SAVE_JPG = 1;
 	const SAVE_GIF = 2;

@@ -10,7 +10,7 @@ if(!defined('IN_WEB')){
 @example
 
 */
-class search{
+class Search{
 	
 	/**排序,字段键值=>排序类型*/
 	protected $order = array();

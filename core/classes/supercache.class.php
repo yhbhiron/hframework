@@ -14,7 +14,7 @@ print_r($c->read('info'));
 //$c->listen();
 //$c->clear($sql);
 **/
-abstract class superCache extends model{
+abstract class SuperCache extends Model{
 	
 	protected  $config;
 	

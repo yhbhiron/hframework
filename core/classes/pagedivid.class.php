@@ -5,7 +5,7 @@
 @time:2016-6-2
 @version:2.1.1
 */
-class pageDivid extends model{
+class PageDivid extends Model{
 	
 	/**数据源类型,sql查询语句,array数据*/
 	private $sourceType = 'array';
@@ -71,6 +71,9 @@ class pageDivid extends model{
 	
 	/**
 	 * 组建分页，并返回分页后的数据
+	 * 获取分类的参数
+	 * pageDivide->pageParam属性
+	 * 
 	 * @param boolean $link是否返回查询资源,默认false
 	 * @return mixed 如果$link为true时刚返回查询的资源，false时返回数组
 	 */
@@ -99,6 +102,7 @@ class pageDivid extends model{
 		$this->pageParam['firstpage'] = arrayObj::getItem($links,'first_page');
 		$this->pageParam['lastpage']  = arrayObj::getItem($links,'last_page');
 		$this->pageParam['recordsum'] =$resSum;	
+		$this->pageParam['area'] = $resArea;
 		
 		return $resource;
 		
@@ -217,14 +221,23 @@ class pageDivid extends model{
 	**/
 	protected function getResArea(){
 		
-	
+	    $number = array();
 		if($this->resCount>0 && $this->resCount % $this->pageSize==0 || ($this->curPage-1)*$this->pageSize+1+$this->pageSize<=$this->resCount){
-			$number=(($this->curPage-1)*$this->pageSize+1)." - " .($this->pageSize*$this->curPage);
-			$number=$this->pageSize == 1 ? ($this->pageSize*$this->curPage):(($this->curPage-1)*$this->pageSize+1)." - " .($this->pageSize*$this->curPage);
+			$number['start'] = (($this->curPage-1)*$this->pageSize+1);
+			$number['end'] = $this->pageSize*$this->curPage;
+			if($this->pageSize == 1){
+			    $number['end'] = 0;
+			}
 		}
 		else if(($this->curPage-1)*$this->pageSize+1+$this->pageSize > $this->resCount)
 		{
-			$number=$this->resCount % $this->pageSize >1 ? (($this->curPage-1)*$this->pageSize+1)." - ".$this->resCount : $this->resCount;
+			if($this->resCount % $this->pageSize >1){
+			    $number['start'] =  (($this->curPage-1)*$this->pageSize+1);
+			    $number['end'] = $this->resCount; 
+			}else{
+			    $number['start'] = $this->resCount;
+			    $number['end'] = 0;
+			}
 		}
 		
 		return $number;

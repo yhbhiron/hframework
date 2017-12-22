@@ -46,7 +46,7 @@ $query->union($a,$b)->distinct()->select(array('id','name'))->from('user')->useI
 	array('fld'=>'c','val'=>':d','logic'=>query::COND_AND),
 ),query::COND_AND)->param(':b',"xxsfd'")->having('a','>=',3);
 */
-class query extends model{
+class Query extends Model{
 	
 	Const COND_OR  = ' OR ';
 	Const COND_AND = ' AND ';
@@ -717,8 +717,13 @@ class query extends model{
 		if($table instanceof query){
 			$this->sql['join'][] = array('table'=>'('.$table->toSQL().') as '.$alias,'type'=>'left');
 		}else if(is_string($table)){
-			$this->sql['join'][] =  array('table'=>$table. ' as '.StrObj::def($alias,$table),'type'=>'left');
+		    $this->sql['join'][] =  array('table'=>$this->formatKey($table,true). ' as '.StrObj::def($alias,$table),'type'=>'left');
 		}else if(validate::isNotEmpty($table,true) == true){
+		    
+		    foreach($table as $k=>$t){
+		        $table[$k] = $this->formatKey($t);
+		    }
+		    
 			$this->sql['join'][] = array('table'=>'('.implode(',',$table).')','type'=>'left');
 		}
 		
@@ -739,6 +744,11 @@ class query extends model{
 		}else if(is_string($table)){
 			$this->sql['join'][] =  array('table'=>$table. ' as '.StrObj::def($alias,$table),'type'=>'right');
 		}else if(validate::isNotEmpty($table,true) == true){
+		    
+		    foreach($table as $k=>$t){
+		        $table[$k] = $this->formatKey($t);
+		    }
+		    
 			$this->sql['join'][] = array('table'=>'('.implode(',',$table).')','type'=>'right');
 		}		
 		return $this;
@@ -758,8 +768,13 @@ class query extends model{
 		if($table instanceof query){
 			$this->sql['join'][] = array('table'=>'('.$table->toSQL().') as '.$alias,'type'=>'inner');
 		}else if(is_string($table)){
-			$this->sql['join'][] =  array('table'=>$table. ' as '.StrObj::def($alias,$table),'type'=>'inner');
+		    $this->sql['join'][] =  array('table'=>$this->formatKey($table). ' as '.StrObj::def($alias,$table),'type'=>'inner');
 		}else if(validate::isNotEmpty($table,true) == true){
+		    
+		    foreach($table as $k=>$t){
+		        $table[$k] = $this->formatKey($t);
+		    }
+		    
 			$this->sql['join'][] = array('table'=>'('.implode(',',$table).')','type'=>'inner');
 		}		
 		return $this;		
@@ -775,10 +790,15 @@ class query extends model{
 	public function outerJoin($table,$alias=null){
 		
 		if($table instanceof query){
-			$this->sql['join'][] = array('table'=>'('.$table->toSQL().') as '.$alias,'type'=>'right');
+			$this->sql['join'][] = array('table'=>'('.$table->toSQL().') as '.$alias,'type'=>'outer');
 		}else if(is_string($table)){
-			$this->sql['join'][] =  array('table'=>$table. ' as '.StrObj::def($alias,$table),'type'=>'right');
+		    $this->sql['join'][] =  array('table'=>$this->formatKey($table,true). ' as '.StrObj::def($alias,$table),'type'=>'outer');
 		}else if(validate::isNotEmpty($table,true) == true){
+		    
+		    foreach($table as $k=>$t){
+		        $table[$k] = $this->formatKey($t);
+		    }
+		    
 			$this->sql['join'][] = array('table'=>'('.implode(',',$table).')','type'=>'outer');
 		}	
 			
@@ -799,7 +819,7 @@ class query extends model{
 	
 	/**
 	 * on 条件
-	 * @param array $condtions
+	 * @param array $condtions array( array(v1,`v2`/'v2'字段或值,Logic逻辑,'whereFunction方法'),...条件2)
 	 * @param string $defLogic
 	 * @return query
 	 */

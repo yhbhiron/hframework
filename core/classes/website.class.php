@@ -14,7 +14,7 @@ if(!defined('IN_WEB')){
  * website::log('xxx','error');
  */
 
-class website{
+class Website{
 	
 	/**
 	 * 站点地址信息
@@ -1131,7 +1131,7 @@ class website{
 	 * @param string $str 日志内容
 	 * @param string $type 日志类别，由用户订义
 	 */
-	public static function log($str,$type){
+	public static function log($str,$type,$items=array()){
 		
 		if(!self::$config['logs']){
 			return;
@@ -1154,6 +1154,12 @@ class website{
 		$logStr['session'] = $_SESSION;
 		$logStr['request'] = request::req();
 		$logStr['server'] = $_SERVER;
+		if($items!=null){
+		    $logStr = ArrayObj::getExistsItem($logStr, $items);
+		    if($logStr == null){
+		        return false;
+		    }
+		}
 			
 		if(self::$config['logs_type'] == 1){
 			

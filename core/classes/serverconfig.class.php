@@ -1,5 +1,5 @@
 <?php !defined('IN_WEB') && exit('Access Deny!');
-class serverConfig extends model{
+class ServerConfig extends Model{
 	
 	protected  $cfgList = array();
 	

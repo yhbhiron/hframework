@@ -4,7 +4,7 @@ if(!defined('IN_WEB')){
 	exit;
 }
 
-class reader{
+class Reader{
 	
 	
 	/**

@@ -1,5 +1,5 @@
 <?php
-class httpRequest extends model{
+class HttpRequest extends model{
 	
 	protected $curl = '';
 	

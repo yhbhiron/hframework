@@ -5,7 +5,7 @@
  * @author yhb
  *
  */
-class session {
+class Session {
 	
 	protected static $sessDriver;
 	

@@ -2,7 +2,7 @@
 if(!defined('IN_WEB')){
 	exit;
 }
-class model{
+class Model{
 	
 	/**
 	 * 代理类的对象,如果要使用aop相关的

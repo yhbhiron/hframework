@@ -2,7 +2,7 @@
 if(!defined('IN_WEB')){
 	exit;
 }
-class callback{
+class Callback{
 
 	/**
 	 * 事件排序回调函数

@@ -30,7 +30,7 @@
 		
  * */
  
-class system{
+class System{
 	
 	/**系统基路径*/
 	public $sysBaseDir = '';
@@ -358,7 +358,7 @@ class system{
 		
 		@include($clsPath);
 		
-		property_exists($clsName,'_system') && $clsName::$_system[$clsName] = $this;
+		property_exists($clsName,'_system') && $clsName::$_system[strtolower($clsName)] = $this;
 		website::debugAdd('加载模块类'.$clsName,$t);
 		
 		return true;
@@ -380,7 +380,7 @@ class system{
 		}
 		
 		@include($clsPath);
-		$clsName::$_system[$clsName] = $this;
+		$clsName::$_system[strtolower($clsName)] = $this;
 		website::debugAdd('加载模块助手函数'.$clsName,$t);
 		
 		return true;

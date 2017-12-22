@@ -10,7 +10,7 @@ if(!defined('IN_WEB')){
  * @version: 1.0.2
  * @example:
  */
-class rewriteRule extends model{
+class RewriteRule extends Model{
 	
 	
 	/**重写配置数据**/
@@ -172,13 +172,30 @@ class rewriteRule extends model{
 			    }
 				
 				$target =  arrayObj::getItem($rule,'url_to') ;
-				$uriRule = '/'.$uriRule.'/i';
 				$status  = arrayObj::getItem($target,'status');
 				
-				if(@preg_match($uriRule,$uri,$m)){
+				if(!is_array($uriRule)){
+				    
+				    $uriRule = '/'.$uriRule.'/i';
+				    preg_match($uriRule,$uri,$m);
+				    
+				}else{
+				    
+				    foreach($uriRule as $k=>$u){
+				       
+				       $u = '/'.$u.'/i';
+				       if(@preg_match($u,$uri,$m)){
+				           break;
+				       }
+				       
+				    }
+				}
+				
+				
+				if($m!=null){
 					
 					$app    = arrayObj::getItem($m,1);
-					$act    = arrayObj::getItem($m,2);
+					$act    = lcfirst(StrObj::getClassName( arrayObj::getItem($m,2) ));
 					
 										
 					/**有设置url_to则按设置指定app和act即可*/

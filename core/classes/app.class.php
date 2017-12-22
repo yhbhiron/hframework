@@ -37,7 +37,7 @@ if(!defined('IN_WEB')){
  * $app->run($act)
  * 
  */
-class app extends model{
+class App extends Model{
 		
 		/**指定应用所需的参数*/
 		protected  $items = array();
@@ -199,7 +199,7 @@ class app extends model{
 				return false;
 			}
 			
-			
+			$act = strtolower($act);
 			$actMethod = 'action'.ucfirst($act);
 			if( method_exists($this,$actMethod)){
 				

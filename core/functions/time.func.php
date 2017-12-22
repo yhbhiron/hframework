@@ -7,7 +7,7 @@
  * @example:
  */
 
-class time{
+class Time{
 
 	
 	/**

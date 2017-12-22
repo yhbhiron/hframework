@@ -8,7 +8,7 @@ if(!defined('IN_WEB')){
 * @version 1.0.0
 * @since  2015-10-23
 **/
-abstract class db extends model{
+abstract class DB extends model{
 	
 	/**当前连接配置*/
 	protected $config = array();

@@ -9,7 +9,7 @@
  * $error->showError('用户错误',2,1);
  */
 
- class error{
+ class Error{
 	 
 	  
 	  /**错误显示模板**/

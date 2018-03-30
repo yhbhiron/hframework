@@ -22,7 +22,7 @@ class PageDivid extends Model{
 	/**保存页面数量**/
 	private $pageSum = 0;
 	
-	/**网站基本地址*/
+	/**分页基本拼接地址，如果是伪静或url得写，使用{page}字符代码第几页的变量*/
 	public $baseURL = '';
 	
 	/**设置当前页面**/

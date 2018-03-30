@@ -24,6 +24,7 @@ class dataBaseMysql extends db{
 			return $this->con;
 		}
 		
+		Website::debugWarning('Connect Database again start');
 		$config = $this->config;
 		$time     = website::curRunTime();
 		

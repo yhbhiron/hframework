@@ -123,17 +123,18 @@ class Template{
 			$this->imgURL =  !validate::isURL($cnfData['img_dir']) ? filer::getVisitURL($cnfData['img_dir']) : $cnfData['img_dir'] ;
 			$this->cssURL =  !validate::isURL($cnfData['css_dir']) ? filer::getVisitURL($cnfData['css_dir']) : $cnfData['css_dir'];
 			$this->jsComURL = !validate::isURL($cnfData['js_comm_dir']) ? filer::getVisitURL($cnfData['js_comm_dir']) : $cnfData['js_comm_dir'];
-			
+			$this->theme   =   filer::getVisitURL(VIEW_DIR);
+			$this->tplURL =   filer::getVisitURL($this->tplDir);
 		}else{
 			$this->jsURL  = $cnfData['virtual_url_prefix'].filer::relativePath($cnfData['js_dir'],VIEW_DIR).'/';
 			$this->imgURL  = $cnfData['virtual_url_prefix'].filer::relativePath($cnfData['img_dir'],VIEW_DIR).'/';
 			$this->cssURL  = $cnfData['virtual_url_prefix'].filer::relativePath($cnfData['css_dir'],VIEW_DIR).'/';
 			$this->jsComURL  = $cnfData['virtual_url_prefix'].filer::relativePath($cnfData['js_comm_dir'],VIEW_DIR).'/';
+			$this->theme   =   $cnfData['virtual_url_prefix'].filer::relativePath(defined('THEME_DIR') ? THEME_DIR :VIEW_DIR,VIEW_DIR).'/';
+			$this->tplURL =   $cnfData['virtual_url_prefix'].filer::relativePath($this->tplDir,VIEW_DIR).'/';
 			
 		}
 		
-		$this->theme   =   filer::getVisitURL(VIEW_DIR);
-		$this->tplURL =   filer::getVisitURL($this->tplDir);
 		
 		$this->jsDir    = $cnfData['js_dir'];
 		$this->imgDir   = $cnfData['img_dir'];

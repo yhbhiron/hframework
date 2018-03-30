@@ -93,8 +93,11 @@
 		if(website::$env == website::ENV_PROD){
 			$errorInfo['message'] = '系统错误';
 		}
-		 
-		 httpd::status500();
+		
+		if(Website::$env != Website::ENV_TEST_FORM){
+		    httpd::status500();
+		}
+
 		 if(website::$config['show_errors']){
 		 	
 		 	  if(website::$responseType == 'json'){
@@ -109,11 +112,15 @@
 				 			'code'=>1,
 				 			'message'=>$errorStr,
 			 			),
-			 			
-			 			'msg'=>$errorStr,
+				 	    
+				 	    'message'=>$errorStr,
 			 			'code'=>500,
 			 			'error'=>1,
 				 	);
+				 	
+				 	if(website::$env != website::ENV_PROD){
+				 	    $msg['trace'] =  $traceInfo['array'];
+				 	}
 				 	
 				 	
 				 	$msgout = function()use($msg){

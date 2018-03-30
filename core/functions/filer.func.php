@@ -304,15 +304,15 @@ class Filer{
 	 * @param callback $callback 回调函数 func($line行代码,$data数据列表,$lineNum 行号)
 	 * @return array
 	 */
-	public static function readFileLine($filename,$callback = null,$csv=false){
+	public static function readFileLine($filename,$callback = null,$csv=false,$start=0){
 		
 		if(!is_file($filename)){
 			return array();
 		}
-		
+		$fb = fopen($filename,'r');
+		$start>0 && fseek($fb,$start);
 		if(is_callable($callback)){
 			
-			$fb = fopen($filename,'r');
 			$data = array();
 			$lineNum = 1;
 			while(!feof($fb)){
@@ -332,6 +332,7 @@ class Filer{
 			
 			fclose($fb);
 		}else{
+		    
 			if($csv){
 				while(!feof($fb)){
 					$data[] = fgetcsv($fb);
@@ -551,6 +552,7 @@ class Filer{
 
 						$ext  = strtolower(substr(strrchr($_FILES[$_file]['name'][$k],'.'),1));
 						$mime = self::getMimeType($ext);
+						$_FILES[$_file]['type'][$k] = mime_content_type($tmpname);
 						
 						if(self::$allowFormat == null || 
 							(self::$allowFormat!=null && in_array($ext,self::$allowFormat) && self::isRightMine($_FILES[$_file]['type'][$k],$mime) )
@@ -588,6 +590,8 @@ class Filer{
 					
 					$ext = strtolower(substr(strrchr($_FILES[$_file]['name'],'.'),1));
 					$mime = self::getMimeType($ext);
+					$_FILES[$_file]['type'] = mime_content_type($_FILES[$_file]['tmp_name']);
+					
 					if( self::$allowFormat == null || 
 						( self::$allowFormat != null && in_array($ext,self::$allowFormat)  && self::isRightMine($_FILES[$_file]['type'],$mime))
 					  ){

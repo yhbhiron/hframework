@@ -5,6 +5,13 @@ if(!defined('IN_WEB')){
 
 /**
  * 本类是定义相关url重定的功能
+ * nginx配置，将所有请求指向index.php时才有效		
+ * location ~ {    
+ *  index index.html index.php;
+ *  root D:/AppServ/www/cloud/cloud/;
+    rewrite ^(.*)$  /index.php?$1 last;        		
+  }
+      
 * @author: Hiron Jack
  * @since 2015-7-23
  * @version: 1.0.2
@@ -45,13 +52,7 @@ class RewriteRule extends Model{
 			website::debugAdd('url重写配置from_uri不能为空');
 			return false;
 		}
-		
-		if(arrayObj::getItem($ruleConfig,'url_to')==null){
-			
-			website::debugAdd('url重写配置url_to不能为空');
-			return false;
-		}
-		
+				
 		
 		$this->cnfData[$name] = $ruleConfig;
 		
@@ -72,14 +73,14 @@ class RewriteRule extends Model{
 			$key = 'default';
 		}
 		
-		$cfg = $this->cnfData[$key];
-		if(!is_callable($cfg['get_uri'])){
+		$cfg = ArrayObj::getItem($this->cnfData,$key);
+		if($cfg == null || !is_callable($cfg['get_uri'])){
 			return website::$url['host'].$key;
 		}
 		
-		$route  = arrayObj::getItem($cfg,'uri_to');
+		$route  = arrayObj::getItem($cfg,'url_to');
 		
-		/**快速获取url_to的一个回调*/
+		/**快速获取url_to信息项的一个回调*/
 		array_unshift($args,function($v)use($route){
 			if($route == null){
 				return $v;
@@ -112,7 +113,7 @@ class RewriteRule extends Model{
 		$ext  = strtolower(substr(strrchr($page,'.'),1));
 		$staticExt = array('jpg','png','gif','css','ttf','eot','bmp','txt','js','vbs','swf','woff','woff2');
 
-		/**静态地址处理方式*/
+		/**静态地址处理方式,不建议静态地址使用路由的方式*/
 		if(in_array($ext,$staticExt) && is_file(APP_PATH.$page) ){
 			
 			website::$config['debug'] = false;
@@ -174,6 +175,7 @@ class RewriteRule extends Model{
 				$target =  arrayObj::getItem($rule,'url_to') ;
 				$status  = arrayObj::getItem($target,'status');
 				
+				/**路由是一个正则规则或多个规则**/
 				if(!is_array($uriRule)){
 				    
 				    $uriRule = '/'.$uriRule.'/i';
@@ -195,13 +197,13 @@ class RewriteRule extends Model{
 				if($m!=null){
 					
 					$app    = arrayObj::getItem($m,1);
-					$act    = lcfirst(StrObj::getClassName( arrayObj::getItem($m,2) ));
+					$act    = StrObj::getClassName( arrayObj::getItem($m,2) );
 					
-										
-					/**有设置url_to则按设置指定app和act即可*/
-					if(validate::isNotEmpty($target,true)){
-						
-						if(arrayObj::getItem($target,'url')!=''){
+					if(is_callable($target)){
+					    return call_user_func($target,$m);
+					}else if(validate::isNotEmpty($target,true)){
+					    /**有设置url_to则按设置指定app和act即可*/
+                        if(arrayObj::getItem($target,'url')!=''){
 							
 							if($status == 301){
 								httpd::status301($target['url']);

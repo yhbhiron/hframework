@@ -13,7 +13,8 @@ class dataBaseMysqli extends dataBaseMysql{
         if($this->isConnected()){
             return $this->con;
         }
-    
+        
+        Website::debugWarning('Connect Database again start');
         $config = $this->config;
         $time     = website::curRunTime();
     
@@ -32,7 +33,7 @@ class dataBaseMysqli extends dataBaseMysql{
     }
     
     public function isConnected(){
-        return ($this->con instanceof mysqli) && $this->con->ping();
+        return ($this->con instanceof mysqli) && @$this->con->ping();
     }    
     
     /**

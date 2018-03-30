@@ -220,7 +220,7 @@ class ORM extends model{
 	 */
 	protected function setModKeyVal(){
 
-		if($this->{$this->modKey}!=null){
+	    if(property_exists($this,$this->modKey) == true && $this->{$this->modKey}!=null){
 			return $this->{$this->modKey};
 		}
 		
@@ -288,7 +288,7 @@ class ORM extends model{
 				return false;
 			}
 			
-			if($valid['type'] == 'int' && !validate::isInt($v)){
+			if($valid['type'] == 'int' && !validate::isInt($v,ArrayObj::getItem($valid,'unsigned'))){
 				$this->error($label.':'.$k.':类型不正确，需为int！');
 				return false;
 			}
@@ -332,6 +332,7 @@ class ORM extends model{
 				
 				$type     = strtolower($m[1]);
 				$unsigned = preg_match('/unsigned/i',$col['Type']);
+				$temp['unsigned'] =$unsigned; 
 				 
 				if(in_array($type,array('int','tinyint','smallint','mediumint','bigint')) ){
 					
@@ -362,7 +363,6 @@ class ORM extends model{
 						$temp['max'] = $unsigned ? 18446744073709551615 : 9223372036854775807;
 						
 					}
-					
 					
 				}else if(in_array($type,array('float','double','decimal')) ){
 					$temp['type'] = 'float';
@@ -431,6 +431,7 @@ class ORM extends model{
 		}
 			
 		
+		/**没有加载任何数据时，都返回null*/
 		if(validate::isNotEmpty($this->modVal) == false){
 			return null;
 		}

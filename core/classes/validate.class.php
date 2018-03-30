@@ -68,7 +68,7 @@ if(!defined('IN_WEB')){
  	 */
  	public static function isInt($str,$unsigned=false,$nozero=false){
  		if($unsigned ==false){	
- 			return self::isCollection($str) == false && preg_match('/^\d+$/',$str);
+ 			return self::isCollection($str) == false && preg_match('/^(-|\+)?\d+$/',$str);
 		}else {
 			return self::isCollection($str) == false && preg_match('/^\d+$/',$str) && ($nozero ? $str>0 : $str>=0);	
 		}

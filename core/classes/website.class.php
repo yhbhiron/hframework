@@ -63,7 +63,7 @@ class Website{
 	/**
 	 * 站点响应格式
 	 * */
-	public static $responseType = 'html';
+	public static $responseType = self::RESP_TYPE_HTML;
 	
 	
 	/**
@@ -99,11 +99,22 @@ class Website{
 	protected static $curApp;
 	
 	
-	Const ENV_CLI = 'cli';
-	Const ENV_TEST = 'test';
-	Const ENV_PROD = 'online';
-	Const ENV_DEV  = 'local';
-	Const ENV_TEST_FORM	= 'test_form';
+	/**环境参数*/
+	const ENV_CLI = 'cli';
+	const ENV_TEST = 'test';
+	const ENV_PROD = 'online';
+	const ENV_DEV  = 'local';
+	const ENV_TEST_FORM	= 'test_form';
+	
+	 /** 响应格式,json*/
+	const RESP_TYPE_JSON = 'json';
+	
+	/** 响应格式,xml*/
+	const RESP_TYPE_XML = 'xml';
+	
+	/** 响应格式,html*/
+	const RESP_TYPE_HTML = 'html';
+	
 	
 	/**
 	 * 初使化系统，其中固定加载了,error、validate类库
@@ -1166,7 +1177,7 @@ class Website{
 			$logStr['msg'] = $logStr['msg'];
 			$old = filer::$apiMode;
 			filer::$apiMode = false;
-			$str = json_encode($logStr,defined('JSON_UNESCAPED_UNICODE') ? JSON_UNESCAPED_UNICODE : 0);
+			$str = @json_encode($logStr,defined('JSON_UNESCAPED_UNICODE') ? JSON_UNESCAPED_UNICODE : 0);
 			filer::writeFile(self::$config['log_file'],$str."\r\n",FILE_APPEND | LOCK_EX);
 			filer::$apiMode = $old;
 			

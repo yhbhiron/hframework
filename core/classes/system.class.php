@@ -229,7 +229,7 @@ class System{
 			$this->loadQuery($m);
 		}
 		
-		return new annotation($class);
+		return new Annotation($class);
 	}
 	
 

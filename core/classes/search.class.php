@@ -33,6 +33,10 @@ class Search{
 	protected $filter = array();
 	
 	
+	/**排序*/
+	protected $orders = array();
+	
+	
 	/**条件的值不合法列表*/
 	public $badVal = array();
 	
@@ -218,6 +222,15 @@ class Search{
 		return $this->filter;
 	}
 	
+	
+	/**
+	 * 获取当关排序的参数
+	 * @return array
+	 */
+	public function getOrders(){
+        return $this->orders;	    
+	}
+	
 	/**
 	 * 添加一个排序条件
 	 * @param string $name 请求的字段名
@@ -241,6 +254,7 @@ class Search{
 		$this->source->orderby($this->order);
 		
 		$this->reqParam[$name] = array('req'=>$name,'type'=>'order','val'=>$val,'range'=>$range);
+		$this->orders[$name] = $val;
 		return $this;
 	}
 	
@@ -261,7 +275,7 @@ class Search{
 			return $keyword;
 			
 		}else{
-			return preg_replace('/\s|\'|\"/','',urldecode($keyword));
+			return StrObj::escape_string(preg_replace('/\s|\'|\"/','',urldecode($keyword)));
 		}
 	}
 

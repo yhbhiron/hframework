@@ -19,7 +19,38 @@ class Request extends Model{
 
 	/**$_REQUEST数据*/
 	protected static $request = array();
-
+	
+	/**CLI**/
+	const PLATE_CLI = 1;
+	
+	/**安卓APP*/
+	const PLATE_APP_ANDROID = 2;
+	
+	/**苹果APP*/
+	const PLATE_APP_IOS = 3;
+	
+	/**安卓H5*/
+	const PLATE_H5_ANDROID = 4;
+	
+	/**苹果H5*/
+	const PLATE_H5_IOS = 5;
+	
+	/**PC*/
+	const PLATE_PC = 6;
+	
+	/**微个公众号*/
+	const PLATE_H5_WX = 7;
+	
+	/**微信小程序*/
+	const PLATE_WX_MAPP = 8;
+	
+	/**支付宝小程序*/
+	const PLATE_ALI_MAPP = 9;
+	
+	/**
+	 * 保存用户请求的平台
+	 */
+	public static $plateForm;
 	
 	/**
 	 * 请求的$_GET数据,不能加载手动的$_GET[key] = val的修改
@@ -229,6 +260,62 @@ class Request extends Model{
 		}
 		
 	}	
+	
+	
+	/**
+	 * 获取用户的请求平台类型
+	 * 如果是app使用加请求头信息 REQUEST_PLATE:android_app安卓app,ios_app苹果app
+	 * 常规浏览器用user_agent识别
+	 * @return int
+	 */
+	public static function getPlateForm(){
+	    
+	    if(self::$plateForm!=null){
+	        return self::$plateForm;
+	    }
+	    
+	    $userAgent = ArrayObj::getItem($_SERVER,'HTTP_USER_AGENT');
+	    $reqPlate = ArrayObj::getItem($_SERVER,'REQUEST_PLATE');
+	    
+	    if($reqPlate == 'android_app'){
+	       self::$plateForm =  self::PLATE_APP_ANDROID;
+	    }else if($reqPlate == 'ios_app'){
+	       self::$plateForm =   self::PLATE_APP_IOS;
+	    }else if(preg_match('/MicroMessenger/i',$userAgent)){
+	        
+	        if(preg_match('/miniProgram/i',$userAgent)){
+	            self::$plateForm = self::PLATE_WX_MAPP;
+	        }else{
+	           self::$plateForm = self::PLATE_H5_WX;
+	        }
+	        
+	    }else if(preg_match('/MicroMessenger/i',$userAgent)){
+	        self::$plateForm = self::PLATE_H5_WX;
+	    }else if(preg_match('/android/i',$userAgent)){
+	        self::$plateForm = self::PLATE_H5_ANDROID;
+	    }else if(preg_match('/iPhone|ipad/i',$userAgent)){
+	        self::$plateForm = self::PLATE_H5_IOS;
+	    }else if($userAgent == null){
+	       self::$plateForm =   self::PLATE_CLI;
+	    }else{
+	       self::$plateForm =   self::PLATE_PC;
+	    }
+	    
+	    return self::$plateForm;
+	}
+	
+	
+	/**
+	 * 获取当前平台的名称
+	 * @param int $plate 平台类型
+	 * @return string
+	 */
+	public static function getPlateFormName($plate=null){
+	    
+	    $plate = $plate ? $plate : self::getPlateForm();
+	    $ref = new ReflectorExt('Request');
+        return $ref->getConstComment('PLATE_',$plate);
+	}
 }
 
 ?>

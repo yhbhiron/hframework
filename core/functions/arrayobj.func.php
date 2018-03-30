@@ -107,6 +107,10 @@
 				return $uparams;
 			}
 			
+			if(!is_array($uparams)){
+			    return $defParams;
+			}
+			
 
 			
 			foreach($defParams as $k=>$param){

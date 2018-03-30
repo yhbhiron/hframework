@@ -212,9 +212,8 @@ class App extends Model{
 			}else{
 				
 				/**加载单个行为文件模式**/
-				website::loadClass('actions.'.$act);
-				$actClsName = $act.'Action';
-				if(class_exists($actClsName)){
+				$actClsName = 'Action'.get_class($this).ucfirst($act);
+				if(class_exists($actClsName,true)){
 					
 					$this->curAct = $act;
 					$actCls = new $actClsName($this);
@@ -230,7 +229,7 @@ class App extends Model{
 				
 			}
 			
-			$afterData = $this->afterAction($action,$vars,$data);
+			$afterData = $this->afterAction($action,$data,$vars);
 			if($afterData!=null){
 			    $data = $afterData;
 			}
@@ -558,8 +557,8 @@ class App extends Model{
 			$urls = array();
 			foreach($this->needAct as $k=>$act){
 				$act = strtolower(substr($act,6));
-				$urls[$act]['route_key'] = StrObj::delimerClassName($this->appName).'_'.$act;
-				$urls[$act]['url']   = website::$route ? website::$route->getURL($urls[$act]['route_key'],$this->appName,$act) : '';
+				$urls[$act]['route_key'] = strtolower(StrObj::delimerClassName($this->appName).'_'.$act);
+				$urls[$act]['url']   = website::$route ? website::$route->getURL($urls[$act]['route_key'],lcfirst($this->appName),$act) : '';
 				$urls[$act]['title'] = arrayObj::getItem($this->actTitle,$act); 
 			}
 
@@ -625,7 +624,7 @@ class App extends Model{
 						if($item['gpc_type']!='file'){
 							
 							/**默认值**/
-							$temp = !validate::isNotEmpty($temp) && ($need || $require) && arrayObj::getItem($item,'default')!='' ?  $item['default'] : $temp;
+							$temp = !validate::isNotEmpty($temp) && ($need || $require) && isset($item['default']) ?  $item['default'] : $temp;
 							
 							if($this->_validate($temp,$type,$require,$need,$array)){
 								
@@ -1055,9 +1054,11 @@ class App extends Model{
 		 * @param string $msg 提示信息
 		 * @param int $code 消息状态：大于零为有错误
 		 */
-		public  function showMsg($msg,$code=0){
+		public  function showMsg($msg,$code=0,$respType=null){
 			
-			if(website::$responseType == 'json'){
+			if(Website::$responseType == 'json' || $respType == Website::RESP_TYPE_JSON){
+
+			    Website::$responseType =  Website::RESP_TYPE_JSON;
 				httpd::setMimeType('json');
 				die(json_encode(
 					array(

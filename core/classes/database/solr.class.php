@@ -10,15 +10,15 @@ class dataBaseSolr extends db{
 		}
 		
 		if(!class_exists('SolrClient',false)){
-			$this->error('未安装solr扩展');
+			$this->error('未安装solr扩展',2);
 		}
 		
 		$config = $this->config;
 		$options = array(
-			'hostname'=>$config['db_host'],
-			'port'=>arrayObj::getItem($config,'port','8983'),
-			'login'=>arrayObj::getItem($config,'user'),
-			'password'=>arrayObj::getItem($config,'passwd'),
+			'hostname'=>$config['host'],
+			'port'=>ArrayObj::getItem($config,'port','8983'),
+			'login'=>ArrayObj::getItem($config,'user'),
+			'password'=>ArrayObj::getItem($config,'passwd'),
 			'path'=>$config['database'],
 			'wt'=>'xml',
 		);
@@ -54,12 +54,13 @@ class dataBaseSolr extends db{
     }
 
     public function useDatabase($dbName = '')
-    {}
+    {
+        return false;   
+    }
 
     public function recordRows($query)
     {
-        
-        
+                
     }
 
     public function query($query){
@@ -68,16 +69,20 @@ class dataBaseSolr extends db{
             return false;
         }
         
+       
         if($query instanceof  SolrQuery){
-           $result =  $this->con->query($query);
+           $response =  $this->con->query($query);
+           Website::debugAdd('Solr请求地址：'.$response->getRequestUrl().'&'.$response->getRawRequest());
+           $result = $response->getResponse();
         }else if($query instanceof  SolrInputDocument){
-            $result = $this->con->addDocument($query);
+            $result = $this->addDocument($query);
         }else{
-            $result = $this->con->request($query);
+            $result = $this->request($query);
         }
-        
+            
         return $result;
     }
+    
 
     public function getTableInfo($table){
     	return array();
@@ -106,10 +111,10 @@ class dataBaseSolr extends db{
 
     public function rollBack()
     {
-        $this->con->rollBack();
+        $this->con->rollback();
     }
 
-    public function getResArray(SolrQuery $query, $single = false, $rowCallback = null){
+    public function getResArray($query, $single = false, $rowCallback = null){
         $result = $this->query($query);
         
     }
@@ -130,5 +135,18 @@ class dataBaseSolr extends db{
     
     }
 
+    public function __call($method,$args){
+        
+        try{
+            $resp = call_user_func_array(array($this->con,$method), $args);
+        }catch(Exception $e){
+            $this->error($e->getMessage(),2,$e->getCode());
+            return false;
+        }
+        
+        $args['response'] = $resp;
+        website::doEvent('database.solr.'.strtolower($method),$args);
+        return $resp->success();
+    }
 	
 }

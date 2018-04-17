@@ -38,7 +38,7 @@ class Time{
 	@param $formateStr string 格式符
 	@return 时间字符串
 	*/
-	public static function timeFormat($time,$formatStr){
+	public static function timeFormat($time,$formatStr='Y-m-d H:i:s'){
 		
 		if($time==''){
 			

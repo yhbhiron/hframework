@@ -22,21 +22,22 @@ class cacheMemory{
 	
 	public function __construct(){
 		
-		$driverName = '';
-		if(class_exists('Memcache')){
-			$driverName = 'Memcache';
-		}else if(class_exists('Memcached')){
-			$driverName = 'Memcached';
-		}else{
-			
-			$this->enable = false;
-			return false;
-			
-		}
 		
 		if(self::$connect == null){
+		    
+		    $driverName = '';
+		    if(class_exists('Memcache')){
+		        $driverName = 'Memcache';
+		    }else if(class_exists('Memcached')){
+		        $driverName = 'Memcached';
+		    }else{
+		        
+		        $this->enable = false;
+		        return false;
+		        
+		    }
 			
-			$this->config = website::loadConfig('memory',false,'cache/');
+			$this->config = website::loadConfig('cache.memory',false);
 			if($this->config == null){
 				
 				$this->enable = false;

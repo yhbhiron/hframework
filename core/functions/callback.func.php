@@ -38,7 +38,9 @@ class Callback{
 			'1024'=>'E_USER_NOTICE',  
 			'2047'=>'E_ALL',  
 			'2048'=>'E_STRICT',  
-			'8192'=>'E_DEPRECATED'
+			'8192'=>'E_DEPRECATED',
+		    '4096'=>'E_RECOVERABLE_ERROR',
+		    '16384'=>'E_USER_DEPRECATED',
 		);
 		
 		

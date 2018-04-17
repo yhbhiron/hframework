@@ -108,6 +108,10 @@ class Httpd{
 	 * @param string $ext 页面扩展名:如jpg,png等
 	 */
 	public static function setMimeType($ext){
+	    
+	    if(headers_sent()){
+	        return false;
+	    }
 		
 		$type = filer::getMimeType($ext);
 

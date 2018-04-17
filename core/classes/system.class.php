@@ -187,10 +187,10 @@ class System{
 		}
 		
 		if(!class_exists($class)){
-			return ORM::factory($m,$v);
+		    return new Annotation(ORM::factory($m,$v));
 		}
 		
-		return new $class($v);
+		return new Annotation($class,$v);
 	}
 	
 

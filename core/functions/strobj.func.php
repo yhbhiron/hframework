@@ -691,43 +691,6 @@ class StrObj{
 		return $int;
 	}
 	
-	/**
-	 * 争对所有平台的json友好格式化
-	 * @param mixed $data
-	 * @return mixed
-	 */
-	public static function jsonFineFormat($data){
-	    
-	    if(!validate::isNotEmpty($data)){
-	        return '';
-	    }
-	    
-	    if(is_array($data)){
-	        foreach($data as $k=>$v){
-	             $data[$k] = self::jsonFineFormat($v);
-	        }
-	    }else{
-
-	    	if(is_numeric($data)){
-	            
-	            if(strstr($data,'.')){
-	                $data = floatval($data);
-	            }else{
-	                $data = intval($data);
-	            }
-	            
-	        }else if(is_bool($data)){
-	           	$data = $data == true ? 1 : 0;
-	        }else if(is_null($data)){
-	            $data = '';
-	        }
-	        
-	    }
-	    
-	    
-	    return $data;
-	    
-	}
 	
 	
     public static function escape_string($str){

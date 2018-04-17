@@ -4,9 +4,7 @@
 	<a href="javascript:;" onclick="this.parentNode.style.display='none'" style="position:absolute;top:4px;right:4px">关闭</a>
 	<h4>调试信息</h4>
 	<p>
-		<?php foreach($output as $k=>$o){ ?>
-		<p><font color="blue"><?php echo $o ?></font></p>
-		<?php } ?>
+		<?php echo self::$debugArr; ?>
 	</p>
 
 </div>

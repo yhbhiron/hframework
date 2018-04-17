@@ -16,12 +16,13 @@ print_r($c->read('info'));
 **/
 abstract class SuperCache extends Model{
 	
+    /**当前缓存的键的配置*/
 	protected  $config;
 	
-	/**
-	 * 缓存键名
-	 */
+	/**当前缓存的键名*/
 	protected $key;
+	
+
 	
 	/**
 	 * 实例化一个缓存对像
@@ -44,20 +45,10 @@ abstract class SuperCache extends Model{
 		return new $driver($key,$config[$key]);
 	}
 	
-	
-	/**
-	 * 构造函数 
-	 * @param string $key 缓存键名
-	 * @param array $config 缓存的配置项
-	 */
-	public function  __construct($key,$config){
-		$this->key = $key;
-		$this->config = $config;
-	}
+
 	
 	/**
 	 * 从缓存区读取数据
-	 * @param $key 缓存键值
 	 * @return mixed 
 	 */
 	abstract public function read();
@@ -74,15 +65,13 @@ abstract class SuperCache extends Model{
 	
 	
 	/**
-	 * 清除所
-	 * @param string  $key
+	 * 清除对应的key
 	 */
 	abstract public function delete();
 	
 	
 	/**
 	 * 是否变更
-	 * @param string $key
 	 */
 	abstract public function isChanged();
 	

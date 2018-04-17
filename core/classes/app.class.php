@@ -252,7 +252,6 @@ class App extends Model{
 			website::debugAdd('运行应用'.$this->appName.';action:'.$this->curAct,$t);
 			if(website::$responseType == 'json' && $direct==true){
 			    
-			    httpd::setMimeType(website::$responseType);
 			    $default = array(
 			        'error'=>0,
 			        'msg'=>'ok'
@@ -864,12 +863,12 @@ class App extends Model{
 				if(is_array($convFunc)){
 					foreach($convFunc as $k=>$func){
 						if(is_callable($func)){
-							$var = $func($var);
-						}else if(method_exists('string',$func)){
+						    $var = call_user_func($func,$var);
+						}else if(method_exists('StrObj',$func)){
 							$var = StrObj::$func($var);
-						}else if(method_exists('number',$func)){
+						}else if(method_exists('Number',$func)){
 							$var = number::$func($var);
-						}else if(method_exists('arrayObj',$func)){
+						}else if(method_exists('ArrayObj',$func)){
 							$var = arrayObj::$func($var);
 						}
 					}
@@ -877,11 +876,11 @@ class App extends Model{
 					
 					if(is_callable($convFunc)){
 						$var = $convFunc($var);
-					}else if(method_exists('string',$convFunc)){
+					}else if(method_exists('StrObj',$convFunc)){
 						$var = StrObj::$convFunc($var);
-					}else if(method_exists('number',$convFunc)){
+					}else if(method_exists('Number',$convFunc)){
 						$var = number::$convFunc($var);
-					}else if(method_exists('arrayObj',$convFunc)){
+					}else if(method_exists('ArrayObj',$convFunc)){
 						$var = arrayObj::$convFunc($var);
 					}
 					
@@ -963,6 +962,55 @@ class App extends Model{
 			
 		}
 		
+		
+		/**
+		 * 格式化数据格式
+		 * @param mixed $data
+		 * @return mixed
+		 */
+		public static function dataFormat($data,$format=array(),$name=''){
+		    
+		    
+		    if(is_array($data)){
+		        foreach($data as $k=>$v){
+		            $data[$k] = self::dataFormat($v,$format,$k);
+		        }
+		    }else{
+		        
+		        $func = ArrayObj::getItem($format,$name);
+		        if(is_callable($func)){
+		            $data = call_user_func($func,$data);
+		        }else if(method_exists('StrObj',$func)){
+		            $data = StrObj::$func($data);
+		        }else if(method_exists('Number',$func)){
+		            $data = number::$func($data);
+		        }else if(method_exists('ArrayObj',$func)){
+		            $data = arrayObj::$func($data);
+		        }else{
+		            
+		            if(is_numeric($data)){
+		                
+		                if(strstr($data,'.')){
+		                    $data = floatval($data);
+		                }else{
+		                    $data = intval($data);
+		                }
+		                
+		            }else if(is_bool($data)){
+		                $data = $data == true ? 1 : 0;
+		            }else if(is_null($data) || strval($data) == null){
+		                $data = '';
+		            }
+		            
+		        }
+		        
+		    }
+		    
+		    
+		    return $data;
+		    
+		}
+		
 		/**
 		 * 将资源添加到临时回收站
 		 * @param string $file文件件
@@ -998,7 +1046,7 @@ class App extends Model{
 		protected function createItems(){
 			
 			$model = $this->model();
-			if(!($model instanceof ORM)){
+			if(!($model instanceof ORM) && !($model instanceof Annotation)){
 				return array();
 			}
 			
@@ -1059,7 +1107,6 @@ class App extends Model{
 			if(Website::$responseType == 'json' || $respType == Website::RESP_TYPE_JSON){
 
 			    Website::$responseType =  Website::RESP_TYPE_JSON;
-				httpd::setMimeType('json');
 				die(json_encode(
 					array(
 						'msg'=>$msg,

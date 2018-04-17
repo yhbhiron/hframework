@@ -15,6 +15,9 @@ class Menu extends ORM{
     /**所有相关父类的字段名称**/
     protected  $afkey    = 'allfather';
     
+    /**是否有子类的字段名*/
+    protected  $hasChKey    = 'has_child';
+    
     /**相关模型表**/
     protected  $mtable  =  'memu';
     
@@ -135,7 +138,13 @@ class Menu extends ORM{
         }
         
         $menu = new self();
-        return $menu->add($item);
+        $res = true;
+        $res = $menu->add($item);
+        $res = $res && $this->edit(array(
+            $this->hasChKey=>1,
+        ));
+        
+        return $res;
     }
     
     /**
@@ -143,7 +152,7 @@ class Menu extends ORM{
      * @param array $item 菜单信息
      * @return true/false
      */
-    public function add($item){
+    public function add(array $item){
         
         $item = $this->getParentItem($item);
         if(!$item){
@@ -203,6 +212,58 @@ class Menu extends ORM{
         
     }
     
+    
+    /**
+     * 获取整个菜单树
+     * @param number $fid
+     * @return array|unknown
+     */
+    public  function getMenuTree($fid=0){
+
+        $list = Query::factory()->reset()->from($this->modTable)
+        ->whereEq(array(
+            array($this->fkey,$fid)
+        ))->execute($this->db());
+        
+        
+        if($list == null){
+            return array();
+        }
+        
+        foreach($list as $k=>&$cat){
+            if($cat[$this->hasChKey] == 1){
+                $cat['children'] = $this->getMenuTree($cat[$this->modKey]);
+            }else{
+                $cat['children'] = array();
+            }
+            
+            $cat['cat_level'] = $cat[$this->afkey]<=0 ? 1 : count(StrObj::explode(',', $cat[$this->afkey]));
+        }
+        
+        return $list;
+    }
+    
+    
+    public  function treeToHash($tree){
+        
+        $hash = array();
+        foreach($tree as $k=>$list){
+            
+            $temp = $list;
+            unset($temp['children']);
+            $hash[$list[$this->modKey]]  = $temp;
+            if($list['children']!=null){
+                $subList = $this->treeToHash($list['children']);
+                $hash = $subList+$hash;
+            }
+        }
+        
+        
+        return $hash;
+        
+    }
+    
+    
     /**
      * 给项目加父类信息
      * @param array $item
@@ -211,21 +272,64 @@ class Menu extends ORM{
     protected function getParentItem($item){
         
         $fid = ArrayObj::getItem($item,$this->fkey);
-        if($fid>0 && $fid!=$this->get($this->fkey)){
+        $setFid = isset($item[$this->fkey]);
+        if($fid>0){
             
-            if($this->exists() && $this->isChildOf($fid)){
-                return false;
+            $fatherChanged = true;
+            if($this->exists()){
+                
+                if($this->isChildOf($fid)){
+                    return false;
+                }
+                
+                if($this->{$this->fkey}!=$fid){
+                    
+                    $oldFather = new static($this->{$this->fkey});
+                    $fatherChildCount = count($oldFather->getChildren());
+                    $has = $this->{$this->fkey}>0 ? intval($fatherChildCount-1>0) : intval($fatherChildCount+1>0);
+                    $oldFather->edit(
+                        array($this->hasChKey=>$has)
+                    );
+                    
+                }else{
+                    $fatherChanged = false;
+                }
+                
             }
             
             
-            $father = new static($fid);
-            if($father->exists() == false){
-                return false;
+            if($fatherChanged){
+                
+                $father = new static($fid);
+                if($father->exists() == false){
+                    return false;
+                }
+                
+                $afkey = $father->get($this->afkey);
+                $item[$this->fkey]  = $fid;
+                $item[$this->afkey] = $afkey!='' ? $father->get($this->afkey).','.$fid :  $fid;
+                $father->edit(array(
+                    $this->hasChKey=>1,
+                ));
+                
             }
             
-            $afkey = $father->get($this->afkey);
-            $item[$this->fkey]  = $fid;
-            $item[$this->afkey] = $afkey!='' ? $father->get($this->afkey).','.$fid :  $fid;
+        }else if($this->exists()){
+            
+            if($setFid){
+                if($this->{$this->fkey}>0){
+                    $oldFather = new static($this->{$this->fkey});
+                    $fatherChildCount =count($oldFather->getChildren());
+                    $has = intval($fatherChildCount-1>0);
+                    $oldFather->edit(
+                        array($this->hasChKey=>$has)
+                    );
+                }
+                
+                $item[$this->fkey] =0;
+                $item[$this->afkey] = '';
+            }
+            
         }
         
         return $item;

@@ -5,11 +5,11 @@ if(!defined('IN_WEB')){
 class Model{
 	
 	/**
-	 * 代理类的对象,如果要使用aop相关的
+	 * 注解对象,如果要使用aop相关的
 	 * 功能，请使用此类调用相关类的方法
-	 * @var reflectorExt
+	 * @var Annotation
 	 */
-	public  $refObject;
+	public  $annObject;
 	
 	
 	/**
@@ -65,7 +65,7 @@ class Model{
 			return self::$_system[$pname];
 		}
 		
-		return arrayObj::getItem(self::$_system,$name);
+		return ArrayObj::getItem(self::$_system,$name);
 	}
 
 	
@@ -82,7 +82,37 @@ class Model{
 			return self::$_system[$pname];
 		}
 		
-		return arrayObj::getItem(self::$_system,$name);
+		return ArrayObj::getItem(self::$_system,$name);
+	}
+	
+	
+	/**
+	 * 获取当前对象的注解实例
+	 * @return Annotation
+	 */
+	public function getAnnObject(){
+	    
+	    if(isset($this->annObject)){
+	        return $this->annObject;
+	    }
+	    
+	    $this->annObject = $object = new Annotation(get_class($this));
+	    return $this->annObject;
+	}
+	
+	
+	/**
+	 *  获取当前对象是否存在属性
+	 * @param string $name 属性名称
+	 * @return boolean
+	 */
+	public function existsAttr($name){
+	    
+	    if($this instanceof  Annotation){
+	        return $this->existsProperty($name);
+	    }else{
+	        return property_exists($this, $name);
+	    }
 	}
 	
 	

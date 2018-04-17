@@ -30,7 +30,7 @@ class Annotation extends Model{
 	const ANN_EXE_AFTER  = 2;
 	
 	/**
-	 * @param String $class 类名
+	 * @param String/Object $class 类名
 	 */
     public function __construct($class){
 
@@ -38,9 +38,9 @@ class Annotation extends Model{
     	$this->refCls =  new reflectorExt($class) ;
         $list = $this->getAnn($this->refCls->getClassComment());
         $this->exeAnn($list, self::ANN_EXE_BEFORE,$params);    	
-		$this->cls = $this->refCls->newInstanceArgs($params);
-		if($this->existsProperty('refObject')){
-			$this->cls->refObject = $this;
+		$this->cls = is_object($class) ? $class : $this->refCls->newInstanceArgs($params);
+		if($this->existsProperty('annObject')){
+		    $this->cls->annObject = $this;
 		}
 
    }
@@ -124,6 +124,14 @@ class Annotation extends Model{
     	
     	return $annList;
     	
+    }
+    
+    /**
+     * 获取当前类的反射类
+     * @return ReflectorExt
+     */
+    public function getRefClass(){
+        return $this->refCls;
     }
     
     public function __call($method,$args){

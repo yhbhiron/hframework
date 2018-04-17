@@ -17,7 +17,7 @@ if(!defined('IN_WEB')){
 *$user= ORM::factory('user',12);
 *echo $user->user_name;
 */
-class ORM extends model{
+class ORM extends Model{
 	
 	/*模型表名*/
 	protected $modTable;
@@ -26,6 +26,7 @@ class ORM extends model{
 	protected $modKey='id';
 	
 	
+	/**保存当前模型的所有项目*/
 	protected $modItems = array();
 	
 	
@@ -166,6 +167,10 @@ class ORM extends model{
 	}
 	
 	
+	/**
+	 * 获取当前模型的表名
+	 * @return string
+	 */
 	public function tableName(){
 		return $this->modTable;
 	}
@@ -205,6 +210,11 @@ class ORM extends model{
 		return $this->modItems;
 	}
 	
+	
+	/**
+	 * 获取当前模型中属性的名字
+	 * @return array
+	 */
 	public function labels(){
 		
 		$flds = $this->db->getTableFields($this->modTable);
@@ -215,8 +225,10 @@ class ORM extends model{
 		
 	}
 	
+	
 	/**
 	 * 自动设置模型中关键字属性的值
+	 * @return mixed 模型的关键值
 	 */
 	protected function setModKeyVal(){
 
@@ -224,11 +236,18 @@ class ORM extends model{
 			return $this->{$this->modKey};
 		}
 		
-		$flds = $this->db->getTableFields($this->modTable);
-		$info = $flds[$this->modKey];
+		
+		/**当模型中没有设置过关键字属性时，判断是否为自增的，获取自增属性即可*/
 		$val = '';
-		if($info['Key'] == 'PRI'){
-		    $val =  $this->modVal = $this->{$this->modKey} = $this->db->lastInsertID();
+		if($this->existsAttr($this->modKey) && $this->{$this->modKey}!=null){
+		    $val = $this->modVal = $this->{$this->modKey};
+		}else{
+		    
+		    $flds = $this->db->getTableFields($this->modTable);
+		    $info = $flds[$this->modKey];
+    		if($info['Key'] == 'PRI' ){
+    		    $val =  $this->modVal = $this->{$this->modKey} = $this->db->lastInsertID();
+    		}
 		}
 		
 		return $val;
@@ -250,8 +269,7 @@ class ORM extends model{
 		$validConfig = $this->validates();
 		$labels = $this->labels();
 		$checkItems = array_keys($values);
-		
-		$once       = count($checkItems) == 1;
+		$once= count($checkItems) == 1;
 		if($once){
 			if(!isset($validConfig[key($values)]) ){
 				$this->error('不存在属性'.key($values));
@@ -654,7 +672,8 @@ class ORM extends model{
 	    $model->setAttr($attrs);
 	    $model->loaded = true;
 	    $model->finded = true;
-	    
+	    $key = $model->getModKey();
+	    $model->setKeyVal(ArrayObj::getItem($attrs, $key));
 	    
 	    return $model;
 	}

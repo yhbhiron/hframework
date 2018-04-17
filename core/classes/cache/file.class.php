@@ -95,8 +95,7 @@ class cacheFile extends superCache{
 	}
 	
 	public function isChanged(){
-		
-		
+        		
 	}
 	
 		

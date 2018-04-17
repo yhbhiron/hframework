@@ -162,7 +162,6 @@ class Website{
 		date_default_timezone_set(self::$config['timezone']);
 		self::$url = self::getAddr();
 		self::initSess();
-		httpd::setMimeType(self::$responseType);
 		
 		if(isset(self::$config['memory'])){
 			@ini_set('memory_limit',self::$config['memory']);
@@ -176,6 +175,10 @@ class Website{
 		
 		/**错误函数和相关调试信息,回收放在错误之前注册，以免回收失效**/
 		set_error_handler(array('callback','errorHandle'));
+		register_shutdown_function(function(){
+		    httpd::setMimeType(Website::$responseType);
+		});
+		
 		register_shutdown_function(array('app','recycle'));
 		register_shutdown_function(array('callback','errorLastHandle'));
 		register_shutdown_function(array('website','debugWrite'));
@@ -733,19 +736,27 @@ class Website{
 		/**开启调试模式时，才加入到调试信息中**/
 		if( (isset(self::$config['debug']) && self::$config['debug'] == true) || $force){
 			
+		    $str = Validate::isCollection($str) ? json_encode($str) : $str;
 			$tstr = '';
 			if($time>0){
-				$tstr = '<font color="green">('.((self::curRunTime($force)-$time)*1000).' ms)</font>';	
+			    if(in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) ){
+			        $tstr = '('.( (self::curRunTime($force)-$time)*1000).')';
+			    }else{
+				    $tstr = '<font color="green">('.((self::curRunTime($force)-$time)*1000).' ms)</font>';	
+			    }
 			}
 			
 			
 			$break = self::$break;
-			if($allowHTML == true){
-				self::$debugArr.= '<font color="'.$color.'">'.$str.'</font>'.$tstr.$break;
+			if(in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) ){
+			    self::$debugArr.=strip_tags($str).$tstr.$break;
 			}else{
-				self::$debugArr.= '<font color="'.$color.'">'.htmlspecialchars($str).'</font>'.$tstr.$break;
+    			if($allowHTML == true){
+    				self::$debugArr.= '<font color="'.$color.'">'.$str.'</font>'.$tstr.$break;
+    			}else{
+    				self::$debugArr.= '<font color="'.$color.'">'.htmlspecialchars($str).'</font>'.$tstr.$break;
+    			}
 			}
-			
 		}
 	}
 	
@@ -778,31 +789,27 @@ class Website{
 		/**系统结束时间**/
 		$sysRunEndTime = self::curRunTime();
 		
-		$output = array();
-		$output[] = self::$debugArr;
-		$output[] =  'SQL执行时间:'.arrayObj::getItem($GLOBALS,'sql_time',0).' ms';
-		$output[] = '页面执行时间:'.(($sysRunEndTime - self::$startTime)*1000).' ms';
-		$output[] = 'PHP版本:'.PHP_VERSION.'；系统根目录:'.WEB_ROOT.'; 操作系统:'.PHP_OS.'; '.'访问目录:'.self::$url['host'];
-		$output[] = '当前文件：'.self::$url['page'];
-		$output[] = '可用内存：'.ini_get('memory_limit').'; 内存使用：'.(memory_get_usage()/1024/1024).'M';
-		$output[] = 'POST:'.htmlspecialchars(var_export(request::post(),true));
-		$output[] = 'GET:'.htmlspecialchars(var_export(request::get(),true));
-		$output[] = 'SESSION:'.htmlspecialchars(var_export($_SESSION,true));
-		$output[] = 'FILES:'.htmlspecialchars(var_export(request::files(),true));
-		$output[] = 'COOKIE:'.htmlspecialchars(var_export(request::cookie(),true));
-		$output[] = '魔术引号:'.htmlspecialchars(var_export(get_magic_quotes_runtime(),true));
-		$output[] = '地址信息:'.htmlspecialchars(var_export(self::$url,true));
-		$output[] = 'SERVIER:'.nl2br(htmlspecialchars(var_export($_SERVER,true)));
+		self::debugAdd('SQL执行时间:'.arrayObj::getItem($GLOBALS,'sql_time',0).' ms',0,true);
+		self::debugAdd('页面执行时间:'.(($sysRunEndTime - self::$startTime)*1000).' ms',0,true);
+		self::debugAdd('PHP版本:'.PHP_VERSION.'；系统根目录:'.WEB_ROOT.'; 操作系统:'.PHP_OS.'; '.'访问目录:'.self::$url['host']);
+		self::debugAdd('当前文件：'.self::$url['page']);
+		self::debugAdd('可用内存：'.ini_get('memory_limit').'; 内存使用：'.(memory_get_usage()/1024/1024).'M');
+		self::debugAdd('POST:'.htmlspecialchars(var_export(request::post(),true)),0,true,true);
+		self::debugAdd('GET:'.htmlspecialchars(var_export(request::get(),true)),0,true,true);
+		self::debugAdd('SESSION:'.htmlspecialchars(var_export($_SESSION,true)),0,true,true);
+		self::debugAdd('FILES:'.htmlspecialchars(var_export(request::files(),true)),0,true,true);
+		self::debugAdd('COOKIE:'.htmlspecialchars(var_export(request::cookie(),true)),0,true,true);
+		self::debugAdd('魔术引号:'.htmlspecialchars(var_export(get_magic_quotes_runtime(),true)),0,true,true);
+		self::debugAdd('地址信息:'.htmlspecialchars(var_export(self::$url,true)),0,true,true);
+		self::debugAdd('SERVIER:'.nl2br(htmlspecialchars(var_export($_SERVER,true))),0,true,true);
 		
 		$inc = get_included_files();
 		$incFiles = '引用文件:'.count($inc).$break;
 		if($inc!=null){
 			$incFiles.=implode($break,$inc);
 		}
-		$output[] = $incFiles;
 		
-		$noHTMLText = StrObj::stripTags( str_replace('<br />',"\n",implode("\n",$output)) );
-		
+		self::debugAdd($incFiles,0,true,true);
 		/**日志记录*/
 		if($log){
 			
@@ -819,7 +826,7 @@ class Website{
 			
 				file_put_contents(
 					self::$config['debug_log_path'].'/debug_'.$file.'.log',
-					$noHTMLText."\n页在返回内容：".ob_get_contents().
+					self::$debugArr."\n页在返回内容：".ob_get_contents().
 					"\n页面错误：".var_export(self::$error->getErrors(),true)
 				);
 			}
@@ -831,7 +838,7 @@ class Website{
 			if(self::$env == 'cli' || self::$env == self::ENV_TEST_FORM){
 				
 				echo '调试信息'.$break;
-				echo $noHTMLText;
+				echo self::$debugArr;
 				
 			}else if(self::$responseType == 'json'){
 				
@@ -843,7 +850,7 @@ class Website{
 				}
 				
 				ob_clean();
-				$a['debug'] = $noHTMLText;
+				$a['debug'] = self::$debugArr;
 				echo json_encode($a);
 				
 			}else{
@@ -855,7 +862,7 @@ class Website{
 			}
 		}
 		
-		self::clearVar($output);
+		self::clearVar(self::$debugArr);
 		
 	}
 	

@@ -146,9 +146,9 @@ class CacheDb extends superCache{
 	 * 删除表
 	 * @param string $key 键名
 	 * **/
-	public function delete($key){
+	public function delete(){
 		
-		$hash = md5($key);
+		$hash = md5($this->key);
 		$index = $this->getCacheIndex($hash);
 		$info = $index->get('*');
 		
@@ -221,6 +221,10 @@ class CacheDb extends superCache{
 			
 		}
 		
+	}
+	
+	public function isChanged(){
+	    return false;
 	}
 	
 	

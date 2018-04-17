@@ -15,17 +15,17 @@ class cacheRedis{
 	
 	public function __construct(){
 		
-		if(!class_exists('redis')){
-			throw new Exception('没有安装redis扩展');
-			$this->enable = false;
-			return false;
-			
-		}
 		
 		if(self::$servers == null){
+		    
+		    if(!class_exists('redis')){
+		        throw new Exception('没有安装redis扩展');
+		        $this->enable = false;
+		        return false;
+		        
+		    }
 			
 			self::$config = website::loadConfig('cache.redis',false);
-			
 			if(self::$config == null){
 				$this->enable = false;
 			}else{

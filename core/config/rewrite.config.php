@@ -13,7 +13,7 @@ if(!defined('IN_WEB')){
  *  	'url'=>'重定向地址,如果设置了他，则act,system,app设置无效，路由会重定向这个地址',
  *  	
  *  )或function(匹配项)该方法需要设置GET['act'] 和  GET['app'] 的值,
- *  'get_url'=>function(geturi信息的回调,配置键名,其它参数1，其它参数2){
+ *  'get_uri'=>function(geturi信息的回调,配置键名,其它参数1，其它参数2){
  *      
  *   },
  * )

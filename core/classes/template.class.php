@@ -734,7 +734,22 @@ class Template{
 	protected function tidyCode($code){
 		
 		$code = preg_replace('/\?>\s*<\?php/i',"\r\n",$code);
-		$this->stripComment == true && $code = preg_replace('/<!--[^>]+-->/i','',$code);
+		if($this->stripComment == true){
+		    $code = preg_replace('/<!--[^>]+-->/i','',$code);
+		}
+		
+		$code = preg_replace_callback('/<script[^>]*>(.+?)<\/script>/is',function($m){
+		    $lines  = preg_split("/\n/",$m[0]);
+		    $str = "";
+		    foreach($lines as $s){
+		        $s = preg_replace('/^\s*\/\/.*/',"",$s);
+		        $s = preg_replace('/;?\/\/.*$/',";",$s);
+		        if($s!=''){
+		            $str.=$s."\n";
+		        }
+		    }
+		    return $str;
+		},$code);
 		
 		if(Website::$env == Website::ENV_PROD){
 			$code =$this->compress($code);

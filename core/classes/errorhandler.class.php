@@ -60,7 +60,7 @@
 	  }
 	  
 	  public static function getErrorString(){
-	  	return implode(';',array_map(function($v){ return $v['message']; },self::$errors));
+	  	return implode(';',array_map(function($v){ return $v['msg']; },self::$errors));
 	  }
 	  
 	 /**
@@ -80,18 +80,17 @@
 		   	'type_name'=>$this->errType[$type],
 		   	'level_name'=>$this->errLevel[$level],
 		 	'error'=>$code,
-		 	'code'=>$code,
 		 	'level'=>$level,
-		 	'message'=>$msg,	  	 
+		 	'msg'=>$msg,	  	 
 	    );
 	    
 	    $traceInfo = $this->getTracer($msg);
 		$errorInfo['trace'] = $traceInfo['array'];
 		self::$errors[] = $errorInfo;
-		$this->log($errorInfo['code'].';'.$errorInfo['type_name'].';'.$errorInfo['level_name'].';'.$errorInfo['message'].';'.$traceInfo['string'] );
+		$this->log($errorInfo['error'].';'.$errorInfo['type_name'].';'.$errorInfo['level_name'].';'.$errorInfo['msg'].';'.$traceInfo['string'] );
 		
 		if(website::$env == website::ENV_PROD){
-			$errorInfo['message'] = '系统错误';
+			$errorInfo['msg'] = '系统错误';
 		}
 		
 		if(Website::$env != Website::ENV_TEST_FORM){
@@ -106,27 +105,20 @@
 		 	  		httpd::status200(true);
 		 	  		
 		 	  		$errorStr = $this->getErrorString();
-				 	$msg = array(
-			 			'info'=>array(
-			 				'error'=>1,
-				 			'code'=>1,
-				 			'message'=>$errorStr,
-			 			),
-				 	    
-				 	    'message'=>$errorStr,
-			 			'code'=>500,
-			 			'error'=>1,
+				 	$msgArr = array(
+				 	    'msg'=>$errorStr,
+				 	    'error'=>$code,
 				 	);
 				 	
 				 	if(website::$env != website::ENV_PROD){
-				 	    $msg['trace'] =  $traceInfo['array'];
+				 	    $msgArr['trace'] =  $traceInfo['array'];
 				 	}
 				 	
 				 	
-				 	$msgout = function()use($msg){
+				 	$msgout = function()use($msgArr){
 						$obConent = ob_get_contents();
 						$a = array();
-						$a = $msg;
+						$a = $msgArr;
 						if($obConent!=''){
 							$c = json_decode($obConent,true);
 							if(is_array($c)){

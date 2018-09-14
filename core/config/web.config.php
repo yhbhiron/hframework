@@ -19,6 +19,9 @@ return array(
 
 	'debug_tpl_file'=>CORE_DIR.'/template/debug.php',
 
+    /**调试信息是否即时输出*/
+    'debug_echo_out'=>false,
+
 	'memory'=>'164M',
 
 	'timezone'=>'PRC',

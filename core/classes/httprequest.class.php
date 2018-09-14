@@ -31,7 +31,7 @@ class HttpRequest extends model{
 	
 	/**
 	 * 设置请求头
-	 * @param array $header
+	 * @param array $header array(头名=>值)
 	 * @return httpRequest
 	 */
 	public function setHeader(array $header){
@@ -146,11 +146,17 @@ class HttpRequest extends model{
 		
 		
 		$result = curl_exec($this->curl);
+		$this->log('Method:'.$method.';'.json_encode($this->getResponseHeader()));
 		return $result;
 	}
 	
 	
-	public function params(array $params=array()){
+	/**
+	 * 增加一个参数
+	 * @param 参数内容 $params 可以为array(key=>val)或字符
+	 * @return HttpRequest
+	 */
+	public function params($params=null){
 		$this->params = $params;
 		return $this;
 	}
@@ -159,10 +165,12 @@ class HttpRequest extends model{
 	
 	/**
 	 * 是否跟踪重定向
-	 * @param unknown $set
+	 * @param boolean $set 是否重定向
+	 * @return HttpRequest
 	 */
 	public function followRedirect($set){
 		$this->follow = $set;	
+		return $this;
 	}
 	
 	
@@ -178,5 +186,24 @@ class HttpRequest extends model{
 		curl_close($this->curl);
 	}
 	
+	
+	/**
+	 * 记录到日志
+	 */
+	protected function log($msg){
+	    
+	    if(ArrayObj::getItem(website::$config,'logs') ==true && ArrayObj::getItem(website::$config,'logs_type') == 1 ){
+	        
+	        $dir = WEB_ROOT.'temp/logs/request/';
+	        if(!is_dir($dir)){
+	            @mkdir($dir);
+	        }
+	        
+	        website::$config['log_file'] =  filer::mkTimeFile('logs.txt',$dir);
+	    }
+	    
+	    Website::log($msg,'request');
+	    
+	}
 	
 }

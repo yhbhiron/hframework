@@ -4,7 +4,7 @@ if($errorInfo == null){
 }
 if(in_array(website::$env,array(website::ENV_CLI,website::ENV_TEST_FORM))){
 	
-	echo  $errorInfo['type_name'].';'.$errorInfo['level_name'].$errorInfo['code'].$errorInfo['message'].website::$break;
+	echo  $errorInfo['type_name'].';'.$errorInfo['level_name'].$errorInfo['error'].$errorInfo['msg'].website::$break;
 	foreach($errorInfo['trace'] as $k=>$each){
 		
 		echo implode('; ',$each['err_info']).website::$break;
@@ -20,8 +20,8 @@ if(in_array(website::$env,array(website::ENV_CLI,website::ENV_TEST_FORM))){
 <p style="color:#ff6600">
 	<?php echo $errorInfo['type_name']?>:
 	<?php echo $errorInfo['level_name'] ?> 
-	#<?php echo $errorInfo['code'] ?>: 
-	<?php echo $errorInfo['message'] ?>
+	#<?php echo $errorInfo['error'] ?>: 
+	<?php echo $errorInfo['msg'] ?>
 </p>
 <?php
 foreach($errorInfo['trace'] as $k=>$each){

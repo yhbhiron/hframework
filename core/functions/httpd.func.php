@@ -37,6 +37,18 @@ class Httpd{
 			
 	}	
 	
+	public static function status307($replace=false){
+	    
+	    if(!$replace && (headers_sent() || self::$headerSended == true)){
+	        return;
+	    }
+	    
+	    self::$headerSended = true;
+	    header('HTTP/1.1 307 Temporary Redirect');
+	    header('Status: 307 Temporary Redirect');
+	    
+	}
+	
 	/**
 	 * 404
 	 */
@@ -206,16 +218,16 @@ class Httpd{
 		if(website::$env == website::ENV_CLI){
 			return false;
 		}
-		
+        
 		$expires= !is_numeric($expires) ? 3:$expires;
 		$cvalue = $cvalue.$delimer.self::cookieSalt($cvalue);
-		$domain = arrayObj::getItem(website::$config,'cookie_domain',$_SERVER['HTTP_HOST']);
+		$domain = arrayObj::getItem(website::$config,'cookie_domain',$_SERVER['SERVER_NAME']);
 		setcookie($ckey,$cvalue,$expires<0 ? 0 : time()+$expires,'/',$domain);
 	}
 	
 	
 	/**
-	 * 设置cookie，使用加验证的方式储存
+	 * 获取cookie，使用加验证的方式储存
 	 * @param string $key cookie键名
 	 * @param boolean $source 是否只读取源数据
 	 * @param string $delimer 验证分隔符

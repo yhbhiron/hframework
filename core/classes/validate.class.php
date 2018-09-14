@@ -18,9 +18,9 @@ if(!defined('IN_WEB')){
  	 */
  	public static function isNotEmpty($mixed,$isArray=false){
  		
- 		if(!$isArray && !is_array($mixed)){
+ 		if(!self::isCollection($mixed)){
  			
- 			return trim($mixed)!='' && $mixed != null ;
+ 			return trim($mixed)!='' && (strlen($mixed)>0 || $mixed != null);
  			
  		}else{
  			

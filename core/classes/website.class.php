@@ -115,6 +115,9 @@ class Website{
 	/** 响应格式,html*/
 	const RESP_TYPE_HTML = 'html';
 	
+	/**session是否已经启动*/
+	protected static  $sessionInited = false;
+	
 	
 	/**
 	 * 初使化系统，其中固定加载了,error、validate类库
@@ -145,7 +148,7 @@ class Website{
 			ob_start();
 		}	
 		
-		if( in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) ){
+		if( in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) || self::$responseType == self::RESP_TYPE_JSON ){
 			self::$break = "\n";
 		}else{
 			self::$break = "<br />";
@@ -175,6 +178,7 @@ class Website{
 		
 		/**错误函数和相关调试信息,回收放在错误之前注册，以免回收失效**/
 		set_error_handler(array('callback','errorHandle'));
+		httpd::setMimeType(Website::$responseType);
 		register_shutdown_function(function(){
 		    httpd::setMimeType(Website::$responseType);
 		});
@@ -281,6 +285,7 @@ class Website{
 		}
 	
 		/**系统根访问目录**/
+		$_SERVER['HTTP_HOST'] = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : $_SERVER['HTTP_HOST'];
 		$addr['host']=  $inFolder ?  (arrayObj::getItem($_SERVER,'HTTPS') == 'on' ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].'/'.filer::relativeHostPath(APP_PATH).'/' : 'http://'.$_SERVER['HTTP_HOST'].'/' ;
 		$temp = explode('?',$uri);
 		
@@ -320,7 +325,7 @@ class Website{
 		$addr['domain']= $_SERVER['HTTP_HOST'];
 		 
 		
-		$addr['uri']    = $temp[0];
+		$addr['uri']    = ltrim($temp[0],'/');
 		if(isset($temp[1]) && $temp[1]!=''){
 			
 			$gets = explode('&',$temp[1]);
@@ -738,8 +743,10 @@ class Website{
 			
 		    $str = Validate::isCollection($str) ? json_encode($str) : $str;
 			$tstr = '';
+			$noHtmlStatus = in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) || self::$responseType == self::RESP_TYPE_JSON;
+			
 			if($time>0){
-			    if(in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) ){
+			    if($noHtmlStatus){
 			        $tstr = '('.( (self::curRunTime($force)-$time)*1000).')';
 			    }else{
 				    $tstr = '<font color="green">('.((self::curRunTime($force)-$time)*1000).' ms)</font>';	
@@ -748,15 +755,22 @@ class Website{
 			
 			
 			$break = self::$break;
-			if(in_array(self::$env,array(self::ENV_CLI,self::ENV_TEST_FORM)) ){
-			    self::$debugArr.=strip_tags($str).$tstr.$break;
+			$debugStr = '';
+			if($noHtmlStatus){
+			    $debugStr = strip_tags($str).$tstr.$break;
 			}else{
     			if($allowHTML == true){
-    				self::$debugArr.= '<font color="'.$color.'">'.$str.'</font>'.$tstr.$break;
+    			    $debugStr = '<font color="'.$color.'">'.$str.'</font>'.$tstr.$break;
     			}else{
-    				self::$debugArr.= '<font color="'.$color.'">'.htmlspecialchars($str).'</font>'.$tstr.$break;
+    			    $debugStr = '<font color="'.$color.'">'.htmlspecialchars($str).'</font>'.$tstr.$break;
     			}
 			}
+			
+			self::$debugArr.=$debugStr;
+			if(ArrayObj::getItem(self::$config,'debug_echo_out') === true && self::$sessionInited){
+			    echo $debugStr;
+			}
+			
 		}
 	}
 	
@@ -833,7 +847,7 @@ class Website{
 		}			
 		
 		/**调试显示*/
-		if(arrayObj::getItem(self::$config,'debug') == true){
+		if(arrayObj::getItem(self::$config,'debug') == true &&  arrayObj::getItem(self::$config,'debug_echo_out') === false){
 			
 			if(self::$env == 'cli' || self::$env == self::ENV_TEST_FORM){
 				
@@ -850,7 +864,7 @@ class Website{
 				}
 				
 				ob_clean();
-				$a['debug'] = self::$debugArr;
+				$a['debug'] = strip_tags(str_replace(self::$break,"\n",self::$debugArr));
 				echo json_encode($a);
 				
 			}else{
@@ -912,6 +926,7 @@ class Website{
 			return false;
 		}
 		
+		$name = strtolower($name);
 		if($type == 'class'){
 			
 			$dir.='classes/'.$name.'.class.php';
@@ -1240,6 +1255,10 @@ class Website{
 	 */
 	public static function initSess(){
 		
+	    if(self::$sessionInited ==  true){
+	        return false;
+	    }
+	    
 		self::loadConfig('session',true);
 		
 		/**兼容不同版本*/
@@ -1253,7 +1272,7 @@ class Website{
     			array('session',"gc")
     		);
 		}else{
-		    $session = new sessionHandler();
+		    $session = new SessionHandlerExt();
 		    session_set_save_handler($session,true);
 		}
 		
@@ -1295,6 +1314,7 @@ class Website{
 
 		
 		session_start();
+		self::$sessionInited =  true;
 		
 	}
 	

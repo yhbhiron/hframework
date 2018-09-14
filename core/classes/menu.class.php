@@ -219,7 +219,7 @@ class Menu extends ORM{
      * @return array|unknown
      */
     public  function getMenuTree($fid=0){
-
+        
         $list = Query::factory()->reset()->from($this->modTable)
         ->whereEq(array(
             array($this->fkey,$fid)
@@ -237,7 +237,7 @@ class Menu extends ORM{
                 $cat['children'] = array();
             }
             
-            $cat['cat_level'] = $cat[$this->afkey]<=0 ? 1 : count(StrObj::explode(',', $cat[$this->afkey]));
+            $cat['cat_level'] = $cat[$this->afkey]<=0 ? 1 : count(StrObj::explode(',', $cat[$this->afkey]))+1;
         }
         
         return $list;
@@ -254,13 +254,25 @@ class Menu extends ORM{
             $hash[$list[$this->modKey]]  = $temp;
             if($list['children']!=null){
                 $subList = $this->treeToHash($list['children']);
-                $hash = $subList+$hash;
+                $hash = $hash+$subList;
             }
         }
         
         
         return $hash;
         
+    }
+    
+    
+    public function remove(){
+        
+        $item = $this->toArray();
+        $res = parent::remove();
+        if($res){
+            $this->getParentItem($item);
+        }
+        
+        return $res;
     }
     
     
@@ -289,7 +301,7 @@ class Menu extends ORM{
                     $has = $this->{$this->fkey}>0 ? intval($fatherChildCount-1>0) : intval($fatherChildCount+1>0);
                     $oldFather->edit(
                         array($this->hasChKey=>$has)
-                    );
+                        );
                     
                 }else{
                     $fatherChanged = false;
@@ -323,7 +335,7 @@ class Menu extends ORM{
                     $has = intval($fatherChildCount-1>0);
                     $oldFather->edit(
                         array($this->hasChKey=>$has)
-                    );
+                        );
                 }
                 
                 $item[$this->fkey] =0;

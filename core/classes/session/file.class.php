@@ -88,12 +88,12 @@ class sessionFile {
 	
 		}
 				
-		return false;
+		return true;
 	}
 	
 	public static function write($id,$data){
 
-		return false;
+		return true;
 	}
 	
 

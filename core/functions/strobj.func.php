@@ -17,6 +17,7 @@ class StrObj{
 	const RND_MIXED = 2;
 	const RND_LOWER = 3;
 	const RND_UPPER = 4;
+	const RND_HEX = 5;
 	
 	/**
 	 * 用于缓存获取可能类名路径,减少重复调用
@@ -224,10 +225,16 @@ class StrObj{
 	 * @param string $type 字符类型：Mixed 混合、Num-数字、Lower小写字母、Upper大写字符
 	 * @return string 返回随机字符
 	 */
-	public static function randStr($len=11,$type=1){
-		
+	public static function randStr($len=11,$type=self::RND_NUM,$keepNotSame=false){
+	    
+	    if($keepNotSame){
+	        static $randList;
+	        if($randList == null){
+	            $randList = array();
+	        }
+	    }
+	    
 		$type = static::def($type,self::RND_NUM);
-		
 		if($type==self::RND_NUM){
 			$rand='1342507869';
 		}else if($type==self::RND_LOWER){
@@ -236,12 +243,30 @@ class StrObj{
 			$rand='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		}else if($type==self::RND_MIXED){
 			$rand='01jPUklm!o2QT3ac4eGHpGKL_Mq67hiDE@8r-RSstVu59vwWXzABCxdyFbIfgNOYZ';
+		}else if($type == self::RND_HEX){
+		    $rand = '0123456789abcdef';
 		}
 		
 		$len = intval($len);
 		$str = '';
-		for($i =1;$i<=$len;$i++){
-			$str.=substr($rand,rand(0,strlen($rand)-1),1);
+		$step = 0;
+		while(true){
+    		for($i =1;$i<=$len;$i++){
+    			$str.=substr($rand,rand(0,strlen($rand)-1),1);
+    		}
+    		
+    		
+    		if( ($keepNotSame && !in_array($str,$randList)) || $keepNotSame == false){
+    		    break;
+    		}else if($keepNotSame){
+    		    $randList[$str] = $str;
+    		}
+    		
+    		if($step>5){
+    		    break;
+    		}
+    		
+            $step++;
 		}
 		
 		return $str;

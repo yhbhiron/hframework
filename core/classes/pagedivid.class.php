@@ -222,23 +222,8 @@ class PageDivid extends Model{
 	protected function getResArea(){
 		
 	    $number = array();
-		if($this->resCount>0 && $this->resCount % $this->pageSize==0 || ($this->curPage-1)*$this->pageSize+1+$this->pageSize<=$this->resCount){
-			$number['start'] = (($this->curPage-1)*$this->pageSize+1);
-			$number['end'] = $this->pageSize*$this->curPage;
-			if($this->pageSize == 1){
-			    $number['end'] = 0;
-			}
-		}
-		else if(($this->curPage-1)*$this->pageSize+1+$this->pageSize > $this->resCount)
-		{
-			if($this->resCount % $this->pageSize >1){
-			    $number['start'] =  (($this->curPage-1)*$this->pageSize+1);
-			    $number['end'] = $this->resCount; 
-			}else{
-			    $number['start'] = $this->resCount;
-			    $number['end'] = 0;
-			}
-		}
+	    $number['start'] = max(($this->curPage-1)*$this->pageSize,$this->resCount<=0 ? 0 : 1);
+	    $number['end'] = min(($this->curPage*$this->pageSize),$this->resCount);
 		
 		return $number;
 	}

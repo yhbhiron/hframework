@@ -75,10 +75,16 @@ class Search{
 		/**无排序url**/
 		$reqURL = array();
 		$isVirtual = preg_match('/{.+?}/',$this->url);
+		$newURL = $this->url;
 		if(!$isVirtual){
-			$newURL = StrObj::addNotHasStrR($this->url,'&','?');
-		}else{
-			$newURL = $this->url;
+		    $temp = parse_url($this->url);
+		    if(ArrayObj::getItem($temp,'query') == null){
+		        if(StrObj::right($this->url,1) != '?'){
+			         $newURL = $this->url.'?';
+		        }
+		    }else{
+		        $newURL = $this->url.'&';
+		    }
 		}
 		
 		$reqURL['all'] = $reqURL['no_order'] = $newURL;

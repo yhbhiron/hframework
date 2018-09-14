@@ -174,6 +174,8 @@ class RewriteRule extends Model{
 				
 				$target =  arrayObj::getItem($rule,'url_to') ;
 				$status  = arrayObj::getItem($target,'status');
+				$replace = arrayObj::getItem($target,'replace');
+				$proxy = arrayObj::getItem($target,'proxy');
 				
 				/**路由是一个正则规则或多个规则**/
 				if(!is_array($uriRule)){
@@ -202,15 +204,32 @@ class RewriteRule extends Model{
 					if(is_callable($target)){
 					    return call_user_func($target,$m);
 					}else if(validate::isNotEmpty($target,true)){
+					    
 					    /**有设置url_to则按设置指定app和act即可*/
                         if(arrayObj::getItem($target,'url')!=''){
 							
-							if($status == 301){
-								httpd::status301($target['url']);
+                            $statusCall = 'status'.$status;
+                            if(is_callable(array('httpd',$statusCall)) && $status!=301 && $status!=302){
+                                call_user_func(array('httpd',$statusCall));
+                            }else if($status>0 && $replace == false){
+							    header('Location: '.$target['url'],true,$status);
 								exit;
-							}else{
-								header('Location: '.$target['url'],true,302);
-								exit;
+							}
+							
+							if($replace === true){
+							    
+							    $method =  $_SERVER['REQUEST_METHOD'] == 'POST' ? 'post' : 'get';
+							    if($proxy){
+							         $target['url'] = $target['url'].Website::$url['url'];
+							    }
+
+							    $request = new HttpRequest($target['url']);
+							    if($method == 'post'){
+							        $request->params(Request::post());
+							    }
+							    
+							    
+							    exit( call_user_func(array($request,$method)) );
 							}
 							
 						}else{

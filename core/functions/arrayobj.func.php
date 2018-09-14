@@ -231,12 +231,12 @@
 		/**
 		 * 导出数组为字符串，美化格式化
 		 * @param array $arr 需要导出的数组
-		 * @return array
+		 * @return string
 		 */
 		public static function export(array $arr){
 			
 			if($arr == null){
-				return $arr;
+				return '';
 			}
 			
 			$str = var_export($arr,true);
@@ -501,12 +501,46 @@
 			
 		}
 		
-		
+		/**
+		 * 替换数组中的key的名称
+		 * @param array $data 数据
+		 * @param array $replacer 替换规则   array( 'key_name'=>array('new_name',替换回调,keep是保留原有key的值))
+		 * @return array
+		 */
+		public static function replaceKey(array $data,array $replacer){
+		    
+		    if($data == null){
+		        return $data;
+		    }
+		    
+		    foreach($data as $k=>$d){
+		        
+		        $name = $k;
+		        $oldData = $d;
+		        $nameCfg = ArrayObj::getItem($replacer,$k);
+		        
+		        if($nameCfg!=null){
+    		        $name = ArrayObj::getItem($nameCfg,0);
+    		        if(is_callable(ArrayObj::getItem($nameCfg,1))){
+    		            $d = call_user_func($nameCfg[1],$d);
+    		        }
+    		        
+    		        $keep = self::getItem($nameCfg,2,false);
+    		        if($keep == false){
+    		            unset($data[$k]);
+    		        }
+		        }
+		        
+		        if(is_array($d)){
+		          $data[$name] = self::replaceKey($d, $replacer);
+		        }else{
+		            $data[$name] = $d;
+		        }
+		    }
+
+		    return $data;
+		}
 
 	}
 	
-
 	
-
-
-?>

@@ -541,7 +541,7 @@ class ORM extends Model{
 	* 修改信息项
 	* @param array $item 需要修改的信息项
 	*/
-	public function set(array $item){
+	public function set(array $item,$filterItem=false){
 
 		if($this->loaded == false){
 			return false;
@@ -555,6 +555,9 @@ class ORM extends Model{
 			return false;	
 		}
 		
+		if($filterItem){
+		    $item = ArrayObj::getExistsItem($item, $this->getModItems());
+		}
 		
 		/**更新时，如果设置了属性，则更新属性*/
 		foreach($this->modItems as $k=>$fld){
@@ -592,7 +595,7 @@ class ORM extends Model{
 	 * 添加信息
 	 * @param array $item
 	 */
-	public function add(array $item){
+	public function add(array $item,$filterItem=false){
 
 		if($this->modItems == null){
 			return false;	
@@ -600,6 +603,10 @@ class ORM extends Model{
 
 		if(!is_array($item)){
 			return false;
+		}
+		
+		if($filterItem){
+		    $item = ArrayObj::getExistsItem($item, $this->getModItems());
 		}
 		
 		if($this->addTimeAttrName!='' && !isset($item[$this->addTimeAttrName])){

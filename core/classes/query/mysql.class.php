@@ -481,6 +481,27 @@ class QueryMysql extends Query{
     
     
     /**
+     *
+     * 条件 Not IN
+     * @param array $flds fld,val:可以是数组或子查询
+     * @param string $group and/or
+     * @return QueryMysql
+     */
+    public function whereNotIn(array $flds,$group=null){
+        
+        if(!validate::isNotEmpty($flds,true)){
+            return $this;
+        }
+        
+        
+        $this->buildWhere($flds,' Not IN ',false,$group);
+        
+        return $this;
+    }
+    
+    
+    
+    /**
      * 条件find_in_set
      * @param array $flds
      * @param int $group 条件组的逻辑关系

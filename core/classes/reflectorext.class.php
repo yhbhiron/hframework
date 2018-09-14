@@ -119,9 +119,9 @@ class ReflectorExt extends Model {
     	    $comments = array();
     	    foreach($list as $name=>$value){
     	        
-    	        $const = new ReflectionClassConstant($name,$this->reflectCls->getName());
+    	        $const = new ReflectionClassConstant($this->reflectCls->getName(),$name);
     	        $comments[$name] = array(
-    	            'comment'=>preg_replace('/\/|\*/','',$const->getDocComment()),
+    	            'comment'=>trim(preg_replace('/\/|\*/','',$const->getDocComment())),
     	            'value'=>$value,
     	        );
     	    }
@@ -134,24 +134,41 @@ class ReflectorExt extends Model {
 	            $line = trim($line);
 	            $list[$lineNum] = $line;
 	            if(preg_match('/^const\s([^=]+)/i',$line,$m)){
+	                
 	                $name = trim($m[1]);
-	                $comments[$name] = $lineNum-1;
+	                $start = $lineNum-1;
+	                $commentStr = '';
+	                $isComment = true;
+	                
+	                while($isComment){
+	                    
+	                    $startStr = ArrayObj::getItem($list,$start);
+	                    $isComment = preg_match('/\/\*+/',$startStr) || preg_match('/^\*+/',$startStr);
+	                    if(!$isComment){
+	                        break;
+	                    }
+	                    
+	                    $commentStr.=$startStr;
+	                    $start--;
+	                }
+	                
+	                $comments[$name] = $commentStr;
 	            }
 	            
 	            return $list;
 	        });
 	        
 	         if($comments!=null){
-	             foreach($comments as $name=>$line){
+	             foreach($comments as $name=>$comment){
 	                 $comments[$name] = array(
 	                     'value'=>$this->reflectCls->getConstant($name),
-	                     'comment'=>preg_replace('/\/|\*/','',ArrayObj::getItem($list,$line)),
+	                     'comment'=>preg_replace('/\/|\*/','',$comment),
 	                 );
 	             }
 	         }
 	        
 	    }
-	    
+
 	    self::$constList[$constKey] = $comments;
 	    return $comments;
 	    
@@ -174,7 +191,17 @@ class ReflectorExt extends Model {
 	            if(StrObj::left($name,$preLen) == $prefix && $const['value'] == strval($value)){
 	                return $const['comment'];
 	            }
+	            
+	            if(StrObj::left($name,$preLen) != $prefix){
+	                unset($consts[$name]);
+	            }
+	            
 	        }
+	        
+	        if(Validate::isNotEmpty($value) == true){
+	            return null;
+	        }
+	        
 	        
 	        return ArrayObj::toHashArray($consts, 'value', 'comment');
 	    }

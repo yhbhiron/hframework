@@ -169,5 +169,53 @@ class Model{
 		
 	}
 	
+	/**
+	 * 格式化数据格式
+	 * @param mixed $data
+	 * @return mixed
+	 */
+	public static function dataFormat($data,$format=array(),$name=''){
+	    
+	    
+	    if(is_array($data)){
+	        foreach($data as $k=>$v){
+	            $data[$k] = self::dataFormat($v,$format,$k);
+	        }
+	    }else{
+	        
+	        $func = ArrayObj::getItem($format,$name);
+	        if(is_callable($func)){
+	            $data = call_user_func($func,$data);
+	        }else if(method_exists('StrObj',$func)){
+	            $data = StrObj::$func($data);
+	        }else if(method_exists('Number',$func)){
+	            $data = number::$func($data);
+	        }else if(method_exists('ArrayObj',$func)){
+	            $data = arrayObj::$func($data);
+	        }else{
+	            
+	            if(is_numeric($data)){
+	                
+	                if(strstr($data,'.')){
+	                    $data = floatval($data);
+	                }else{
+	                    $data = intval($data);
+	                }
+	                
+	            }else if(is_bool($data)){
+	                $data = $data == true ? 1 : 0;
+	            }else if(is_null($data) || strval($data) == null){
+	                $data = '';
+	            }
+	            
+	        }
+	        
+	    }
+	    
+	    
+	    return $data;
+	    
+	}
+	
 	
 }
